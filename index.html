@@ -177,6 +177,42 @@ http://www.runningadelaide.net/
 						dateVal.getDate();
 			}
         </script>
+        
+		<style>
+			#map-canvas {
+				width: 100%;
+				height: 400px;
+			}
+		</style>
+		<script src="https://maps.googleapis.com/maps/api/js"></script>
+		<script>
+			function initialiseGoogleMap() {
+				var mapCanvas = document.getElementById('map-canvas');
+				var wedTrainLocation = new google.maps.LatLng(-34.9094512,138.6073773);
+				var mapOptions = {
+					center: wedTrainLocation,
+					zoom: 16,
+					mapTypeId: google.maps.MapTypeId.ROADMAP
+				}
+				var map = new google.maps.Map(mapCanvas, mapOptions);
+				
+				var marker = new google.maps.Marker({
+					position: wedTrainLocation,
+					map: map,
+					title: 'ARC Wednesday 6pm meet point'
+				});
+			}
+			
+			function toggleMapVisibility() {
+				if (document.getElementById("map-wrapper").style.display == "inline") {
+					document.getElementById("map-wrapper").style.display = "none";
+				} else {
+   					document.getElementById("map-wrapper").style.display = "inline";
+   					initialiseGoogleMap();
+   				}
+			}
+			//google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
 
 </head>
 
@@ -291,6 +327,13 @@ http://www.runningadelaide.net/
                         Training venues include Uni Loop, Torrens Lake and Brougham Gardens.
                         </p>
 <br>
+<a onclick="toggleMapVisibility();"> 
+<p class="text-muted">See Map</p>
+</a>
+<div id="map-wrapper" style="display:none;">
+<div id="map-canvas"></div>
+</div>
+<br>
 <a onclick="toggleDivVisibility('wedmoreinfo');"> 
 <p class="text-muted">More info ...</p>
 </a>
@@ -304,6 +347,7 @@ Following the warm up, runners do a series of strides and drills before commenci
 Sessions usually finish by 7:15pm
 </p>
 </div>
+
                         
                         
                          </div>
