@@ -270,12 +270,12 @@ http://www.runningadelaide.net/
                 <a href="#about" class="btn btn-default btn-xl page-scroll">Find Out More</a>
                 <br>
                 <p class="text-sharp" style="margin-bottom:0px;">OR</p>
-                <button type="submit" class="btn btn-default" onclick='window.location.href="https://www.facebook.com/groups/108841288928/"'><img src="img/facebook/png/FB_FindUsOnFacebook-144.png" alt="Submit"></button>
+                <button style="margin-bottom:20px;" type="submit" class="btn btn-default" onclick='window.location.href="https://www.facebook.com/groups/108841288928/"'><img src="img/facebook/png/FB_FindUsOnFacebook-144.png" alt="Submit"></button>
             	</div>
     </header>
 
     <section class="bg-images" id="about">
-        <div class="container">
+        <div class="container" style="width: 90%;">
             <div class="row bg-faded">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="section-heading text-sharp">About</h2>
@@ -399,13 +399,13 @@ Following the run we usually head in to a nearby cafe for breakfast.
     </section>
 
     <section class="bg-image-faq" id="faq">
-        <div class="container bg-faded">
+        <div class="container bg-faded" style="width: 90%;">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                         <h2 class="section-heading">FAQ</h2>
                     <hr class="light">  
                     
-<a onclick="showAndHideQues('questionone');"> 
+<a id="questiononehash" onclick="showAndHideQues('questionone');" href="#questiononehash" class="page-scroll"> 
 <p class="text-sharp"><b>How much do sessions cost?</b> </p>
 </a>
 <div id="questionone" style="display:none">
@@ -416,7 +416,7 @@ For more information about the ARC's donations, click here
 </p>
 </div>
 
-<a onclick="showAndHideQues('questiontwo');"> 
+<a id="questiontwohash" onclick="showAndHideQues('questiontwo');" href="#questiontwohash" class="page-scroll"> 
 <p class="text-sharp"> <b>Are the sessions suitable for a range of abilities?</b></p>
 </a>
 <div id="questiontwo" style="display:none">
@@ -427,7 +427,7 @@ While there are no superstars in the group we are able to cater for a wide range
 </p>
 </div>
 
-<a onclick="showAndHideQues('questionthree');"> 
+<a id="questionthreehash" onclick="showAndHideQues('questionthree');" href="#questionthreehash" class="page-scroll"> 
 <p class="text-sharp"><b>Where can I store my gear?</b></p>
 </a>
 <div id="questionthree" style="display:none">
@@ -436,7 +436,7 @@ Gear can be kept in one of the coaches/participants cars near to our meeting pla
 </p>
 </div>
 
-<a onclick="showAndHideQues('questionfour');"> 
+<a id="questionfourhash" onclick="showAndHideQues('questionfour');" href="#questionfourhash" class="page-scroll"> 
 <p class="text-sharp"><b>Is there a uniform?</b></p>
 </a>
 <div id="questionfour" style="display:none">
@@ -446,7 +446,7 @@ We do have a selection of ARC branded running wear though that is available to p
 </p>
 </div>
 
-<a onclick="showAndHideQues('questionfive');"> 
+<a id="questionfivehash" onclick="showAndHideQues('questionfive');" href="#questionfivehash" class="page-scroll"> 
 <p class="text-sharp"><b>When and where do you compete?</b></p>
 </a>
 <div id="questionfive" style="display:none">
@@ -455,7 +455,7 @@ Adelaide Running Crew members can be found at many fun runs across Adelaide. Som
 </p>
 </div>
 
-<a onclick="showAndHideQues('questionsix');"> 
+<a id="questionsixhash" onclick="showAndHideQues('questionsix');" href="#questionsixhash" class="page-scroll"> 
 <p class="text-sharp"><b>Is there a social side to the group?</b></p>
 </a>
 <div id="questionsix" style="display:none">
@@ -479,7 +479,7 @@ The Adelaide Running Crew have a number of regular social activities, including 
                     <p class="text-muted">
                     All Adelaide Running Crew merchandise can now be purchased directly through Adelaide ES&S Printers via an online store accessed at:
                     <br><br>
-                    <button type="submit" onclick='window.location.href="http://www.sportscentre.com.au/products/buy-online/athletics-running-clubs-events-merchandise/adelaide-running-crew"'><img src="img/arc/arc-cap.png" alt="Submit"></button>
+                    <button style="height:100px; width:150px" type="submit" onclick='window.location.href="http://www.sportscentre.com.au/products/buy-online/athletics-running-clubs-events-merchandise/adelaide-running-crew"'><img src="img/arc/arc-cap.png" alt="Submit"></button>
                   	<br><br>
                     The online store only accepts Mastercard & Visa and purchases may be either picked up at ES&S (749 Port Road, Woodville) or delivered via post.
 					<br><br>
@@ -505,11 +505,11 @@ The Adelaide Running Crew have a number of regular social activities, including 
 We encourage each runner to donate either through a ‘gold coin’ donation after any of our runs to Amy, Clare or Rich – or by directly depositing any amount in the ARC bank account.
 </p>
 
-<a onclick="showAndHideDons('don15');"> 
+<!--a onclick="showAndHideDons('don15');"--> 
 <p class="text-sharp">
 2015
 </p>
-</a>
+<!--/a-->
 <div id="don15" style="display:inline">
 <p class="text-faded">
 Who are we donating too?
@@ -517,17 +517,17 @@ Who are we donating too?
 </div>
 
 <hr class="light">
-<p class="text-sharp">
+<p id="pastdonationhash" class="text-sharp">
 Organisations we supported in the past
 </p>
 
 <p class="text-sharp">
-<a onclick="showAndHideDons('don14');">2014</a>
-<a onclick="showAndHideDons('don13');">2013</a>
-<a onclick="showAndHideDons('don12');">2012</a>
-<a onclick="showAndHideDons('don11');">2011</a>
-<a onclick="showAndHideDons('don10');">2010</a>
-<a onclick="showAndHideDons('don09');">2009</a>
+<a onclick="showAndHideDons('don14');" href="#pastdonationhash" class="page-scroll">2014</a>
+<a onclick="showAndHideDons('don13');" href="#pastdonationhash" class="page-scroll">2013</a>
+<a onclick="showAndHideDons('don12');" href="#pastdonationhash" class="page-scroll">2012</a>
+<a onclick="showAndHideDons('don11');" href="#pastdonationhash" class="page-scroll">2011</a>
+<a onclick="showAndHideDons('don10');" href="#pastdonationhash" class="page-scroll">2010</a>
+<a onclick="showAndHideDons('don09');" href="#pastdonationhash" class="page-scroll">2009</a>
 </p>
 
 <div id="don14" style="display:none">
@@ -580,10 +580,10 @@ In 2009 ARC raised $450 to support Reuben Kosgei's Riverside Academy in Kenya. R
                     <h2 class="section-heading">Contact Us</h2>
                     <hr class="default">                
                     <!--a class="btn btn-default btn-xl button-facebook-image" href="https://www.facebook.com/groups/108841288928/">FB</a-->
-                    <button type="submit" onclick='window.location.href="https://www.facebook.com/groups/108841288928/"'><img src="img/facebook/png/FB_FindUsOnFacebook-144.png" alt="Submit"></button>
+                    <button style="height:50px; width:160px" type="submit" onclick='window.location.href="https://www.facebook.com/groups/108841288928/"'><img src="img/facebook/png/FB_FindUsOnFacebook-144.png" alt="Submit"></button>
                     <!--a href="https://www.facebook.com/groups/108841288928/"><img src="img/facebook/png/FB_FindUsOnFacebook-144.png"></img></a-->
             		<hr class="default">
-            		<button type="submit" onclick='sendEmail()'><i class="fa fa-3x fa-envelope-o wow bounceIn text-primary"></i></button>
+            		<button style="height:50px; width:60px" type="submit" onclick='sendEmail()'><i class="fa fa-3x fa-envelope-o wow bounceIn text-primary"></i></button>
                     <p class="text-muted">running-adelaide-email-com</p>
             	</div>
                 
