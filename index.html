@@ -134,13 +134,13 @@ http://www.runningadelaide.net/
 					var dateVal = dataTable.getValue(i,0);
 					if(dateVal.getDay() == 3){
 						wedString =
-							getDateString(dataTable.getValue(i,0)) + ", " +
+							"<b>" + getDateString(dataTable.getValue(i,0)) + "</b>, " +
 							dataTable.getValue(i,3) + ", " +
 							dataTable.getValue(i,4) + " <br>" +
 							dataTable.getValue(i,2);
 					} else if (dateVal.getDay() == 6) {
 						satString =
-							getDateString(dataTable.getValue(i,0)) + ", " +
+							"<b>" + getDateString(dataTable.getValue(i,0)) + "</b>, " +
 							dataTable.getValue(i,3) + ", " +
 							dataTable.getValue(i,4) + " <br>" +
 							dataTable.getValue(i,2);
@@ -308,7 +308,7 @@ http://www.runningadelaide.net/
             <div class="row">
                 <div class="col-lg-6 col-md-6 text-center">
                     <div class="service-box">
-                        <h3>Intervals - Wednesday 6pm</h3>
+                        <h3>Intervals - Wed 6pm</h3>
                         <hr class="primary thin">
                         <p class="text-muted">
                         Upcoming session 
@@ -317,7 +317,7 @@ http://www.runningadelaide.net/
                         	Loading ...
                         <p>
                         <br>
-                        <p class="text-muted">
+                        <p class="text-muted" style="font-size: x-small;">
                         	Sessions do change so check facebook or twitter for the latest information.
                         <p>
                         <hr class="primary thin">
@@ -356,7 +356,7 @@ Sessions usually finish by 7:15pm
                 </div>
                 <div class="col-lg-6 col-md-6 text-center">
                     <div class="service-box">
-                        <h3>Long Run - Saturday 8am</h3>
+                        <h3>Long Run - Sat 8am</h3>
                         <hr class="primary thin">
                         <p class="text-muted">
                         Upcoming session 
@@ -365,7 +365,7 @@ Sessions usually finish by 7:15pm
                         	Loading ...
                         <p>
                         <br>
-                        <p class="text-muted">
+                        <p class="text-muted" style="font-size: x-small;">
                         	Sessions do change so check facebook or twitter for the latest information.
                         <p>
                         <hr class="primary thin">
