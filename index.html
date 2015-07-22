@@ -42,7 +42,7 @@ http://www.runningadelaide.net/
     <script type="text/javascript" src="./js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript"> 
     	var questionIdList = ["questionone","questiontwo","questionthree","questionfour","questionfive","questionsix"];
-    	var donationsIdList = ["don09","don10","don11","don12","don13","don14"];
+    	var donationsIdList = ["don09","don10","don11","don12","don15extra"];
     
 		function toggleDivVisibility(elementId) {
 			if (document.getElementById(elementId).style.display == "inline") {
@@ -509,13 +509,30 @@ The Adelaide Running Crew choose a charity to donate to each year. We encourage 
 
 <!--a onclick="showAndHideDons('don15');"--> 
 <p class="text-sharp">
-2015
+2013/2014/2015
 </p>
 <!--/a-->
 <div id="don15" style="display:inline">
 <p class="text-faded">
-Who are we donating too?
+As in 2012, the Adelaide Running Crew have decide to continue supporting the Hutt Street Centre. The Hutt Street Centre is a multi-service day centre giving a safe haven for Adelaide’s most vulnerable men and women. Homelessness can and does happen to anyone. Hutt St Centre is a place of hope and opportunity, helping people facing homelessness to rebuild their lives, without judgement.
 </p>
+<p class="text-faded">
+<a id="huttStreetMoreInfoHash" onclick="showAndHideDons('don15extra');" href="#huttStreetMoreInfoHash" class="page-scroll">More info ...</a>
+</p>
+<div id="don15extra" style="display:none">
+<p class="text-faded">
+At Hutt Street there is so much that happens in the Day Centre and behind the scenes.
+<br><br>
+If you walked through the doors you would find hundreds of men and women enjoying healthy breakfasts and lunches in the dining room. In the Day Centre, Men and women will be at computers checking on emails with family or participating in a learning program. There might be a visiting doctor seeing a stream of patients who wait patiently with a cup of tea, and another group following the test cricket on TV.
+In the art room, you might find a volunteer teaching a group how to dye fabrics to make a wall hanging, and out in the laundry, a couple of clients doing their washing.
+<br><br>
+Behind the scenes their case managers, pastoral care staff and the management team work together to meet the urgent and ongoing needs of individuals and the continuous improvement in services.
+<br><br>
+For more information on the Hutt Street Centre – go to <a style="color:rgba(255,255,255,.7);" href="https://www.huttstcentre.org.au/" target="_blank">https://www.huttstcentre.org.au/</a>
+</p>
+</div>
+
+
 </div>
 
 <hr class="light">
@@ -524,15 +541,15 @@ Organisations we supported in the past
 </p>
 
 <p class="text-sharp">
-<a onclick="showAndHideDons('don14');" href="#pastdonationhash" class="page-scroll">2014</a>
-<a onclick="showAndHideDons('don13');" href="#pastdonationhash" class="page-scroll">2013</a>
+<!--a onclick="showAndHideDons('don14');" href="#pastdonationhash" class="page-scroll">2014</a>
+<a onclick="showAndHideDons('don13');" href="#pastdonationhash" class="page-scroll">2013</a-->
 <a onclick="showAndHideDons('don12');" href="#pastdonationhash" class="page-scroll">2012</a>
 <a onclick="showAndHideDons('don11');" href="#pastdonationhash" class="page-scroll">2011</a>
 <a onclick="showAndHideDons('don10');" href="#pastdonationhash" class="page-scroll">2010</a>
 <a onclick="showAndHideDons('don09');" href="#pastdonationhash" class="page-scroll">2009</a>
 </p>
 
-<div id="don14" style="display:none">
+<!--div id="don14" style="display:none">
 <p class="text-faded">
 In 2014 ARC raised $xxx toward xxx
 </p>
@@ -542,7 +559,7 @@ In 2014 ARC raised $xxx toward xxx
 <p class="text-faded">
 In 2013 ARC raised $xxx toward xxx
 </p>
-</div>
+</div-->
 
 <div id="don12" style="display:none">
 <p class="text-faded">
