@@ -70,6 +70,32 @@ http://www.runningadelaide.net/
    			}
 		}
 		
+		document.getElementById('questiononehash').onclick = showAndHideQues('questionone');
+		document.getElementById('questiontwohash').onclick = showAndHideQues('questiontwo');
+		document.getElementById('questionthreehash').onclick = showAndHideQues('questionthree');
+		document.getElementById('questionfourhash').onclick = showAndHideQues('questionfour');
+		document.getElementById('questionfivehash').onclick = showAndHideQues('questionfive');
+		document.getElementById('questionsixhash').onclick = showAndHideQues('questionsix');
+		
+		document.getElementById("huttStreetMoreInfoHash").onclick = showAndHideDons('don15extra');
+		document.getElementById("don12anchor").onclick = showAndHideDons('don12');
+		document.getElementById("don11anchor").onclick = showAndHideDons('don11');
+		document.getElementById("don10anchor").onclick = showAndHideDons('don10');
+		document.getElementById("don09anchor").onclick = showAndHideDons('don09');
+		
+		document.getElementById("tofacebookButtonTitlePage").onclick = goToFacebook();
+		document.getElementById("tofacebookButtonContactPage").onclick = goToFacebook();
+		document.getElementById("emailContactPage").onclick = endEmail();
+		document.getElementById("seeMapAnchor").onclick = toggleMapVisibility();
+		
+		document.getElementById("wedMoreInfoAnchor").onclick = toggleDivVisibility('wedmoreinfo');
+		document.getElementById("satMoreInfoAnchor").onclick = toggleDivVisibility('satmoreinfo');
+		
+		
+		function goToFacebook() {
+			window.location.href = "https://www.facebook.com/groups/108841288928/"
+		}
+		
 		function sendEmail() {
 			var recipient="runningadelaide";
 			var at = String.fromCharCode(64);
@@ -254,46 +280,46 @@ http://www.runningadelaide.net/
                     </li>
                 </ul>
             </div>
-            <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container-fluid -->
     </nav>
 
-    <header>
+	<header>
         <div class="header-content">
-            <!--div class="header-content-inner">
-                <p><br><br><br><br><br><br><br></p>
-                
-            </div-->
         </div>
         <div style="position:absolute;bottom:0;width:100%">
-                <a href="#about" class="btn btn-default btn-xl page-scroll">Find Out More</a>
-                <br>
-                <p class="text-sharp" style="margin-bottom:0px;">OR</p>
-                <button style="margin-bottom:20px;" type="submit" class="btn btn-default" onclick='window.location.href="https://www.facebook.com/groups/108841288928/"'><img src="img/facebook/png/FB_FindUsOnFacebook-144.png" alt="Submit"></button>
-            	</div>
-    </header>
+			<a href="#about" class="btn btn-default btn-xl page-scroll">Find Out More</a>
+			<br>
+			<p class="text-sharp" style="margin-bottom:0px;">OR</p>
+			<button id="tofacebookButtonTitlePage" style="margin-bottom:20px;" type="submit" class="btn btn-default" >
+				<img src="img/facebook/png/FB_FindUsOnFacebook-144.png" alt="Submit">
+			</button>
+		</div>
+	</header>
 
-    <section class="bg-images" id="about">
-        <div class="container" style="width: 90%;">
-            <div class="row bg-faded">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading text-sharp">About</h2>
-                    <hr class="light">
-                    <p class="text-sharp">
+	<section class="bg-images" id="about">
+		<div class="container" style="width: 90%;">
+			<div class="row bg-faded">
+				<div class="col-lg-8 col-lg-offset-2 text-center">
+					<h2 class="section-heading text-sharp">About</h2>
+					<hr class="light">
+					<p class="text-sharp">
 						The Adelaide Running Crew is a social running group aimed at helping members achieve their running goals.
 						<br><br>
-						We do this through group training sessions conducted in a supportive atmosphere. All members of our group have different running goals and abilities - from purely social runners right through to those training for half and full marathons.
+						We do this through group training sessions conducted in a supportive atmosphere. 
+						All members of our group have different running goals and abilities - from purely social runners right 
+						through to those training for half and full marathons.
 						<br><br>
-						It's all about running together, having fun and celebrating each others achievements. It's free to join and train with us.
+						It's all about running together, having fun and celebrating each others achievements. 
+						It's free to join and train with us.
 					</p>
-                </div>
-            </div>
-        </div>
-        <div class="button-center-pad">
-        	<a href="#training" class="btn btn-default btn-xl page-scroll">Where to Start</a>
-        </div>
-    </section>
+				</div>
+			</div>
+		</div>
+		
+		<div class="button-center-pad">
+			<a href="#training" class="btn btn-default btn-xl page-scroll">Where to Start</a>
+		</div>
+	</section>
 
     <section id="training">
         <div class="container">
@@ -329,14 +355,14 @@ http://www.runningadelaide.net/
                         Training venues include Uni Loop, Torrens Lake and Brougham Gardens.
                         </p>
 <br>
-<a onclick="toggleMapVisibility();" href="#maphashlocation" class="page-scroll"> 
+<a id="seeMapAnchor" href="#maphashlocation" class="page-scroll"> 
 <p id="maphashlocation" class="text-muted">See Map</p>
 </a>
 <div id="map-wrapper" style="display:none;">
 <div id="map-canvas"></div>
 </div>
 <br>
-<a onclick="toggleDivVisibility('wedmoreinfo');" href="#wedtrainhashlocation" class="page-scroll"> 
+<a id="wedMoreInfoAnchor" href="#wedtrainhashlocation" class="page-scroll"> 
 <p id="wedtrainhashlocation" class="text-muted">More info ...</p>
 </a>
 <br>
@@ -376,7 +402,7 @@ Sessions usually finish by 7:15pm
                         Saturday morning runs start all over Adelaide, check the above upcoming session, training plan, facebook or twitter for the latest information.
                         </p>
 <br>
-<a onclick="toggleDivVisibility('satmoreinfo');" href="#sattrainhashlocation" class="page-scroll"> 
+<a id="satMoreInfoAnchor" href="#sattrainhashlocation" class="page-scroll"> 
 <p id="sattrainhashlocation" class="text-muted">More info ...</p>
 </a>
 <br>
@@ -405,7 +431,7 @@ Following the run we usually head in to a nearby cafe for breakfast.
                         <h2 class="section-heading">FAQ</h2>
                     <hr class="light">  
                     
-<a id="questiononehash" onclick="showAndHideQues('questionone');" href="#questiononehash" class="page-scroll"> 
+<a id="questiononehash" href="#questiononehash" class="page-scroll"> 
 <p class="text-sharp"><b>How much do sessions cost?</b> </p>
 </a>
 <div id="questionone" style="display:none">
@@ -416,7 +442,7 @@ For more information about the ARC's donations : <a href="#donations" class="pag
 </p>
 </div>
 
-<a id="questiontwohash" onclick="showAndHideQues('questiontwo');" href="#questiontwohash" class="page-scroll"> 
+<a id="questiontwohash" href="#questiontwohash" class="page-scroll"> 
 <p class="text-sharp"> <b>Are the sessions suitable for a range of abilities?</b></p>
 </a>
 <div id="questiontwo" style="display:none">
@@ -427,7 +453,7 @@ While there are no superstars in the group we are able to cater for a wide range
 </p>
 </div>
 
-<a id="questionthreehash" onclick="showAndHideQues('questionthree');" href="#questionthreehash" class="page-scroll"> 
+<a id="questionthreehash" href="#questionthreehash" class="page-scroll"> 
 <p class="text-sharp"><b>Where can I store my gear?</b></p>
 </a>
 <div id="questionthree" style="display:none">
@@ -436,7 +462,7 @@ Gear can be kept in one of the coaches/participants cars near to our meeting pla
 </p>
 </div>
 
-<a id="questionfourhash" onclick="showAndHideQues('questionfour');" href="#questionfourhash" class="page-scroll"> 
+<a id="questionfourhash" href="#questionfourhash" class="page-scroll"> 
 <p class="text-sharp"><b>Is there a uniform?</b></p>
 </a>
 <div id="questionfour" style="display:none">
@@ -446,7 +472,7 @@ We do have a selection of ARC branded running wear though that is available to p
 </p>
 </div>
 
-<a id="questionfivehash" onclick="showAndHideQues('questionfive');" href="#questionfivehash" class="page-scroll"> 
+<a id="questionfivehash" href="#questionfivehash" class="page-scroll"> 
 <p class="text-sharp"><b>When and where do you compete?</b></p>
 </a>
 <div id="questionfive" style="display:none">
@@ -455,7 +481,7 @@ Adelaide Running Crew members can be found at many fun runs across Adelaide. Som
 </p>
 </div>
 
-<a id="questionsixhash" onclick="showAndHideQues('questionsix');" href="#questionsixhash" class="page-scroll"> 
+<a id="questionsixhash" href="#questionsixhash" class="page-scroll"> 
 <p class="text-sharp"><b>Is there a social side to the group?</b></p>
 </a>
 <div id="questionsix" style="display:none">
@@ -507,17 +533,17 @@ The Adelaide Running Crew have a number of regular social activities, including 
 The Adelaide Running Crew choose a charity to donate to each year. We encourage each runner to donate either through a ‘gold coin’ donation after any of our runs or by directly depositing any amount in the ARC bank account.
 </p>
 
-<!--a onclick="showAndHideDons('don15');"--> 
+
 <p class="text-sharp">
 2013/2014/2015
 </p>
-<!--/a-->
+
 <div id="don15" style="display:inline">
 <p class="text-faded">
 As in 2012, the Adelaide Running Crew have decide to continue supporting the Hutt Street Centre. The Hutt Street Centre is a multi-service day centre giving a safe haven for Adelaide’s most vulnerable men and women. Homelessness can and does happen to anyone. Hutt St Centre is a place of hope and opportunity, helping people facing homelessness to rebuild their lives, without judgement.
 </p>
 <p class="text-faded">
-<a id="huttStreetMoreInfoHash" onclick="showAndHideDons('don15extra');" href="#huttStreetMoreInfoHash" class="page-scroll">More info ...</a>
+<a id="huttStreetMoreInfoHash" href="#huttStreetMoreInfoHash" class="page-scroll">More info ...</a>
 </p>
 <div id="don15extra" style="display:none">
 <p class="text-faded">
@@ -541,25 +567,11 @@ Organisations we supported in the past
 </p>
 
 <p class="text-sharp">
-<!--a onclick="showAndHideDons('don14');" href="#pastdonationhash" class="page-scroll">2014</a>
-<a onclick="showAndHideDons('don13');" href="#pastdonationhash" class="page-scroll">2013</a-->
-<a onclick="showAndHideDons('don12');" href="#pastdonationhash" class="page-scroll">2012</a>
-<a onclick="showAndHideDons('don11');" href="#pastdonationhash" class="page-scroll">2011</a>
-<a onclick="showAndHideDons('don10');" href="#pastdonationhash" class="page-scroll">2010</a>
-<a onclick="showAndHideDons('don09');" href="#pastdonationhash" class="page-scroll">2009</a>
+<a id="don12anchor" href="#pastdonationhash" class="page-scroll">2012</a>
+<a id="don11anchor" href="#pastdonationhash" class="page-scroll">2011</a>
+<a id="don10anchor" href="#pastdonationhash" class="page-scroll">2010</a>
+<a id="don09anchor" href="#pastdonationhash" class="page-scroll">2009</a>
 </p>
-
-<!--div id="don14" style="display:none">
-<p class="text-faded">
-In 2014 ARC raised $xxx toward xxx
-</p>
-</div>
-
-<div id="don13" style="display:none">
-<p class="text-faded">
-In 2013 ARC raised $xxx toward xxx
-</p>
-</div-->
 
 <div id="don12" style="display:none">
 <p class="text-faded">
@@ -598,9 +610,13 @@ In 2009 ARC raised $450 to support Reuben Kosgei's Riverside Academy in Kenya. R
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="section-heading">Contact Us</h2>
                     <hr class="default">                
-                    <button type="submit" class="btn btn-default" onclick='window.location.href="https://www.facebook.com/groups/108841288928/"'><img src="img/facebook/png/FB_FindUsOnFacebook-144.png" alt="Submit"></button>
+                    <button id="tofacebookButtonContactPage" type="submit" class="btn btn-default">
+						<img src="img/facebook/png/FB_FindUsOnFacebook-144.png" alt="Submit">
+					</button>
             		<hr class="default">
-            		<button type="submit" class="btn btn-default" onclick='sendEmail()'><i class="fa fa-3x fa-envelope-o wow bounceIn text-primary"></i></button>
+            		<button id="emailContactPage" type="submit" class="btn btn-default">
+						<i class="fa fa-3x fa-envelope-o wow bounceIn text-primary"></i>
+					</button>
                     <p class="text-muted">running-adelaide-email-com</p>
             	</div>
             </div>
