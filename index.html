@@ -134,13 +134,13 @@ http://www.runningadelaide.net/
 				var dateVal = dataTable.getValue(i,0);
 				if(dateVal.getDay() == 3){
 					wedString =
-						"<b>" + getDateString(dataTable.getValue(i,0)) + "</b>, " +
+						"<b>" + getDateString(dataTable.getValue(i,0)) + "</b><br/>" +
 						dataTable.getValue(i,3) + ", " +
 						dataTable.getValue(i,4) + " <br/>" +
 						dataTable.getValue(i,2);
 				} else if (dateVal.getDay() == 6) {
 					satString =
-						"<b>" + getDateString(dataTable.getValue(i,0)) + "</b>, " +
+						"<b>" + getDateString(dataTable.getValue(i,0)) + "</b><br/>" +
 						dataTable.getValue(i,3) + ", " +
 						dataTable.getValue(i,4) + " <br/>" +
 						dataTable.getValue(i,2);
@@ -307,16 +307,17 @@ http://www.runningadelaide.net/
 			<div class="row">
 				<div class="col-lg-6 col-md-6 text-center">
 					<div class="service-box">
+						<img src="img/arc/6pm.jpg" alt="Submit"></img>
 						<h3>Intervals - Wed 6pm</h3>
 						<hr class="primary thin" />
-						<p class="text-muted">
+						<!--p class="text-muted" style="font-size: x-small;">
 							Upcoming session
-						</p>
+						</p-->
 						<p id="wedtraining" class="text-muted">
 							Loading ...
 						</p>
 						<br/>
-						<p class="text-muted" style="font-size: x-small;">
+						<p class="text-muted" style="font-size: xx-small;">
 							Sessions do change so check facebook or twitter for the latest information.
 						</p>
 						
@@ -330,14 +331,14 @@ http://www.runningadelaide.net/
 						</p>
 						<br/>
 						<a onclick="toggleMapVisibility();" href="#maphashlocation" class="page-scroll">
-							<p id="maphashlocation" class="text-muted">See Map</p>
+							<p id="maphashlocation" class="text-muted" style="color:#FF3366">See Map</p>
 						</a>
 						<div id="map-wrapper" style="display:none;">
 							<div id="map-canvas"></div>
 						</div>
 						<br/>
 						<a onclick="toggleDivVisibility('wedmoreinfo');" href="#wedtrainhashlocation" class="page-scroll">
-							<p id="wedtrainhashlocation" class="text-muted">More info ...</p>
+							<p id="wedtrainhashlocation" class="text-muted" style="color:#FF3366">More info ...</p>
 						</a>
 						<br/>
 						<p id="wedmoreinfo" style="display:none" class="text-muted">
@@ -351,16 +352,17 @@ http://www.runningadelaide.net/
 				</div>
 				<div class="col-lg-6 col-md-6 text-center">
 					<div class="service-box">
+						<img src="img/arc/8am.jpg" alt="Submit"></img>
 						<h3>Long Run - Sat 8am</h3>
 						<hr class="primary thin" />
-						<p class="text-muted">
+						<!--p class="text-muted" style="font-size: x-small;">
 							Upcoming session
-						</p>
+						</p-->
 						<p id="sattraining" class="text-muted">
 							Loading ...
 						</p>
 						<br/>
-						<p class="text-muted" style="font-size: x-small;">
+						<p class="text-muted" style="font-size: xx-small;">
 							Sessions do change so check facebook or twitter for the latest information.
 						</p>
 						<hr class="primary thin" />
@@ -368,21 +370,21 @@ http://www.runningadelaide.net/
 						<p class="text-muted">
 							Meet at 8am for a 8:10am start.
 							<br/><br/>
-							Saturday morning runs start all over Adelaide, check the above upcoming session, training plan, facebook or twitter for the latest information.
+							Saturday morning runs start all over Adelaide, check the above upcoming session, training plan, facebook or twitter 
+							for the latest information.
 						</p>
 						<br/>
 						<a onclick="toggleDivVisibility('satmoreinfo');" href="#sattrainhashlocation" class="page-scroll">
-							<p id="sattrainhashlocation" class="text-muted">More info ...</p>
+							<p id="sattrainhashlocation" class="text-muted" style="color:#FF3366">More info ...</p>
 						</a>
 						<br/>
 						<p id="satmoreinfo" style="display:none"class="text-muted">
-							Saturday runs range in distance from 10km to 20km and take place at a variety of locations around Adelaide each week.
+							Saturday morning runs range in distance from 10km to 20km and take place at a variety of locations around Adelaide each week.
 							<br/><br/>
-							Locations include Henley Beach, Belair National Park, Rymill Park, Uni Loop and other various parklands through Adelaide CBD.
+							Location details for the Saturday runs will be listed in the training schedule. Locations include Henley Beach, Belair National 
+							Park, Rymill Park, Uni Loop and various parklands through Adelaide CBD.
 							<br/><br/>
-							Location details for the Saturday runs will be listed in the training schedule.
-							<br/><br/>
-							Following the run we usually head in to a nearby cafe for breakfast.
+							Following the run we usually head in to a nearby cafe for breakfast. Usually we meet at the cafe.
 						</p>
 					</div>
 				</div>
