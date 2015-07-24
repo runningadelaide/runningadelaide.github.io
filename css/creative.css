@@ -66,18 +66,21 @@ p {
     background-image: url(../img/arc/about-bkg.jpg);
     background-repeat: no-repeat;
     background-position: center;
+	background-color: black;
 }
 
 .bg-image-faq {
     background-image: url(../img/arc/faq-bkg.jpg);
     background-repeat: no-repeat;
     background-position: center;
+	background-color: black;
 }
 
 .bg-image-contact {
     background-image: url(../img/arc/contact-bkg.jpg);
     background-repeat: no-repeat;
     background-position: center;
+	background-color: black;
 }
 
 .bg-faded {

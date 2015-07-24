@@ -7,49 +7,49 @@ http://www.runningadelaide.net/
 
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
 
-    <title>ARC - Adelaide Running Crew</title>
-    
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<title>ARC - Adelaide Running Crew</title>
+	
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+	<!-- Bootstrap Core CSS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 
-    <!-- Custom Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
+	<!-- Custom Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
 
-    <!-- Plugin CSS -->
-    <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+	<!-- Plugin CSS -->
+	<link rel="stylesheet" href="css/animate.min.css" type="text/css">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/creative.css" type="text/css">
-    <link rel="stylesheet" href="css/contact.css" type="text/css">
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="css/creative.css" type="text/css">
+	<link rel="stylesheet" href="css/contact.css" type="text/css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    
-    <script type="text/javascript" src="./js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript"> 
-    	var questionIdList = ["questionone","questiontwo","questionthree","questionfour","questionfive","questionsix"];
-    	var donationsIdList = ["don09","don10","don11","don12","don15extra"];
-    
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	
+	<script type="text/javascript" src="./js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript"> 
+		var questionIdList = ["questionone","questiontwo","questionthree","questionfour","questionfive","questionsix"];
+		var donationsIdList = ["don09","don10","don11","don12","don15extra"];
+	
 		function toggleDivVisibility(elementId) {
 			if (document.getElementById(elementId).style.display == "inline") {
 				document.getElementById(elementId).style.display = "none";
 			} else {
-   				document.getElementById(elementId).style.display = "inline";
-   			}
+				document.getElementById(elementId).style.display = "inline";
+			}
 		}
 		
 		function showAndHideQues(elementId) {
@@ -58,7 +58,7 @@ http://www.runningadelaide.net/
 				if (elementId != questionIdList[i])	{
 					document.getElementById(questionIdList[i]).style.display = "none";
 				}
-   			}
+			}
 		}
 		
 		function showAndHideDons(elementId) {
@@ -67,7 +67,7 @@ http://www.runningadelaide.net/
 				if (elementId != donationsIdList[i]) {
 					document.getElementById(donationsIdList[i]).style.display = "none";
 				}
-   			}
+			}
 		}
 		
 		function sendEmail() {
@@ -77,549 +77,575 @@ http://www.runningadelaide.net/
 			var mail="mailto:";
 			window.open(mail+recipient+at+dotcom);
 		}
-    </script>
-    
-    <script type="text/javascript">   
-      	   	google.load('visualization', '1', {'packages':['corechart']});
-    		google.setOnLoadCallback(getTrainingPlan);
-    		
-    		var weekday = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-    		var month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-        
-        	var ssKey = "1BgpxTek3FKSBiX01_YYrg-MgqrHBDDpSu3K1oFiVvKY";
-        	var gurl = "https://docs.google.com/spreadsheets/d/" + ssKey + "/gviz/tq";
-        	
-        	function getDateForQuery() {
-				var d = new Date();
-				return d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();
+	</script>
+	
+	<script type="text/javascript">	  
+		google.load('visualization', '1', {'packages':['corechart']});
+		google.setOnLoadCallback(getTrainingPlan);
+		
+		var weekday = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+		var month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+	
+		var ssKey = "1BgpxTek3FKSBiX01_YYrg-MgqrHBDDpSu3K1oFiVvKY";
+		var gurl = "https://docs.google.com/spreadsheets/d/" + ssKey + "/gviz/tq";
+		
+		function getDateForQuery() {
+			var d = new Date();
+			return d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();
+		}
+		
+		function getDateIn7DaysForQuery() {
+			var d = new Date();
+			var dateInaWeek = new Date(d.getTime() + (7*24*60*60*1000));
+			return dateInaWeek.getFullYear() + "-" + (dateInaWeek.getMonth()+1) + "-" + dateInaWeek.getDate();
+		}
+		
+		function getTrainingPlan() {
+			var opts = {sendMethod: 'auto'};
+			var query = new google.visualization.Query(gurl, opts);
+			var queryString = "select * where A >= date '" + getDateForQuery() + "' and A < date '" + getDateIn7DaysForQuery() + "'";
+			//console.log(queryString);
+			query.setQuery(queryString);
+			query.send(handleQueryResponse);
+		}
+		
+		function handleQueryResponse(response) {
+			if (response.isError()) {
+				console.error('Problem getting training plan ' + response.getMessage() + ' ' + response.getDetailedMessage());
+				return;
+			} else {	
+				var data = response.getDataTable();
+				populateData(data);
+			}
+		}
+		
+		function populateData(dataTable) {
+			var rowCount = dataTable.getNumberOfRows();
+			var wedString;
+			var satString;
+			
+			
+			if (rowCount != 2) {
+				console.log("There are not exactly 2 entires");
+				console.log(dataTable);
 			}
 			
-			function getDateIn7DaysForQuery() {
-				var d = new Date();
-				var dateInaWeek = new Date(d.getTime() + (7*24*60*60*1000));
-				return dateInaWeek.getFullYear() + "-" + (dateInaWeek.getMonth()+1) + "-" + dateInaWeek.getDate();
+			for (var i = 0; i < rowCount; i++) {
+				var dateVal = dataTable.getValue(i,0);
+				if(dateVal.getDay() == 3){
+					wedString =
+						"<b>" + getDateString(dataTable.getValue(i,0)) + "</b>, " +
+						dataTable.getValue(i,3) + ", " +
+						dataTable.getValue(i,4) + " <br/>" +
+						dataTable.getValue(i,2);
+				} else if (dateVal.getDay() == 6) {
+					satString =
+						"<b>" + getDateString(dataTable.getValue(i,0)) + "</b>, " +
+						dataTable.getValue(i,3) + ", " +
+						dataTable.getValue(i,4) + " <br/>" +
+						dataTable.getValue(i,2);
+				}
 			}
-        	
-        	function getTrainingPlan() {
-        		var opts = {sendMethod: 'auto'};
- 	 			var query = new google.visualization.Query(gurl, opts);
- 	 			var queryString = "select * where A >= date '" + getDateForQuery() + "' and A < date '" + getDateIn7DaysForQuery() + "'";
- 	 			//console.log(queryString);
-  				query.setQuery(queryString);
-  				query.send(handleQueryResponse);
-  			}
-  			
-  			function handleQueryResponse(response) {
-  				if (response.isError()) {
-   					console.error('Problem getting training plan ' + response.getMessage() + ' ' + response.getDetailedMessage());
-    				return;
-  				} else {	
-  					var data = response.getDataTable();
-  					populateData(data);
-  				}
+			populatePTag (wedString,satString);
+		}
+		
+		function populatePTag(wedString, satString) {
+			if (wedString) {
+				document.getElementById("wedtraining").innerHTML = wedString;
 			}
+			if (satString) {
+				document.getElementById("sattraining").innerHTML = satString;
+			}
+		}
+		
+		function printTableData(dataTable) {
+			var rowCount = dataTable.getNumberOfRows();
+			var values = [];
+			for (var i = 0; i < rowCount; i++) {
+				values[i] = 
+				getDateString(dataTable.getValue(i,0)) + ", " +
+				dataTable.getValue(i,3) + ", " +
+				dataTable.getValue(i,4) + " <br/>" +
+				dataTable.getValue(i,2);
+			}
+			populateListBox (values);
+		}
+		
+		function getDateString(dateVal) {
+			return weekday[dateVal.getDay()] + " " +
+					month[dateVal.getMonth()] + " " +
+					dateVal.getDate();
+		}
+	</script>
+	
+	<style>
+		#map-canvas {
+			width: 100%;
+			height: 400px;
+		}
+	</style>
+	<script src="https://maps.googleapis.com/maps/api/js"></script>
+	<script>
+		function initialiseGoogleMap() {
+			var mapCanvas = document.getElementById('map-canvas');
+			var wedTrainLocation = new google.maps.LatLng(-34.9094512,138.6073773);
+			var mapOptions = {
+				center: wedTrainLocation,
+				zoom: 16,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			}
+			var map = new google.maps.Map(mapCanvas, mapOptions);
 			
-			function populateData(dataTable) {
-				var rowCount = dataTable.getNumberOfRows();
-				var wedString;
-				var satString;
-				
-				
-				if (rowCount != 2) {
-					console.log("There are not exactly 2 entires");
-					console.log(dataTable);
-				}
-				
-				for (var i = 0; i < rowCount; i++) {
-					var dateVal = dataTable.getValue(i,0);
-					if(dateVal.getDay() == 3){
-						wedString =
-							"<b>" + getDateString(dataTable.getValue(i,0)) + "</b>, " +
-							dataTable.getValue(i,3) + ", " +
-							dataTable.getValue(i,4) + " <br>" +
-							dataTable.getValue(i,2);
-					} else if (dateVal.getDay() == 6) {
-						satString =
-							"<b>" + getDateString(dataTable.getValue(i,0)) + "</b>, " +
-							dataTable.getValue(i,3) + ", " +
-							dataTable.getValue(i,4) + " <br>" +
-							dataTable.getValue(i,2);
-					}
-				}
-				populatePTag (wedString,satString);
+			var marker = new google.maps.Marker({
+				position: wedTrainLocation,
+				map: map,
+				title: 'ARC Wednesday 6pm meet point'
+			});
+		}
+		
+		function toggleMapVisibility() {
+			if (document.getElementById("map-wrapper").style.display == "inline") {
+				document.getElementById("map-wrapper").style.display = "none";
+			} else {
+				document.getElementById("map-wrapper").style.display = "inline";
+				initialiseGoogleMap();
 			}
-			
-			function populatePTag(wedString, satString) {
-				if (wedString) {
-					document.getElementById("wedtraining").innerHTML = wedString;
-				}
-				if (satString) {
-					document.getElementById("sattraining").innerHTML = satString;
-				}
-			}
-			
-			function printTableData(dataTable) {
-				var rowCount = dataTable.getNumberOfRows();
-				var values = [];
-				for (var i = 0; i < rowCount; i++) {
-					values[i] = 
-					getDateString(dataTable.getValue(i,0)) + ", " +
-					dataTable.getValue(i,3) + ", " +
-					dataTable.getValue(i,4) + " <br>" +
-					dataTable.getValue(i,2);
-				}
-				populateListBox (values);
-			}
-			
-			function getDateString(dateVal) {
-				return weekday[dateVal.getDay()] + " " +
-						month[dateVal.getMonth()] + " " +
-						dateVal.getDate();
-			}
-        </script>
-        
-		<style>
-			#map-canvas {
-				width: 100%;
-				height: 400px;
-			}
-		</style>
-		<script src="https://maps.googleapis.com/maps/api/js"></script>
-		<script>
-			function initialiseGoogleMap() {
-				var mapCanvas = document.getElementById('map-canvas');
-				var wedTrainLocation = new google.maps.LatLng(-34.9094512,138.6073773);
-				var mapOptions = {
-					center: wedTrainLocation,
-					zoom: 16,
-					mapTypeId: google.maps.MapTypeId.ROADMAP
-				}
-				var map = new google.maps.Map(mapCanvas, mapOptions);
-				
-				var marker = new google.maps.Marker({
-					position: wedTrainLocation,
-					map: map,
-					title: 'ARC Wednesday 6pm meet point'
-				});
-			}
-			
-			function toggleMapVisibility() {
-				if (document.getElementById("map-wrapper").style.display == "inline") {
-					document.getElementById("map-wrapper").style.display = "none";
-				} else {
-   					document.getElementById("map-wrapper").style.display = "inline";
-   					initialiseGoogleMap();
-   				}
-			}
-			//google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
+		}
+		//google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
 
 </head>
 
 <body id="page-top">
 
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">ARC</a>
-            </div>
+	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand page-scroll" href="#page-top">ARC</a>
+			</div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="page-scroll" href="#about">About</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#training">Training</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#faq">FAQ</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#merchandise">Merchandise</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#donations">Donations</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a class="page-scroll" href="#about">About</a>
+					</li>
+					<li>
+						<a class="page-scroll" href="#training">Training</a>
+					</li>
+					<li>
+						<a class="page-scroll" href="#faq">FAQ</a>
+					</li>
+					<li>
+						<a class="page-scroll" href="#merchandise">Merchandise</a>
+					</li>
+					<li>
+						<a class="page-scroll" href="#donations">Donations</a>
+					</li>
+					<li>
+						<a class="page-scroll" href="#contact">Contact</a>
+					</li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
 
-    <header>
-        <div class="header-content">
-            <!--div class="header-content-inner">
-                <p><br><br><br><br><br><br><br></p>
-                
-            </div-->
-        </div>
-        <div style="position:absolute;bottom:0;width:100%">
-                <a href="#about" class="btn btn-default btn-xl page-scroll">Find Out More</a>
-                <br>
-                <p class="text-sharp" style="margin-bottom:0px;">OR</p>
-                <button style="margin-bottom:20px;" type="submit" class="btn btn-default" onclick='window.location.href="https://www.facebook.com/groups/108841288928/"'><img src="img/facebook/png/FB_FindUsOnFacebook-144.png" alt="Submit"></button>
-            	</div>
-    </header>
+	<header>
+		<div class="header-content">
+		</div>
+		<div style="position:absolute;bottom:0;width:100%">
+			<a href="#about" class="btn btn-default btn-xl page-scroll">Find Out More</a>
+			<br/>
+			<p class="text-sharp" style="margin-bottom:0px;">OR</p>
+			<button style="margin-bottom:20px;" type="submit" class="btn btn-default" onclick='window.location.href="https://www.facebook.com/groups/108841288928/"'>
+				<img src="img/facebook/png/FB_FindUsOnFacebook-144.png" alt="Submit">
+			</button>
+		</div>
+	</header>
 
-    <section class="bg-images" id="about">
-        <div class="container" style="width: 90%;">
-            <div class="row bg-faded">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading text-sharp">About</h2>
-                    <hr class="light">
-                    <p class="text-sharp">
+	<section class="bg-images" id="about">
+		<div class="container" style="width: 90%;">
+			<div class="row bg-faded">
+				<div class="col-lg-8 col-lg-offset-2 text-center">
+					<h2 class="section-heading text-sharp">About</h2>
+					<hr class="light"/>
+					<p class="text-sharp">
 						The Adelaide Running Crew is a social running group aimed at helping members achieve their running goals.
-						<br><br>
+						<br/><br/>
 						We do this through group training sessions conducted in a supportive atmosphere. All members of our group have different running goals and abilities - from purely social runners right through to those training for half and full marathons.
-						<br><br>
+						<br/><br/>
 						It's all about running together, having fun and celebrating each others achievements. It's free to join and train with us.
 					</p>
-                </div>
-            </div>
-        </div>
-        <div class="button-center-pad">
-        	<a href="#training" class="btn btn-default btn-xl page-scroll">Where to Start</a>
-        </div>
-    </section>
+				</div>
+			</div>
+		</div>
+		<div class="button-center-pad">
+			<a href="#training" class="btn btn-default btn-xl page-scroll">Where to Start</a>
+		</div>
+	</section>
 
-    <section id="training">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Training</h2>
-                    <hr class="primary">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 text-center">
-                    <div class="service-box">
-                        <h3>Intervals - Wed 6pm</h3>
-                        <hr class="primary thin">
-                        <p class="text-muted">
-                        Upcoming session 
-                        </p>
-                        <p id="wedtraining" class="text-muted">
-                        	Loading ...
-                        <p>
-                        <br>
-                        <p class="text-muted" style="font-size: x-small;">
-                        	Sessions do change so check facebook or twitter for the latest information.
-                        <p>
-                        <hr class="primary thin">
-                        
-                        <p class="text-muted">
-                        Meet at 6pm for a 6:10pm start.
-                        <br><br>
-                        Meet at the start of Uni Loop, corner of Jerningham Street and Mackinnon Parade in North Adelaide.
-                        Training venues include Uni Loop, Torrens Lake and Brougham Gardens.
-                        </p>
-<br>
-<a onclick="toggleMapVisibility();" href="#maphashlocation" class="page-scroll"> 
-<p id="maphashlocation" class="text-muted">See Map</p>
-</a>
-<div id="map-wrapper" style="display:none;">
-<div id="map-canvas"></div>
-</div>
-<br>
-<a onclick="toggleDivVisibility('wedmoreinfo');" href="#wedtrainhashlocation" class="page-scroll"> 
-<p id="wedtrainhashlocation" class="text-muted">More info ...</p>
-</a>
-<br>
-<div id="wedmoreinfo" style="display:none">
-<p class="text-muted">
-These sessions are designed to make you fitter and faster and follow a program designed by a qualified athletics coach.
-<br><br>
-Following the warm up, runners do a series of strides and drills before commencing the main part of the session. The night concludes with a cool down run and stretching.
-<br><br>
-Sessions usually finish by 7:15pm
-</p>
-</div>
 
-                        
-                        
-                         </div>
-                </div>
-                <div class="col-lg-6 col-md-6 text-center">
-                    <div class="service-box">
-                        <h3>Long Run - Sat 8am</h3>
-                        <hr class="primary thin">
-                        <p class="text-muted">
-                        Upcoming session 
-                        </p>
-                        <p id="sattraining" class="text-muted">
-                        	Loading ...
-                        <p>
-                        <br>
-                        <p class="text-muted" style="font-size: x-small;">
-                        	Sessions do change so check facebook or twitter for the latest information.
-                        <p>
-                        <hr class="primary thin">
+	<section id="training">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<h2 class="section-heading">Training</h2>
+					<hr class="primary" />
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-6 text-center">
+					<div class="service-box">
+						<h3>Intervals - Wed 6pm</h3>
+						<hr class="primary thin" />
+						<p class="text-muted">
+							Upcoming session
+						</p>
+						<p id="wedtraining" class="text-muted">
+							Loading ...
+						</p>
+						<br/>
+						<p class="text-muted" style="font-size: x-small;">
+							Sessions do change so check facebook or twitter for the latest information.
+						</p>
+						
+						<hr class="primary thin" />
 
-                        <p class="text-muted">
-                        Meet at 8am for a 8:10am start.
-                        <br><br>
-                        Saturday morning runs start all over Adelaide, check the above upcoming session, training plan, facebook or twitter for the latest information.
-                        </p>
-<br>
-<a onclick="toggleDivVisibility('satmoreinfo');" href="#sattrainhashlocation" class="page-scroll"> 
-<p id="sattrainhashlocation" class="text-muted">More info ...</p>
-</a>
-<br>
-<div id="satmoreinfo" style="display:none">
-<p class="text-muted">
-Saturday runs range in distance from 10km to 20km and take place at a variety of locations around Adelaide each week.
-<br><br>
-Locations include Henley Beach, Belair National Park, Rymill Park, Uni Loop and other various parklands through Adelaide CBD.
-<br><br>
-Location details for the Saturday runs will be listed in the training schedule.
-<br><br>
-Following the run we usually head in to a nearby cafe for breakfast.
-</p>
-</div>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+						<p class="text-muted">
+							Meet at 6pm for a 6:10pm start.
+							<br/><br/>
+							Meet at the start of Uni Loop, corner of Jerningham Street and Mackinnon Parade in North Adelaide.
+							Training venues include Uni Loop, Torrens Lake and Brougham Gardens.
+						</p>
+						<br/>
+						<a onclick="toggleMapVisibility();" href="#maphashlocation" class="page-scroll">
+							<p id="maphashlocation" class="text-muted">See Map</p>
+						</a>
+						<div id="map-wrapper" style="display:none;">
+							<div id="map-canvas"></div>
+						</div>
+						<br/>
+						<a onclick="toggleDivVisibility('wedmoreinfo');" href="#wedtrainhashlocation" class="page-scroll">
+							<p id="wedtrainhashlocation" class="text-muted">More info ...</p>
+						</a>
+						<br/>
+						<p id="wedmoreinfo" style="display:none" class="text-muted">
+							These sessions are designed to make you fitter and faster and follow a program designed by a qualified athletics coach.
+							<br/><br/>
+							Following the warm up, runners do a series of strides and drills before commencing the main part of the session. The night concludes with a cool down run and stretching.
+							<br/><br/>
+							Sessions usually finish by 7:15pm
+						</p>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6 text-center">
+					<div class="service-box">
+						<h3>Long Run - Sat 8am</h3>
+						<hr class="primary thin" />
+						<p class="text-muted">
+							Upcoming session
+						</p>
+						<p id="sattraining" class="text-muted">
+							Loading ...
+						</p>
+						<br/>
+						<p class="text-muted" style="font-size: x-small;">
+							Sessions do change so check facebook or twitter for the latest information.
+						</p>
+						<hr class="primary thin" />
 
-    <section class="bg-image-faq" id="faq">
-        <div class="container bg-faded" style="width: 90%;">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                        <h2 class="section-heading">FAQ</h2>
-                    <hr class="light">  
-                    
-<a id="questiononehash" onclick="showAndHideQues('questionone');" href="#questiononehash" class="page-scroll"> 
-<p class="text-sharp"><b>How much do sessions cost?</b> </p>
-</a>
-<div id="questionone" style="display:none">
-<p class="text-faded">
-Nothing - we do it for the love of it and do not ask for payment. We do ask however that you contribute with a gold coin donation after any of the runs or an amount of your choice to a charity chosen by the group each year.
-<br><br>
-For more information about the ARC's donations : <a href="#donations" class="page-scroll">click here</a>
-</p>
-</div>
+						<p class="text-muted">
+							Meet at 8am for a 8:10am start.
+							<br/><br/>
+							Saturday morning runs start all over Adelaide, check the above upcoming session, training plan, facebook or twitter for the latest information.
+						</p>
+						<br/>
+						<a onclick="toggleDivVisibility('satmoreinfo');" href="#sattrainhashlocation" class="page-scroll">
+							<p id="sattrainhashlocation" class="text-muted">More info ...</p>
+						</a>
+						<br/>
+						<p id="satmoreinfo" style="display:none"class="text-muted">
+							Saturday runs range in distance from 10km to 20km and take place at a variety of locations around Adelaide each week.
+							<br/><br/>
+							Locations include Henley Beach, Belair National Park, Rymill Park, Uni Loop and other various parklands through Adelaide CBD.
+							<br/><br/>
+							Location details for the Saturday runs will be listed in the training schedule.
+							<br/><br/>
+							Following the run we usually head in to a nearby cafe for breakfast.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-<a id="questiontwohash" onclick="showAndHideQues('questiontwo');" href="#questiontwohash" class="page-scroll"> 
-<p class="text-sharp"> <b>Are the sessions suitable for a range of abilities?</b></p>
-</a>
-<div id="questiontwo" style="display:none">
-<p class="text-faded">
-Provided you have a basic level of fitness and can run non stop for approximately 30-40. minutes, then you will be able to cope. We do recommend that before embarking on the Wednesday interval session that you develop a base of steady running, which can either be done at the Saturday session or on your own.
-<br><br>
-While there are no superstars in the group we are able to cater for a wide range of abilities. Currently our group includes runners that can run 10km in 37 min right through to runners taking 60-65 min.
-</p>
-</div>
+	<section class="bg-image-faq" id="faq">
+		<div class="container bg-faded" style="width: 90%;">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2 text-center">
+					<h2 class="section-heading">FAQ</h2>
+					<hr class="light" />
 
-<a id="questionthreehash" onclick="showAndHideQues('questionthree');" href="#questionthreehash" class="page-scroll"> 
-<p class="text-sharp"><b>Where can I store my gear?</b></p>
-</a>
-<div id="questionthree" style="display:none">
-<p class="text-faded">
-Gear can be kept in one of the coaches/participants cars near to our meeting place.
-</p>
-</div>
+					<a id="questiononehash" onclick="showAndHideQues('questionone');" href="#questiononehash" class="page-scroll">
+						<p class="text-sharp">
+							<b>How much do sessions cost?</b>
+						</p>
+					</a>
 
-<a id="questionfourhash" onclick="showAndHideQues('questionfour');" href="#questionfourhash" class="page-scroll"> 
-<p class="text-sharp"><b>Is there a uniform?</b></p>
-</a>
-<div id="questionfour" style="display:none">
-<p class="text-faded">
-There is no mandatory uniform; feel free to wear any appropriate running gear that you may have.
-We do have a selection of ARC branded running wear though that is available to purchase. Currently we are able to provide branded shorts, singlets, t-shirts, caps and even hoodies. For more information : <a href="#merchandise" class="page-scroll">click here</a>
-</p>
-</div>
+					<p id="questionone" style="display:none" class="text-faded">
+						Nothing - we do it for the love of it and do not ask for payment. We do ask however that you contribute 
+						with a gold coin donation after any of the runs or an amount of your choice to a charity chosen by the 
+						group each year.
+						<br/><br/>
+						For more information about the ARC's donations :
+						<a href="#donations" class="page-scroll">click here</a>
+						<br/><br/>
+					</p>
 
-<a id="questionfivehash" onclick="showAndHideQues('questionfive');" href="#questionfivehash" class="page-scroll"> 
-<p class="text-sharp"><b>When and where do you compete?</b></p>
-</a>
-<div id="questionfive" style="display:none">
-<p class="text-faded">
-Adelaide Running Crew members can be found at many fun runs across Adelaide. Some members have participated in interstate events including the Great Ocean Road Marathon and Half, City to Surf and the Melbourne Marathon and Half Marathon.
-</p>
-</div>
+					<a id="questiontwohash" onclick="showAndHideQues('questiontwo');" href="#questiontwohash" class="page-scroll">
+						<p class="text-sharp">
+							<b>Are the sessions suitable for a range of abilities?</b>
+						</p>
+					</a>
+					
+					<p id="questiontwo" style="display:none" class="text-faded">
+						Provided you have a basic level of fitness and can run non stop for approximately 30-40. minutes, 
+						then you will be able to cope. We do recommend that before embarking on the Wednesday interval 
+						session that you develop a base of steady running, which can either be done at the Saturday 
+						session or on your own.
+						<br/> <br/>
+						While there are no superstars in the group we are able to cater for a wide range of abilities. 
+						Currently our group includes runners that can run 10km in 37 min right through to runners 
+						taking 60-65 min.
+						<br/><br/>
+					</p>
 
-<a id="questionsixhash" onclick="showAndHideQues('questionsix');" href="#questionsixhash" class="page-scroll"> 
-<p class="text-sharp"><b>Is there a social side to the group?</b></p>
-</a>
-<div id="questionsix" style="display:none">
-<p class="text-faded">
-The Adelaide Running Crew have a number of regular social activities, including the traditional 'Last Wednesday of the Month' dinner after training and the weekly Saturday morning Breakfast. 
-</p>
-</div>
+					<a id="questionthreehash" onclick="showAndHideQues('questionthree');" href="#questionthreehash" class="page-scroll">
+						<p class="text-sharp">
+							<b>Where can I store my gear?</b>
+						</p>
+					</a>
+					
+					<p id="questionthree" style="display:none" class="text-faded">
+						Gear can be kept in one of the coaches/participants cars near to our meeting place.
+						<br/><br/>
+					</p>
 
-                        </p>
-                    </div>
-            </div>
-        </div>
-    </section>
+					<a id="questionfourhash" onclick="showAndHideQues('questionfour');" href="#questionfourhash" class="page-scroll">
+						<p class="text-sharp">
+							<b>Is there a uniform?</b>
+						</p>
+					</a>
+					
+					<p id="questionfour" style="display:none" class="text-faded">
+						There is no mandatory uniform; feel free to wear any appropriate running gear that you may have.
+						We do have a selection of ARC branded running wear though that is available to
+						purchase. Currently we are able to provide branded shorts, singlets, t-shirts, caps and even
+						hoodies. For more information :
+						<a href="#merchandise" class="page-scroll">click here</a>
+						<br/><br/>
+					</p>
+					
+					<a id="questionfivehash" onclick="showAndHideQues('questionfive');" href="#questionfivehash" class="page-scroll">
+						<p class="text-sharp">
+							<b>When and where do you compete?</b>
+						</p>
+					</a> 
+					
+					<p id="questionfive" style="display:none" class="text-faded">
+						Adelaide Running Crew members can be found at many fun runs across Adelaide. Some members have participated 
+						in interstate events including the Great Ocean Road Marathon and Half, City to Surf and the Melbourne 
+						Marathon and Half Marathon.
+						<br/><br/>
+					</p>
 
-    <section id="merchandise">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Merchandise</h2>
-                    <hr class="primary">
-                    <p class="text-muted">
-                    All Adelaide Running Crew merchandise can now be purchased directly through Adelaide ES&S Printers via an online store accessed at:
-                    <br><br>
-                  	<a style="border:1px solid black;" class="btn btn-default"  href="http://www.sportscentre.com.au/products/buy-online/athletics-running-clubs-events-merchandise/adelaide-running-crew" target="_blank">
-                  		<img src="img/arc/arc-cap.png" alt="Submit">
-                  	</a>
-                  	<br><br>
-                    The online store only accepts Mastercard & Visa and purchases may be either picked up at ES&S (749 Port Road, Woodville) or delivered via post.
-					<br><br>
-					For any issues purchasing merchandise via the online store, please contact Adelaide ES&S Printers direct on
-					<br><br>
-					(08) 8345 3033.
-                    </p>
-            	</div>
-            </div>
-        </div>
-    </section>
+					<a id="questionsixhash" onclick="showAndHideQues('questionsix');" href="#questionsixhash" class="page-scroll">
+						<p class="text-sharp">
+							<b>Is there a social side to the group?</b>
+						</p>
+					</a>
+					
+					<p id="questionsix" style="display:none" class="text-faded">
+						The Adelaide Running Crew have a number of regular social activities, including the traditional 
+						'Last Wednesday of the Month' dinner after training and the weekly Saturday morning Breakfast.
+						<br/><br/>
+					</p>
+					
+				</div>
+			</div>
+		</div>
+	</section>
 
-    <section class="bg-faded" id="donations">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading text-sharp">Donations</h2>
-                    <hr class="light">
-                    <p class="text-sharp">
+	<section id="merchandise">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2 text-center">
+					<h2 class="section-heading">Merchandise</h2>
+					<hr class="primary" />
+					<p class="text-muted">
+						All Adelaide Running Crew merchandise can now be purchased directly through Adelaide ES&S Printers via an online store accessed at:
+						<br/><br/>
+						<a style="border:1px solid black;" class="btn btn-default" target="_blank" 
+							href="http://www.sportscentre.com.au/products/buy-online/athletics-running-clubs-events-merchandise/adelaide-running-crew">
+							<img src="img/arc/arc-cap.png" alt="Submit">
+						</a>
+						<br/><br/>
+						The online store only accepts Mastercard & Visa and purchases may be either picked up at ES&S (749 Port Road, 
+						Woodville) or delivered via post.
+						<br/><br/>
+						For any issues purchasing merchandise via the online store, please contact Adelaide ES&S Printers direct on
+						<br/><br/>
+						(08) 8345 3033.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-faded" id="donations">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2 text-center">
+					<h2 class="section-heading text-sharp">Donations</h2>
+					<hr class="light" />
+					<p class="text-sharp">
 						How can you help?
 					</p>
-<p class="text-faded">					
-The Adelaide Running Crew choose a charity to donate to each year. We encourage each runner to donate either through a ‘gold coin’ donation after any of our runs or by directly depositing any amount in the ARC bank account.
-</p>
+					<p class="text-faded">
+						The Adelaide Running Crew choose a charity to donate to each year. We encourage each runner to donate either 
+						through a ‘gold coin’ donation after any of our runs or by directly depositing any amount in the ARC bank account.
+					</p>
 
-<!--a onclick="showAndHideDons('don15');"--> 
-<p class="text-sharp">
-2013/2014/2015
-</p>
-<!--/a-->
-<div id="don15" style="display:inline">
-<p class="text-faded">
-As in 2012, the Adelaide Running Crew have decide to continue supporting the Hutt Street Centre. The Hutt Street Centre is a multi-service day centre giving a safe haven for Adelaide’s most vulnerable men and women. Homelessness can and does happen to anyone. Hutt St Centre is a place of hope and opportunity, helping people facing homelessness to rebuild their lives, without judgement.
-</p>
-<p class="text-faded">
-<a id="huttStreetMoreInfoHash" onclick="showAndHideDons('don15extra');" href="#huttStreetMoreInfoHash" class="page-scroll">More info ...</a>
-</p>
-<div id="don15extra" style="display:none">
-<p class="text-faded">
-At Hutt Street there is so much that happens in the Day Centre and behind the scenes.
-<br><br>
-If you walked through the doors you would find hundreds of men and women enjoying healthy breakfasts and lunches in the dining room. In the Day Centre, Men and women will be at computers checking on emails with family or participating in a learning program. There might be a visiting doctor seeing a stream of patients who wait patiently with a cup of tea, and another group following the test cricket on TV.
-In the art room, you might find a volunteer teaching a group how to dye fabrics to make a wall hanging, and out in the laundry, a couple of clients doing their washing.
-<br><br>
-Behind the scenes their case managers, pastoral care staff and the management team work together to meet the urgent and ongoing needs of individuals and the continuous improvement in services.
-<br><br>
-For more information on the Hutt Street Centre – go to <a style="color:rgba(255,255,255,.7);" href="https://www.huttstcentre.org.au/" target="_blank">https://www.huttstcentre.org.au/</a>
-</p>
-</div>
+					<p class="text-sharp">
+						2013/2014/2015
+					</p>
+					<div id="don15" style="display:inline">
+						<p class="text-faded">
+							As in 2012, the Adelaide Running Crew have decide to continue supporting the Hutt Street Centre. The Hutt Street 
+							Centre is a multi-service day centre giving a safe haven for Adelaide’s most vulnerable men and women. 
+							Homelessness can and does happen to anyone. Hutt St Centre is a place of hope and opportunity, helping people 
+							facing homelessness to rebuild their lives, without judgement.
+						</p>
+						
+						<a id="huttStreetMoreInfoHash" onclick="showAndHideDons('don15extra');" href="#huttStreetMoreInfoHash" class="page-scroll">
+							<p class="text-faded">More info ...</p>
+						</a>
+						
+						<p id="don15extra" style="display:none" class="text-faded">
+							At Hutt Street there is so much that happens in the Day Centre and behind the scenes.
+							<br/><br/>
+							If you walked through the doors you would find hundreds of men and women enjoying healthy breakfasts and 
+							lunches in the dining room. In the Day Centre, Men and women will be at computers checking on emails with 
+							family or participating in a learning program. There might be a visiting doctor seeing a stream of patients 
+							who wait patiently with a cup of tea, and another group following the test cricket on TV. In the art room, 
+							you might find a volunteer teaching a group how to dye fabrics to make a wall hanging, and out in the laundry, 
+							a couple of clients doing their washing.
+							<br/><br/>
+							Behind the scenes their case managers, pastoral care staff and the management team work together to meet the 
+							urgent and ongoing needs of individuals and the continuous improvement in services.
+							<br/><br/>
+							For more information on the Hutt Street Centre – go to
+							<a style="color:rgba(255,255,255,.8);" href="https://www.huttstcentre.org.au/" target="_blank">
+								https://www.huttstcentre.org.au/
+							</a>
+						</p>
+					</div>
 
+					<hr class="light" />
+					<p id="pastdonationhash" class="text-sharp">
+						Organisations we supported in the past
+					</p>
 
-</div>
+					<p class="text-sharp">
+						<a onclick="showAndHideDons('don12');" href="#pastdonationhash" class="page-scroll">2012</a>
+						<a onclick="showAndHideDons('don11');" href="#pastdonationhash" class="page-scroll">2011</a>
+						<a onclick="showAndHideDons('don10');" href="#pastdonationhash" class="page-scroll">2010</a>
+						<a onclick="showAndHideDons('don09');" href="#pastdonationhash" class="page-scroll">2009</a>
+					</p>
+					
+					<p id="don12" style="display:none" class="text-faded">
+						In 2012 ARC raised $920 towards the Hutt Street Centre, a multi-service day centre giving a safe haven 
+						for Adelaide’s most vulnerable men and women. Homelessness can and does happen to anyone. Hutt St Centre 
+						is a place of hope and opportunity, helping people facing homelessness to rebuild their lives, without judgement.
+						<br/><br/>
+						For more information on the Hutt Street Centre – go to
+						<a style="color:rgba(255,255,255,.7);" href="https://www.huttstcentre.org.au/" target="_blank">
+							https://www.huttstcentre.org.au/
+						</a>
+					</p>
+					
+					<p id="don11" style="display:none" class="text-faded">
+						In 2011 ARC raised $516 towards The Marathon Project, a not for profit organisation established to address the 
+						incidence of chronic disease and inactivity within Indigenous Australia. They train young Indigenous men 
+						and woman to run, jog or walk and make activity and regular part of their lives.
+					</p>
+					
+					<p id="don10" style="display:none" class="text-faded">
+						In 2010 ARC raised $750 towards the Melissa White Memorial Laboratory which is a foundation that members of the 
+						groups chose after running in the 10k Carisbrooke Classic. After the run we met Annie the mother of a little 
+						girl who passed away from Leukaemia. The event was raising money for the Melissa White Memorial Laboratory, 
+						and all of us who heard Annie talk knew this was where we would like to be sending our gold coin donations.
+						<br/><br/>
+					</p>
+					
+					<p id="don09" style="display:none"class="text-faded">
+						In 2009 ARC raised $450 to support Reuben Kosgei's Riverside Academy in Kenya. Reuben is an elite athlete and 
+						won a gold medal in the Sydney Olympic Games in the 3000m steeple-chase. He has since set up an education centre 
+						academy which provides education for children as well as athletics training for certain of the students who have
+						potential as runners.
+						<br/><br/>
+					</p>
+				
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	
 
-<hr class="light">
-<p id="pastdonationhash" class="text-sharp">
-Organisations we supported in the past
-</p>
+	<section id="contact" class="bg-image-contact">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2 text-center">
+					<h2 class="section-heading">Contact Us</h2>
+					<hr class="default" />
+					<button type="submit" class="btn btn-default" onclick='window.location.href="https://www.facebook.com/groups/108841288928/"'>
+						<img src="img/facebook/png/FB_FindUsOnFacebook-144.png" alt="Submit">
+					</button>
+					<hr class="default" />
+					<button type="submit" class="btn btn-default" onclick='sendEmail()'>
+						<i class="fa fa-3x fa-envelope-o wow bounceIn text-primary"></i>
+					</button>
+					<p class="text-muted">running-adelaide-email-com</p>
+				</div>
+			</div>
+		</div>
+	</section>
 
-<p class="text-sharp">
-<!--a onclick="showAndHideDons('don14');" href="#pastdonationhash" class="page-scroll">2014</a>
-<a onclick="showAndHideDons('don13');" href="#pastdonationhash" class="page-scroll">2013</a-->
-<a onclick="showAndHideDons('don12');" href="#pastdonationhash" class="page-scroll">2012</a>
-<a onclick="showAndHideDons('don11');" href="#pastdonationhash" class="page-scroll">2011</a>
-<a onclick="showAndHideDons('don10');" href="#pastdonationhash" class="page-scroll">2010</a>
-<a onclick="showAndHideDons('don09');" href="#pastdonationhash" class="page-scroll">2009</a>
-</p>
+	<!-- jQuery 
+	<script src="js/jquery.js"></script>
+-->
+	<!-- Bootstrap Core JavaScript -->
+	<script src="js/bootstrap.min.js"></script>
 
-<!--div id="don14" style="display:none">
-<p class="text-faded">
-In 2014 ARC raised $xxx toward xxx
-</p>
-</div>
+	<!-- Plugin JavaScript -->
+	<script src="js/jquery.easing.min.js"></script>
+	<script src="js/jquery.fittext.js"></script>
+	<script src="js/wow.min.js"></script>
 
-<div id="don13" style="display:none">
-<p class="text-faded">
-In 2013 ARC raised $xxx toward xxx
-</p>
-</div-->
-
-<div id="don12" style="display:none">
-<p class="text-faded">
-In 2012 ARC raised $920 towards the Hutt Street Centre, a multi-service day centre giving a safe haven for Adelaide’s most vulnerable men and women. Homelessness can and does happen to anyone. Hutt St Centre is a place of hope and opportunity, helping people facing homelessness to rebuild their lives, without judgement.
-<br><br>
-For more information on the Hutt Street Centre – go to <a style="color:rgba(255,255,255,.7);" href="https://www.huttstcentre.org.au/" target="_blank">https://www.huttstcentre.org.au/</a>
-</p>
-</div>
-
-<div id="don11" style="display:none">
-<p class="text-faded">
-In 2011 ARC raised $516 towards The Marathon Project, a not for profit organisation established to address the incidence of chronic disease and inactivity within Indigenous Australia. They train young Indigenous men and woman to run, jog or walk and make activity and regular part of their lives.
-</p>
-</div>
-
-<div id="don10" style="display:none">
-<p class="text-faded">
-In 2010 ARC raised $750 towards the Melissa White Memorial Laboratory which is a foundation that members of the groups chose after running in the 10k Carisbrooke Classic. After the run we met Annie the mother of a little girl who passed away from Leukaemia. The event was raising money for the Melissa White Memorial Laboratory, and all of us who heard Annie talk knew this was where we would like to be sending our gold coin donations.
-</p>
-</div>
-
-<div id="don09" style="display:none">
-<p class="text-faded">
-In 2009 ARC raised $450 to support Reuben Kosgei's Riverside Academy in Kenya. Reuben is an elite athlete and won a gold medal in the Sydney Olympic Games in the 3000m steeple-chase. He has since set up an education centre academy which provides education for children as well as athletics training for certain of the students who have potential as runners.	
-</p>
-</div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    
-	<section id="contact" class="bg-image-contact" >
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Contact Us</h2>
-                    <hr class="default">                
-                    <button type="submit" class="btn btn-default" onclick='window.location.href="https://www.facebook.com/groups/108841288928/"'><img src="img/facebook/png/FB_FindUsOnFacebook-144.png" alt="Submit"></button>
-            		<hr class="default">
-            		<button type="submit" class="btn btn-default" onclick='sendEmail()'><i class="fa fa-3x fa-envelope-o wow bounceIn text-primary"></i></button>
-                    <p class="text-muted">running-adelaide-email-com</p>
-            	</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/jquery.fittext.js"></script>
-    <script src="js/wow.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="js/creative.js"></script>
+	<!-- Custom Theme JavaScript -->
+	<script src="js/creative.js"></script>
 
 </body>
 
