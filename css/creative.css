@@ -96,7 +96,16 @@ p {
     color: rgba(255,255,255,.7);
 }
 
+.text-faded > a{
+    color: rgba(255,255,255,.7);
+}
+
+
 .text-sharp {
+    color: rgba(255,255,255,1);
+}
+
+.text-sharp > a{
     color: rgba(255,255,255,1);
 }
 
