@@ -23,14 +23,14 @@ function getDateForQuery() {
 
 function getDateIn7DaysForQuery() {
 	var d = new Date();
-	var dateInaWeek = new Date(d.getTime() + (7*24*60*60*1000));
+	var dateInaWeek = new Date(d.getTime() + (35*24*60*60*1000));
 	return dateInaWeek.getFullYear() + "-" + (dateInaWeek.getMonth()+1) + "-" + dateInaWeek.getDate();
 }
 
 function getTrainingPlan() {
 	var opts = {sendMethod: 'auto'};
 	var query = new google.visualization.Query(gurl, opts);
-	var queryString = "select * where A >= date '" + getDateForQuery() + "' and A < date '" + getDateIn7DaysForQuery() + "'";
+	var queryString = "select * where A >= date '" + getDateForQuery() + "' and A < date '" + getDateIn7DaysForQuery() + "' Order By A";
 	//console.log(queryString);
 	query.setQuery(queryString);
 	query.send(handleQueryResponse);
@@ -48,8 +48,8 @@ function handleQueryResponse(response) {
 
 function populateData(dataTable) {
 	var rowCount = dataTable.getNumberOfRows();
-	var wedString;
-	var satString;
+	var wedString = [];
+	var satString = [];
 	
 	
 	if (rowCount != 2) {
@@ -60,13 +60,13 @@ function populateData(dataTable) {
 	for (var i = 0; i < rowCount; i++) {
 		var dateVal = dataTable.getValue(i,0);
 		if(dateVal.getDay() == 3){
-			wedString = formatTrainString(dataTable,i);
-				
+			wedString.push(formatTrainString(dataTable,i))
 		} else if (dateVal.getDay() == 6) {
-			satString = formatTrainString(dataTable,i);
+			satString.push(formatTrainString(dataTable,i));
 		}
 	}
-	populatePTag (wedString,satString);
+	populatePTag (wedString[0],satString[0]);
+	populateExtraTS (wedString,satString);
 }
 
 function getDateString(dateVal) {
@@ -97,9 +97,9 @@ function formatTrainString(dataTable, rowNumber) {
 				description;
 }
 
-function generateExtraTraining(dataTable, rowNumber) {
+function generateExtraTraining(trainString) {
 	return "<br/><p class='text-muted'>" + 
-			formatTrainString(dataTable, rowNumber) +
+			trainString +
 			"</p>";
 }
 
@@ -110,5 +110,21 @@ function populatePTag(wedString, satString) {
 	if (satString) {
 		document.getElementById(gss_sattraining_div_id).innerHTML = satString;
 	}
+}
+
+function populateExtraTS (wedString,satString) {
+	var fullWedHtmlString = "";
+	var fullSatHtmlString = "";
+	
+	for (var i = 1; i < wedString.length; i++) {
+		fullWedHtmlString = fullWedHtmlString + generateExtraTraining(wedString[i]);
+	}
+	
+	for (var i = 1; i < satString.length; i++) {
+		fullSatHtmlString = fullSatHtmlString + generateExtraTraining(satString[i]);
+	}
+	
+	document.getElementById("moreWedTraining").innerHTML = fullWedHtmlString;
+	document.getElementById("moreSatTraining").innerHTML = fullSatHtmlString;
 }
 
