@@ -538,3 +538,9 @@ body {
     #font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
     #font-weight: 700;
 }
+
+.social-btn {
+	background-color : transparent;
+	padding: 10px;
+	border: 0;
+}
