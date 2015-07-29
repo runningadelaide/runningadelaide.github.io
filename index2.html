@@ -41,17 +41,18 @@ http://www.runningadelaide.net/
 		var questionIdList = ["questionone","questiontwo","questionthree","questionfour","questionfive","questionsix"];
 		var donationsIdList = ["don09","don10","don11","don12","don15extra"];
 	
-		function toggleDivVisibility(elementId) {
+		function toggleDivVisibility(elementId, showHideElementId, showText, hideText) {
 			if (document.getElementById(elementId).style.display == "inline") {
 				document.getElementById(elementId).style.display = "none";
+				if (showHideElementId && showText) {
+					document.getElementById(showHideElementId).innerHTML = showText;
+				}
 			} else {
 				document.getElementById(elementId).style.display = "inline";
+				if (showHideElementId && hideText) {
+					document.getElementById(showHideElementId).innerHTML = hideText;
+				}
 			}
-		}
-		
-		function showDivHideLink(divToShowId, linkToHideId) {
-			document.getElementById(divToShowId).style.display = "inline";
-			document.getElementById(linkToHideId).style.display = "none";
 		}
 		
 		function showAndHideQues(elementId) {
@@ -90,26 +91,6 @@ http://www.runningadelaide.net/
 	<script src="https://maps.googleapis.com/maps/api/js"></script>
 	<script type="text/javascript" src="./js/index/gmapinit.js"></script>
 
-	<style>
-		.arc-image-wrapper{
-			overflow: hidden;
-			text-align:center;
-			width:100%;
-			height: 250px;
-			position: relative;
-		}
-		
-		.arc-image{
-			vertical-align: bottom;
-			height: 250px;
-			display: inline-block;
-		}
-		
-		.small-link {
-			color: #00C7FF !important;
-			font-size: small;
-		}
-	</style>
 </head>
 
 <body id="page-top">
@@ -161,20 +142,20 @@ http://www.runningadelaide.net/
 		<div style="position:absolute;bottom:0;width:100%">
 			<a href="#about" class="btn btn-default btn-xl page-scroll">Find Out More</a>
 			<br/>
-			<p class="text-muted" style="margin-bottom:0px;">OR</p>
+			<p class="text-sharp" style="margin-bottom:0px;">OR</p>
 			<button style="margin-bottom:20px;" type="submit" class="btn btn-default" onclick='window.location.href="https://www.facebook.com/groups/108841288928/"'>
 				<img src="img/facebook/png/FB_FindUsOnFacebook-144.png" alt="Submit">
 			</button>
 		</div>
 	</header>
 
-	<section  id="about" style="padding:20px 0px;">
+	<section class="bg-images" id="about">
 		<div class="container" style="width: 90%;">
-			<div class="row">
+			<div class="row bg-faded">
 				<div class="col-lg-8 col-lg-offset-2 text-center">
-					<h2 class="section-heading text-muted">About</h2>
-					<hr class="default"/>
-					<p class="text-muted">
+					<h2 class="section-heading text-sharp">About</h2>
+					<hr class="light"/>
+					<p class="text-sharp">
 						The Adelaide Running Crew is a social running group aimed at helping members achieve their running goals.
 						<br/><br/>
 						We do this through group training sessions conducted in a supportive atmosphere. All members of our group have different running goals and abilities - from purely social runners right through to those training for half and full marathons.
@@ -184,25 +165,18 @@ http://www.runningadelaide.net/
 				</div>
 			</div>
 		</div>
-		<!--div class="button-center-pad">
+		<div class="button-center-pad">
 			<a href="#training" class="btn btn-default btn-xl page-scroll">Where to Start</a>
-		</div-->
+		</div>
 	</section>
-	
-	<div class="arc-image-wrapper">
-	<div>
-	<img src="https://lh3.googleusercontent.com/-iRi3bryQ864/VbeOzPExa0I/AAAAAAAAABE/FwwbR28-cMM/s400-Ic42/port.jpg" class="arc-image" ></img>
-	<img src="https://lh3.googleusercontent.com/-Nvas9ArohI0/VbeOzKVzwEI/AAAAAAAAABE/f6uKdsTPsW4/s400-Ic42/land.jpg" class="arc-image" ></img>
-	<img src="https://lh3.googleusercontent.com/-iRi3bryQ864/VbeOzPExa0I/AAAAAAAAABE/FwwbR28-cMM/s400-Ic42/port.jpg" class="arc-image" ></img>
-	</div>
-	</div>
-	
-	<section id="training" style="padding:20px 0px;">
+
+
+	<section id="training">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<h2 class="section-heading">Training</h2>
-					<hr class="default" />
+					<hr class="primary" />
 				</div>
 			</div>
 		</div>
@@ -222,9 +196,9 @@ http://www.runningadelaide.net/
 						
 						<div id="moreWedTraining" style="display:none;"></div>
 						<br/>
-						<a id="moreWedTrainLink" href="#wedtraining"  class="page-scroll"
-							onclick="showDivHideLink('moreWedTraining','moreWedTrainLink');">
-							<p class="text-muted small-link" id="showmorewedtrainingctrl">...show more...<p>
+						<a href="#wedtraining"  class="page-scroll"
+							onclick="toggleDivVisibility('moreWedTraining','showmorewedtrainingctrl','...show more...','...show less...');">
+							<p class="text-muted" id="showmorewedtrainingctrl">...show more...<p>
 						</a>
 						
 						<br/>
@@ -238,7 +212,7 @@ http://www.runningadelaide.net/
 						</p>
 						<br/>
 						<a onclick="toggleMapVisibility();" href="#maphashlocation" class="page-scroll">
-							<p id="maphashlocation" class="text-muted small-link">...show map...</p>
+							<p id="maphashlocation" class="text-muted">...show map...</p>
 						</a>
 						<div id="map-wrapper" style="display:none;">
 							<div id="map-canvas" style="width: 100%; height: 400px;"></div>
@@ -258,9 +232,9 @@ http://www.runningadelaide.net/
 							<br/>
 						</p>
 						<br/>
-						<a id="wedMoreInfoLink" href="#wedmoreinfo" class="page-scroll"
-							onclick="showDivHideLink('wedmoreinfo','wedMoreInfoLink');" >
-							<p id="wedtrainmoreinfoctrl" class="text-muted small-link">...more info...</p>
+						<a href="#wedmoreinfo" class="page-scroll"
+							onclick="toggleDivVisibility('wedmoreinfo','wedtrainmoreinfoctrl','...more info...','...less info...');" >
+							<p id="wedtrainmoreinfoctrl" class="text-muted">...more info...</p>
 						</a>
 						
 					</div>
@@ -279,9 +253,9 @@ http://www.runningadelaide.net/
 						
 						<div id="moreSatTraining" style="display:none;"></div>
 						<br/>
-						<a id="showMoreSatTrainLink" href="#sattraining" class="page-scroll"
-							onclick="showDivHideLink('moreSatTraining','showMoreSatTrainLink');" >
-							<p class="text-muted small-link" id="showmoresattrainingctrl">...show more...</p>
+						<a href="#sattraining" class="page-scroll"
+							onclick="toggleDivVisibility('moreSatTraining','showmoresattrainingctrl','...show more...','...show less...');" >
+							<p class="text-muted" id="showmoresattrainingctrl">...show more...</p>
 						</a>
 						<br/>
 						<p class="text-muted" style="font-size: xx-small;">
@@ -305,9 +279,9 @@ http://www.runningadelaide.net/
 							Following the run we usually head in to a nearby cafe for breakfast. Usually we meet at the cafe.
 							<br/><br/>
 						</p>
-						<a id="satmoreinfolink" href="#satmoreinfo" class="page-scroll"
-							onclick="showDivHideLink('satmoreinfo','satmoreinfolink');" >
-							<p id="sattrainlocationctrl" class="text-muted small-link">...more info...</p>
+						<a href="#satmoreinfo" class="page-scroll"
+							onclick="toggleDivVisibility('satmoreinfo','sattrainlocationctrl','...more info...','...less info...');" >
+							<p id="sattrainlocationctrl" class="text-muted">...more info...</p>
 						</a>
 						
 					</div>
@@ -322,27 +296,21 @@ http://www.runningadelaide.net/
 		</div>
 		
 	</section>
-	
-	<div class="arc-image-wrapper">
-	<img src="https://lh3.googleusercontent.com/-Nvas9ArohI0/VbeOzKVzwEI/AAAAAAAAABE/f6uKdsTPsW4/s400-Ic42/land.jpg" class="arc-image" ></img>
-	<img src="https://lh3.googleusercontent.com/-iRi3bryQ864/VbeOzPExa0I/AAAAAAAAABE/FwwbR28-cMM/s400-Ic42/port.jpg" class="arc-image" ></img>
-	<img src="https://lh3.googleusercontent.com/-Nvas9ArohI0/VbeOzKVzwEI/AAAAAAAAABE/f6uKdsTPsW4/s400-Ic42/land.jpg" class="arc-image" ></img>
-	</div>
 
-	<section id="faq" style="padding:20px 0px;">
-		<div class="container" style="width: 90%;">
+	<section class="bg-image-faq" id="faq">
+		<div class="container bg-faded" style="width: 90%;">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 text-center">
-					<h2 class="section-heading" >FAQ</h2>
-					<hr class="primary" />
+					<h2 class="section-heading">FAQ</h2>
+					<hr class="light" />
 
 					<a id="questiononehash" onclick="showAndHideQues('questionone');" href="#questiononehash" class="page-scroll">
-						<p class="text-muted">
+						<p class="text-sharp">
 							<b>How much do sessions cost?</b>
 						</p>
 					</a>
 
-					<p id="questionone" style="display:none" class="text-muted">
+					<p id="questionone" style="display:none" class="text-faded">
 						Nothing - we do it for the love of it and do not ask for payment. We do ask however that you contribute 
 						with a gold coin donation after any of the runs or an amount of your choice to a charity chosen by the 
 						group each year.
@@ -353,12 +321,12 @@ http://www.runningadelaide.net/
 					</p>
 
 					<a id="questiontwohash" onclick="showAndHideQues('questiontwo');" href="#questiontwohash" class="page-scroll">
-						<p class="text-muted">
+						<p class="text-sharp">
 							<b>Are the sessions suitable for a range of abilities?</b>
 						</p>
 					</a>
 					
-					<p id="questiontwo" style="display:none" class="text-muted">
+					<p id="questiontwo" style="display:none" class="text-faded">
 						Provided you have a basic level of fitness and can run non stop for approximately 30-40. minutes, 
 						then you will be able to cope. We do recommend that before embarking on the Wednesday interval 
 						session that you develop a base of steady running, which can either be done at the Saturday 
@@ -371,23 +339,23 @@ http://www.runningadelaide.net/
 					</p>
 
 					<a id="questionthreehash" onclick="showAndHideQues('questionthree');" href="#questionthreehash" class="page-scroll">
-						<p class="text-muted">
+						<p class="text-sharp">
 							<b>Where can I store my gear?</b>
 						</p>
 					</a>
 					
-					<p id="questionthree" style="display:none" class="text-muted">
+					<p id="questionthree" style="display:none" class="text-faded">
 						Gear can be kept in one of the coaches/participants cars near to our meeting place.
 						<br/><br/>
 					</p>
 
 					<a id="questionfourhash" onclick="showAndHideQues('questionfour');" href="#questionfourhash" class="page-scroll">
-						<p class="text-muted">
+						<p class="text-sharp">
 							<b>Is there a uniform?</b>
 						</p>
 					</a>
 					
-					<p id="questionfour" style="display:none" class="text-muted">
+					<p id="questionfour" style="display:none" class="text-faded">
 						There is no mandatory uniform; feel free to wear any appropriate running gear that you may have.
 						We do have a selection of ARC branded running wear though that is available to
 						purchase. Currently we are able to provide branded shorts, singlets, t-shirts, caps and even
@@ -397,12 +365,12 @@ http://www.runningadelaide.net/
 					</p>
 					
 					<a id="questionfivehash" onclick="showAndHideQues('questionfive');" href="#questionfivehash" class="page-scroll">
-						<p class="text-muted">
+						<p class="text-sharp">
 							<b>When and where do you compete?</b>
 						</p>
 					</a> 
 					
-					<p id="questionfive" style="display:none" class="text-muted">
+					<p id="questionfive" style="display:none" class="text-faded">
 						Adelaide Running Crew members can be found at many fun runs across Adelaide. Some members have participated 
 						in interstate events including the Great Ocean Road Marathon and Half, City to Surf and the Melbourne 
 						Marathon and Half Marathon.
@@ -410,12 +378,12 @@ http://www.runningadelaide.net/
 					</p>
 
 					<a id="questionsixhash" onclick="showAndHideQues('questionsix');" href="#questionsixhash" class="page-scroll">
-						<p class="text-muted">
+						<p class="text-sharp">
 							<b>Is there a social side to the group?</b>
 						</p>
 					</a>
 					
-					<p id="questionsix" style="display:none" class="text-muted">
+					<p id="questionsix" style="display:none" class="text-faded">
 						The Adelaide Running Crew have a number of regular social activities, including the traditional 
 						'Last Wednesday of the Month' dinner after training and the weekly Saturday morning Breakfast.
 						<br/><br/>
@@ -425,14 +393,8 @@ http://www.runningadelaide.net/
 			</div>
 		</div>
 	</section>
-	
-	<div class="arc-image-wrapper">
-	<img src="https://lh3.googleusercontent.com/-iRi3bryQ864/VbeOzPExa0I/AAAAAAAAABE/FwwbR28-cMM/s400-Ic42/port.jpg" class="arc-image" ></img>
-	<img src="https://lh3.googleusercontent.com/-Nvas9ArohI0/VbeOzKVzwEI/AAAAAAAAABE/f6uKdsTPsW4/s400-Ic42/land.jpg" class="arc-image" ></img>
-	<img src="https://lh3.googleusercontent.com/-iRi3bryQ864/VbeOzPExa0I/AAAAAAAAABE/FwwbR28-cMM/s400-Ic42/port.jpg" class="arc-image" ></img>
-	</div>
 
-	<section id="merchandise" style="padding:20px 0px;">
+	<section id="merchandise">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 text-center">
@@ -458,38 +420,36 @@ http://www.runningadelaide.net/
 		</div>
 	</section>
 
-	<div class="arc-image-wrapper">
-	<img src="https://lh3.googleusercontent.com/-iRi3bryQ864/VbeOzPExa0I/AAAAAAAAABE/FwwbR28-cMM/s400-Ic42/port.jpg" class="arc-image" ></img>
-	<img src="https://lh3.googleusercontent.com/-Nvas9ArohI0/VbeOzKVzwEI/AAAAAAAAABE/f6uKdsTPsW4/s400-Ic42/land.jpg" class="arc-image" ></img>
-	<img src="https://lh3.googleusercontent.com/-iRi3bryQ864/VbeOzPExa0I/AAAAAAAAABE/FwwbR28-cMM/s400-Ic42/port.jpg" class="arc-image" ></img>
-	</div>
-	
-	<section id="donations" style="padding:20px 0px;">
+	<section class="bg-faded" id="donations">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 text-center">
-					<h2 class="section-heading text-muted">Donations</h2>
-					<hr class="primary" />
-					<p class="text-muted">
+					<h2 class="section-heading text-sharp">Donations</h2>
+					<hr class="light" />
+					<p class="text-sharp">
 						How can you help?
 					</p>
-					<p class="text-muted">
+					<p class="text-faded">
 						The Adelaide Running Crew choose a charity to donate to each year. We encourage each runner to donate either 
 						through a ‘gold coin’ donation after any of our runs or by directly depositing any amount in the ARC bank account.
 					</p>
 
-					<p class="text-muted">
+					<p class="text-sharp">
 						2013/2014/2015
 					</p>
 					<div id="don15" style="display:inline">
-						<p class="text-muted">
+						<p class="text-faded">
 							As in 2012, the Adelaide Running Crew have decide to continue supporting the Hutt Street Centre. The Hutt Street 
 							Centre is a multi-service day centre giving a safe haven for Adelaide’s most vulnerable men and women. 
 							Homelessness can and does happen to anyone. Hutt St Centre is a place of hope and opportunity, helping people 
 							facing homelessness to rebuild their lives, without judgement.
 						</p>
 						
-						<p id="don15extra" style="display:none" class="text-muted">
+						<a id="huttStreetMoreInfoHash" onclick="showAndHideDons('don15extra');" href="#huttStreetMoreInfoHash" class="page-scroll">
+							<p class="text-faded">More info ...</p>
+						</a>
+						
+						<p id="don15extra" style="display:none" class="text-faded">
 							At Hutt Street there is so much that happens in the Day Centre and behind the scenes.
 							<br/><br/>
 							If you walked through the doors you would find hundreds of men and women enjoying healthy breakfasts and 
@@ -506,46 +466,39 @@ http://www.runningadelaide.net/
 							<a href="https://www.huttstcentre.org.au/" target="_blank">
 								https://www.huttstcentre.org.au/
 							</a>
-							<br/><br/>
 						</p>
-						
-						<a id="showDon15ExtraLink" href="#don15extra" class="page-scroll"
-							onclick="showDivHideLink('don15extra','showDon15ExtraLink');">
-							<p id="huttStreetMoreInfoCtrl" class="text-faded small-link">...more info...</p>
-						</a>
-						
 					</div>
 
 					<hr class="light" />
-					<p id="pastdonationhash" class="text-muted">
+					<p id="pastdonationhash" class="text-sharp">
 						Organisations we supported in the past
 					</p>
 
-					<p class="text-muted">
+					<p class="text-sharp">
 						<a onclick="showAndHideDons('don12');" href="#pastdonationhash" class="page-scroll">2012</a>
 						<a onclick="showAndHideDons('don11');" href="#pastdonationhash" class="page-scroll">2011</a>
 						<a onclick="showAndHideDons('don10');" href="#pastdonationhash" class="page-scroll">2010</a>
 						<a onclick="showAndHideDons('don09');" href="#pastdonationhash" class="page-scroll">2009</a>
 					</p>
 					
-					<p id="don12" style="display:none" class="text-muted">
+					<p id="don12" style="display:none" class="text-faded">
 						In 2012 ARC raised $920 towards the Hutt Street Centre, a multi-service day centre giving a safe haven 
 						for Adelaide’s most vulnerable men and women. Homelessness can and does happen to anyone. Hutt St Centre 
 						is a place of hope and opportunity, helping people facing homelessness to rebuild their lives, without judgement.
 						<br/><br/>
 						For more information on the Hutt Street Centre – go to
-						<a  href="https://www.huttstcentre.org.au/" target="_blank">
+						<a style="color:rgba(255,255,255,.7);" href="https://www.huttstcentre.org.au/" target="_blank">
 							https://www.huttstcentre.org.au/
 						</a>
 					</p>
 					
-					<p id="don11" style="display:none" class="text-muted">
+					<p id="don11" style="display:none" class="text-faded">
 						In 2011 ARC raised $516 towards The Marathon Project, a not for profit organisation established to address the 
 						incidence of chronic disease and inactivity within Indigenous Australia. They train young Indigenous men 
 						and woman to run, jog or walk and make activity and regular part of their lives.
 					</p>
 					
-					<p id="don10" style="display:none" class="text-muted">
+					<p id="don10" style="display:none" class="text-faded">
 						In 2010 ARC raised $750 towards the Melissa White Memorial Laboratory which is a foundation that members of the 
 						groups chose after running in the 10k Carisbrooke Classic. After the run we met Annie the mother of a little 
 						girl who passed away from Leukaemia. The event was raising money for the Melissa White Memorial Laboratory, 
@@ -553,7 +506,7 @@ http://www.runningadelaide.net/
 						<br/><br/>
 					</p>
 					
-					<p id="don09" style="display:none"class="text-muted">
+					<p id="don09" style="display:none"class="text-faded">
 						In 2009 ARC raised $450 to support Reuben Kosgei's Riverside Academy in Kenya. Reuben is an elite athlete and 
 						won a gold medal in the Sydney Olympic Games in the 3000m steeple-chase. He has since set up an education centre 
 						academy which provides education for children as well as athletics training for certain of the students who have
@@ -566,13 +519,9 @@ http://www.runningadelaide.net/
 		</div>
 	</section>
 	
-	<div class="arc-image-wrapper">
-	<img src="https://lh3.googleusercontent.com/-iRi3bryQ864/VbeOzPExa0I/AAAAAAAAABE/FwwbR28-cMM/s400-Ic42/port.jpg" class="arc-image" ></img>
-	<img src="https://lh3.googleusercontent.com/-Nvas9ArohI0/VbeOzKVzwEI/AAAAAAAAABE/f6uKdsTPsW4/s400-Ic42/land.jpg" class="arc-image" ></img>
-	<img src="https://lh3.googleusercontent.com/-iRi3bryQ864/VbeOzPExa0I/AAAAAAAAABE/FwwbR28-cMM/s400-Ic42/port.jpg" class="arc-image" ></img>
-	</div>
+	
 
-	<section id="contact" style="padding:20px 0px;">
+	<section id="contact" >
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 text-center">
