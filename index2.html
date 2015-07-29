@@ -41,18 +41,17 @@ http://www.runningadelaide.net/
 		var questionIdList = ["questionone","questiontwo","questionthree","questionfour","questionfive","questionsix"];
 		var donationsIdList = ["don09","don10","don11","don12","don15extra"];
 	
-		function toggleDivVisibility(elementId, showHideElementId, showText, hideText) {
+		function toggleDivVisibility(elementId) {
 			if (document.getElementById(elementId).style.display == "inline") {
 				document.getElementById(elementId).style.display = "none";
-				if (showHideElementId && showText) {
-					document.getElementById(showHideElementId).innerHTML = showText;
-				}
 			} else {
 				document.getElementById(elementId).style.display = "inline";
-				if (showHideElementId && hideText) {
-					document.getElementById(showHideElementId).innerHTML = hideText;
-				}
 			}
+		}
+		
+		function showDivHideLink(divToShowId, linkToHideId) {
+			document.getElementById(divToShowId).style.display = "inline";
+			document.getElementById(linkToHideId).style.display = "none";
 		}
 		
 		function showAndHideQues(elementId) {
@@ -93,20 +92,22 @@ http://www.runningadelaide.net/
 
 	<style>
 		.arc-image-wrapper{
-			white-space: nowrap;
 			overflow: hidden;
 			text-align:center;
 			width:100%;
+			height: 250px;
 			position: relative;
 		}
 		
 		.arc-image{
 			vertical-align: bottom;
 			height: 250px;
+			display: inline-block;
 		}
 		
-		a > p {
+		.small-link {
 			color: #00C7FF !important;
+			font-size: small;
 		}
 	</style>
 </head>
@@ -221,9 +222,9 @@ http://www.runningadelaide.net/
 						
 						<div id="moreWedTraining" style="display:none;"></div>
 						<br/>
-						<a href="#wedtraining"  class="page-scroll"
-							onclick="toggleDivVisibility('moreWedTraining','showmorewedtrainingctrl','...show more...','...show less...');">
-							<p class="text-muted" id="showmorewedtrainingctrl">...show more...<p>
+						<a id="moreWedTrainLink" href="#wedtraining"  class="page-scroll"
+							onclick="showDivHideLink('moreWedTraining','moreWedTrainLink');">
+							<p class="text-muted small-link" id="showmorewedtrainingctrl">...show more...<p>
 						</a>
 						
 						<br/>
@@ -237,7 +238,7 @@ http://www.runningadelaide.net/
 						</p>
 						<br/>
 						<a onclick="toggleMapVisibility();" href="#maphashlocation" class="page-scroll">
-							<p id="maphashlocation" class="text-muted">...show map...</p>
+							<p id="maphashlocation" class="text-muted small-link">...show map...</p>
 						</a>
 						<div id="map-wrapper" style="display:none;">
 							<div id="map-canvas" style="width: 100%; height: 400px;"></div>
@@ -257,9 +258,9 @@ http://www.runningadelaide.net/
 							<br/>
 						</p>
 						<br/>
-						<a href="#wedmoreinfo" class="page-scroll"
-							onclick="toggleDivVisibility('wedmoreinfo','wedtrainmoreinfoctrl','...more info...','...less info...');" >
-							<p id="wedtrainmoreinfoctrl" class="text-muted">...more info...</p>
+						<a id="wedMoreInfoLink" href="#wedmoreinfo" class="page-scroll"
+							onclick="showDivHideLink('wedmoreinfo','wedMoreInfoLink');" >
+							<p id="wedtrainmoreinfoctrl" class="text-muted small-link">...more info...</p>
 						</a>
 						
 					</div>
@@ -278,9 +279,9 @@ http://www.runningadelaide.net/
 						
 						<div id="moreSatTraining" style="display:none;"></div>
 						<br/>
-						<a href="#sattraining" class="page-scroll"
-							onclick="toggleDivVisibility('moreSatTraining','showmoresattrainingctrl','...show more...','...show less...');" >
-							<p class="text-muted" id="showmoresattrainingctrl">...show more...</p>
+						<a id="showMoreSatTrainLink" href="#sattraining" class="page-scroll"
+							onclick="showDivHideLink('moreSatTraining','showMoreSatTrainLink');" >
+							<p class="text-muted small-link" id="showmoresattrainingctrl">...show more...</p>
 						</a>
 						<br/>
 						<p class="text-muted" style="font-size: xx-small;">
@@ -304,9 +305,9 @@ http://www.runningadelaide.net/
 							Following the run we usually head in to a nearby cafe for breakfast. Usually we meet at the cafe.
 							<br/><br/>
 						</p>
-						<a href="#satmoreinfo" class="page-scroll"
-							onclick="toggleDivVisibility('satmoreinfo','sattrainlocationctrl','...more info...','...less info...');" >
-							<p id="sattrainlocationctrl" class="text-muted">...more info...</p>
+						<a id="satmoreinfolink" href="#satmoreinfo" class="page-scroll"
+							onclick="showDivHideLink('satmoreinfo','satmoreinfolink');" >
+							<p id="sattrainlocationctrl" class="text-muted small-link">...more info...</p>
 						</a>
 						
 					</div>
@@ -488,10 +489,6 @@ http://www.runningadelaide.net/
 							facing homelessness to rebuild their lives, without judgement.
 						</p>
 						
-						<a id="huttStreetMoreInfoHash" onclick="showAndHideDons('don15extra');" href="#huttStreetMoreInfoHash" class="page-scroll">
-							<p class="text-muted">More info ...</p>
-						</a>
-						
 						<p id="don15extra" style="display:none" class="text-muted">
 							At Hutt Street there is so much that happens in the Day Centre and behind the scenes.
 							<br/><br/>
@@ -509,7 +506,14 @@ http://www.runningadelaide.net/
 							<a href="https://www.huttstcentre.org.au/" target="_blank">
 								https://www.huttstcentre.org.au/
 							</a>
+							<br/><br/>
 						</p>
+						
+						<a id="showDon15ExtraLink" href="#don15extra" class="page-scroll"
+							onclick="showDivHideLink('don15extra','showDon15ExtraLink');">
+							<p id="huttStreetMoreInfoCtrl" class="text-faded small-link">...more info...</p>
+						</a>
+						
 					</div>
 
 					<hr class="light" />
@@ -530,7 +534,7 @@ http://www.runningadelaide.net/
 						is a place of hope and opportunity, helping people facing homelessness to rebuild their lives, without judgement.
 						<br/><br/>
 						For more information on the Hutt Street Centre – go to
-						<a style="color:rgba(255,255,255,.7);" href="https://www.huttstcentre.org.au/" target="_blank">
+						<a  href="https://www.huttstcentre.org.au/" target="_blank">
 							https://www.huttstcentre.org.au/
 						</a>
 					</p>
