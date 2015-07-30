@@ -75,7 +75,7 @@ function populateData(dataTable) {
 		}
 	}
 	
-	console.log(raceString);
+	//console.log(raceString);
 	populatePTag (wedString[0],satString[0],raceString[0]);
 	populateExtraTS (wedString,satString, raceString);
 }
