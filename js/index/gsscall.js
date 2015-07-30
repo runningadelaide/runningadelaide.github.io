@@ -67,7 +67,7 @@ function populateData(dataTable) {
 	for (var i = 0; i < rowCount; i++) {
 		var dateVal = dataTable.getValue(i,0);
 		if(dataTable.getValue(i,5) == 'r'){
-			raceString.push(formatRaceString(dataTable,i))
+			raceString.push(formatTrainString(dataTable,i))
 		} else if(dateVal.getDay() == 3){
 			wedString.push(formatTrainString(dataTable,i))
 		} else if (dateVal.getDay() == 6) {
