@@ -105,6 +105,20 @@ http://www.runningadelaide.net/
 			display: inline-block;
 		}
 		
+		.arc-don-image-wrapper{
+			overflow: hidden;
+			text-align:center;
+			width:100%;
+			height: 100px;
+			position: relative;
+		}
+		
+		.arc-don-image{
+			vertical-align: bottom;
+			height: 100px;
+			display: inline-block;
+		}
+		
 		.small-link {
 			color: #00C7FF !important;
 			font-size: small;
@@ -191,9 +205,9 @@ http://www.runningadelaide.net/
 	
 	<div class="arc-image-wrapper">
 	<div>
-	<img src="https://lh3.googleusercontent.com/-iRi3bryQ864/VbeOzPExa0I/AAAAAAAAABE/FwwbR28-cMM/s400-Ic42/port.jpg" class="arc-image" ></img>
-	<img src="https://lh3.googleusercontent.com/-Nvas9ArohI0/VbeOzKVzwEI/AAAAAAAAABE/f6uKdsTPsW4/s400-Ic42/land.jpg" class="arc-image" ></img>
-	<img src="https://lh3.googleusercontent.com/-iRi3bryQ864/VbeOzPExa0I/AAAAAAAAABE/FwwbR28-cMM/s400-Ic42/port.jpg" class="arc-image" ></img>
+	<img src="https://lh3.googleusercontent.com/-iEr2Y6XJFQ8/VbmHsYpBnaI/AAAAAAAAADo/sGRI3IgCSWg/s400-Ic42/lofty.jpg" class="arc-image" ></img>
+	<img src="https://lh3.googleusercontent.com/-uhjgGP8EzqY/VbmHsay_AfI/AAAAAAAAADs/BkPNlpni8IA/s400-Ic42/breakfast.jpg" class="arc-image" ></img>
+	<img src="https://lh3.googleusercontent.com/-1wVyX-hFogk/VbmIba8RN7I/AAAAAAAAAD4/WSEvd2STUdA/s400-Ic42/gather.jpg" class="arc-image" ></img>
 	</div>
 	</div>
 	
@@ -224,33 +238,31 @@ http://www.runningadelaide.net/
 						<br/>
 						<a id="moreWedTrainLink" href="#wedtraining"  class="page-scroll"
 							onclick="showDivHideLink('moreWedTraining','moreWedTrainLink');">
-							<p class="text-muted small-link" id="showmorewedtrainingctrl">...show more...<p>
+							<p class="text-muted small-link" id="showmorewedtrainingctrl">...show more sessions...<p>
 						</a>
 						
 						<br/>
 						<p class="text-muted" style="font-size: xx-small;">
-							Sessions do change so check facebook or twitter for the latest information.
+							Sessions do change so check facebook/twitter/google+ accounts for the latest information.
 						</p>
 						
 						<hr class="primary thin" />
 						<p class="text-muted">
 							Meet at 6pm for a 6:10pm start.
+							<br/><br/>
+							Meet at the start of Uni Loop, crn of Jerningham St and Mackinnon Pde in Nth Adelaide.
+							<a onclick="toggleMapVisibility();" href="#map-wrapper" class="page-scroll">
+								click for map
+							</a>
 						</p>
-						<br/>
-						<a onclick="toggleMapVisibility();" href="#maphashlocation" class="page-scroll">
-							<p id="maphashlocation" class="text-muted small-link">...show map...</p>
-						</a>
 						<div id="map-wrapper" style="display:none;">
 							<div id="map-canvas" style="width: 100%; height: 400px;"></div>
 						</div>
-						<br/>
-						<p class="text-muted">
-							Meet at the start of Uni Loop, corner of Jerningham Street and Mackinnon Parade in North Adelaide.
-							Training venues include Uni Loop, Torrens Lake and Brougham Gardens.
-						</p>
+						
 						<p id="wedmoreinfo" style="display:none" class="text-muted">
 							<br/>
-							These sessions are designed to make you fitter and faster and follow a program designed by a qualified athletics coach.
+							Training venues include Uni Loop, Torrens Lake and Brougham Gardens. These sessions are designed 
+							to make you fitter and faster and follow a program designed by a qualified athletics coach.
 							<br/><br/>
 							Following the warm up, runners do a series of strides and drills before commencing the main part of the session. The night concludes with a cool down run and stretching.
 							<br/><br/>
@@ -281,11 +293,11 @@ http://www.runningadelaide.net/
 						<br/>
 						<a id="showMoreSatTrainLink" href="#sattraining" class="page-scroll"
 							onclick="showDivHideLink('moreSatTraining','showMoreSatTrainLink');" >
-							<p class="text-muted small-link" id="showmoresattrainingctrl">...show more...</p>
+							<p class="text-muted small-link" id="showmoresattrainingctrl">...show more sessions...</p>
 						</a>
 						<br/>
 						<p class="text-muted" style="font-size: xx-small;">
-							Sessions do change so check facebook or twitter for the latest information.
+							Sessions do change so check facebook/twitter/google+ accounts for the latest information.
 						</p>
 						<hr class="primary thin" />
 
@@ -326,7 +338,7 @@ http://www.runningadelaide.net/
 	<div class="arc-image-wrapper">
 	<img src="https://lh3.googleusercontent.com/-Nvas9ArohI0/VbeOzKVzwEI/AAAAAAAAABE/f6uKdsTPsW4/s400-Ic42/land.jpg" class="arc-image" ></img>
 	<img src="https://lh3.googleusercontent.com/-iRi3bryQ864/VbeOzPExa0I/AAAAAAAAABE/FwwbR28-cMM/s400-Ic42/port.jpg" class="arc-image" ></img>
-	<img src="https://lh3.googleusercontent.com/-Nvas9ArohI0/VbeOzKVzwEI/AAAAAAAAABE/f6uKdsTPsW4/s400-Ic42/land.jpg" class="arc-image" ></img>
+	<img src="https://lh3.googleusercontent.com/-ujMGFnRW3Ac/VbmGl0CrBYI/AAAAAAAAADQ/IVm5a8EaPY0/s400-Ic42/result3.jpg" class="arc-image" ></img>
 	</div>
 
 	<section id="faq" style="padding:20px 0px;">
@@ -427,9 +439,9 @@ http://www.runningadelaide.net/
 	</section>
 	
 	<div class="arc-image-wrapper">
-	<img src="https://lh3.googleusercontent.com/-iRi3bryQ864/VbeOzPExa0I/AAAAAAAAABE/FwwbR28-cMM/s400-Ic42/port.jpg" class="arc-image" ></img>
-	<img src="https://lh3.googleusercontent.com/-Nvas9ArohI0/VbeOzKVzwEI/AAAAAAAAABE/f6uKdsTPsW4/s400-Ic42/land.jpg" class="arc-image" ></img>
-	<img src="https://lh3.googleusercontent.com/-iRi3bryQ864/VbeOzPExa0I/AAAAAAAAABE/FwwbR28-cMM/s400-Ic42/port.jpg" class="arc-image" ></img>
+	<img src="https://lh3.googleusercontent.com/-AeZ2hKCcZik/VbmFLisEkII/AAAAAAAAACs/QL-EOlDH1kI/s400-Ic42/social1.jpg" class="arc-image" ></img>
+	<img src="https://lh3.googleusercontent.com/-5z2qg4FgTVc/VbmFLSsWOiI/AAAAAAAAAC0/bBSfvM29utA/s400-Ic42/social4.jpg" class="arc-image" ></img>
+	<img src="https://lh3.googleusercontent.com/-j_d0jNSR538/VbmFLghQrxI/AAAAAAAAAC4/WgNLvisEfNs/s400-Ic42/social3.jpg" class="arc-image" ></img>
 	</div>
 
 	<section id="merchandise" style="padding:20px 0px;">
@@ -459,9 +471,9 @@ http://www.runningadelaide.net/
 	</section>
 
 	<div class="arc-image-wrapper">
-	<img src="https://lh3.googleusercontent.com/-iRi3bryQ864/VbeOzPExa0I/AAAAAAAAABE/FwwbR28-cMM/s400-Ic42/port.jpg" class="arc-image" ></img>
-	<img src="https://lh3.googleusercontent.com/-Nvas9ArohI0/VbeOzKVzwEI/AAAAAAAAABE/f6uKdsTPsW4/s400-Ic42/land.jpg" class="arc-image" ></img>
-	<img src="https://lh3.googleusercontent.com/-iRi3bryQ864/VbeOzPExa0I/AAAAAAAAABE/FwwbR28-cMM/s400-Ic42/port.jpg" class="arc-image" ></img>
+	<img src="https://lh3.googleusercontent.com/-mdQ1eJ6uClA/VbmAKRFIgKI/AAAAAAAAAB4/Otsqz-z56kU/s400-Ic42/merch2.jpg" class="arc-image" ></img>
+	<img src="https://lh3.googleusercontent.com/-Z0RD6Nh9zcM/VbmAIiLK6BI/AAAAAAAAABo/EqIRuWKcvNM/s400-Ic42/merch3.jpg" class="arc-image" ></img>
+	<img src="https://lh3.googleusercontent.com/-_-4Rk9AzXXQ/VbmAK7f30hI/AAAAAAAAACA/Eb642nCWHqg/s400-Ic42/merch4.jpg" class="arc-image" ></img>
 	</div>
 	
 	<section id="donations" style="padding:20px 0px;">
@@ -516,7 +528,7 @@ http://www.runningadelaide.net/
 						
 					</div>
 
-					<hr class="light" />
+					<hr class="primary thin" />
 					<p id="pastdonationhash" class="text-muted">
 						Organisations we supported in the past
 					</p>
@@ -566,10 +578,10 @@ http://www.runningadelaide.net/
 		</div>
 	</section>
 	
-	<div class="arc-image-wrapper">
-	<img src="https://lh3.googleusercontent.com/-iRi3bryQ864/VbeOzPExa0I/AAAAAAAAABE/FwwbR28-cMM/s400-Ic42/port.jpg" class="arc-image" ></img>
-	<img src="https://lh3.googleusercontent.com/-Nvas9ArohI0/VbeOzKVzwEI/AAAAAAAAABE/f6uKdsTPsW4/s400-Ic42/land.jpg" class="arc-image" ></img>
-	<img src="https://lh3.googleusercontent.com/-iRi3bryQ864/VbeOzPExa0I/AAAAAAAAABE/FwwbR28-cMM/s400-Ic42/port.jpg" class="arc-image" ></img>
+	<div class="arc-don-image-wrapper">
+	<img src="img/other/huttstreetlogo.png" class="arc-don-image" ></img>
+	<img src="img/other/imp_Logo.gif" class="arc-don-image" ></img>
+	<img src="img/other/Kosgei.jpg" class="arc-don-image" ></img>
 	</div>
 
 	<section id="contact" style="padding:20px 0px;">
