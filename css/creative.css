@@ -225,7 +225,7 @@ header {
     text-align: center;
     color: #fff;
     background-image: url(../img/arc-front.jpg);
-    background-position: center;
+    background-position: top;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
