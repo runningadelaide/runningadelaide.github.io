@@ -1,0 +1,56 @@
+<html>
+	<head>
+		<script type="text/javascript">
+		
+
+			function listAlbums(albumList)  {
+				console.log("=== list album started ====");
+				var length = albumList.feed.entry.length;
+				for (var i = 0; i < length; i++) {
+					var indAlbum = albumList.feed.entry[i];
+					console.log("Album : " +
+						indAlbum.rights.$t + " " +
+						indAlbum.title.$t + " " +
+						generateAlbumLink(indAlbum.gphoto$user.$t,indAlbum.gphoto$id.$t)
+					);
+				}
+				console.log("=== list album end ====");
+			}
+			
+			function generateAlbumLink(userId, albumId) {
+				return "https://picasaweb.google.com/data/feed/api/user/" +
+					userId +
+					"/albumid/" +
+					albumId + 
+					"?alt=json-in-script&callback=listImages";
+			
+			}
+			
+			function listImages(album) {
+				console.log("=== list webtest images started ====");
+				
+				var length = album.feed.entry.length;
+				for (var i = 0; i < length; i++) {
+					var photo = album.feed.entry[i];
+					console.log("photo : " + photo.title.$t);
+					console.log(photo.media$group.media$content[0].url);
+					console.log(photo.media$group.media$thumbnail[0].url);
+					console.log(photo.media$group.media$thumbnail[1].url);
+					console.log(photo.media$group.media$thumbnail[2].url);
+				}
+			
+				console.log("=== list webtest images end ====");
+			}
+		</script>
+		<!-- gets list of all albums -->
+		<script type="text/javascript" src="https://picasaweb.google.com/data/feed/api/user/109728578854655555694?alt=json-in-script&callback=listAlbums">
+		</script>
+		
+		<!-- gets list of all images in the wetest album -->
+		<script type="text/javascript" src="https://picasaweb.google.com/data/feed/api/user/109728578854655555694/albumid/6176562422488871345?alt=json-in-script&callback=listImages">
+		</script>
+	</head>
+	<body>
+		hello - check the console logs!
+	</body>
+</html>
