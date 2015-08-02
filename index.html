@@ -227,21 +227,28 @@ http://www.runningadelaide.net/
 					<hr class="default" />
 					<p class="text-muted" style="font-size: small;">
 						Sessions do change so check facebook/twitter/google+ accounts for the latest information. To see the full year training plan
-						<a target="_blank" href="https://docs.google.com/spreadsheets/d/1SQq7DSinO7do-sdqUjZZb0sV437SHRMICMlUQlFFy-g/pub?single=true&gid=0&output=html">
+						<a target="_blank" href="https://docs.google.com/spreadsheets/d/1SQq7DSinO7do-sdqUjZZb0sV437SHRMICMlUQlFFy-g/pub">
 							click here
 						</a>
-						<br/>
-						<a onclick="toggleDivVisibility('members-short-link');">
-							Members
+						<br/><br/>
+						<a id="membersinfohash" onclick="toggleDivVisibility('members-short-link');" href="#membersinfohash" class="page-scroll">
+							Members Info
 						</a>
 					</p>
-					<p id="members-short-link" class="text-muted" style="font-size: small; display:none;">
-						For members who know how we work and know that our training sessions are not always set in stone, but you still want a quick 
-						link thats shows the planned upcoming training sessions. You can bookmark this link for your mobile,
-						<a target="_blank" href="./mini-tp.html">
-							click here
-						</a>
-					</p>
+					<div id="members-short-link" style="display:none;">
+						<p  class="text-muted" style="font-size: small;">
+							Our quarterly time trial results,
+							<a target="_blank" href="https://docs.google.com/spreadsheets/d/1EA9WOSKG8ypPss9W1xxPYuvWh_ri3niqW5VPGC4nG-8/pub">
+								click here.
+							</a>
+							<br/><br/>
+							For members who know how we work and know that our training sessions are not always set in stone, but you still want a quick 
+							link thats shows the planned upcoming training sessions. You can bookmark this link for your mobile,
+							<a target="_blank" href="./mini-tp.html">
+								click here
+							</a>
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -626,7 +633,18 @@ http://www.runningadelaide.net/
 					<button type="submit" class="social-btn" onclick='sendEmail()'>
 						<img src="img/social/email.png" alt="Submit"/>
 					</button>
-					<p class="text-muted">running-adelaide-email-com</p>
+					<!--p class="text-muted">running-adelaide-email-com</p-->
+					
+					<a id="showDon15ExtraLink" href="#googlecontactformhash" class="page-scroll"
+						onclick="toggleDivVisibility('googlecontactform');">
+						<p id="googlecontactformhash" class="text-faded small-link">...Contact Form...</p>
+					</a>
+					<div id="googlecontactform" style="display:none;">
+						<iframe src="http://docs.google.com/spreadsheet/embeddedform?bc=transparent&amp;f=Arial%252C%2BVerdana%252C%2Bsans-serif&amp;hl=en_GB&amp;htc=%2523666666&amp;key=0AjqSAjIfmUPodElRaDN2ekcyMTJSLUVmMzd2cjF1U0E&amp;lc=%2523336699&amp;pli=1&amp;tc=%2523333333&amp;ttl=0"
+						width="100%" height="300" title="Contact Us" allowtransparency="true"
+						frameborder="0" marginheight="0" marginwidth="0" id="1105548425">
+						</iframe>
+					</div>
 				</div>
 			</div>
 		</div>
