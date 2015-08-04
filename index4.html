@@ -90,16 +90,17 @@ http://www.runningadelaide.net/
 		
 		var imageIndex = 0;
 		
-		setInterval(
-			function(){				
-				$('#header-back').fadeOut(4000, function() {
-					$(this).css('background-image', 'url('+images[getNextId()]+')').fadeIn(4000, function () {
+		//fadeBackground();
+			
+		function fadeBackground() {
+		console.log("asdfasdfasdfasdf");
+			$('#header-back').fadeOut(4000, function() {
+				$(this).css('background-image', 'url('+images[getNextId()]+')').fadeIn(4000, function () {
 						$('#headerid').css('background-image', 'url('+images[getNextId()]+')');
 					}
-					);
-					
-				});
-			}, 8000);
+				);
+			});
+		}
 			
 			
 		function getNextId() {
@@ -110,6 +111,8 @@ http://www.runningadelaide.net/
 			return imageIndex;
 		}
 
+		//fadeBackground();
+		setInterval(fadeBackground, 8000);
 
 	</script>
 	
