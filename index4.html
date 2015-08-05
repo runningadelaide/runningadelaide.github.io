@@ -94,15 +94,32 @@ http://www.runningadelaide.net/
 			
 		function fadeBackground() {
 		console.log("asdfasdfasdfasdf");
-			$('#header-back').fadeOut(4000, function() {
-				$(this).css('background-image', 'url('+images[getNextId()]+')').fadeIn(4000, function () {
+			$('#header-back').fadeOut(2000, function() {
+				$(this).css('background-image', 'url('+images[getNextId()]+')').fadeIn(2000, function () {
 						$('#headerid').css('background-image', 'url('+images[getNextId()]+')');
 					}
 				);
 			});
 		}
-			
-			
+		
+		function showHeaderBkg() {
+			console.log("show header bkg");
+			$('#header-back').fadeOut(2000, function() {
+				$('#headerid').css('background-image', 'url('+images[getNextId()]+')').fadeIn(2000, function() {
+					showHeaderBackBkg();
+				});
+			});
+		}
+
+		function showHeaderBackBkg() {
+			console.log("show header back bkg");
+			$('#header-back').fadeOut(2000, function() {
+				$('#header-back').css('background-image', 'url('+images[getNextId()]+')').fadeIn(2000, function() {
+					setTimeout(showHeaderBackBkg,2000);
+				});
+			});
+		}
+		
 		function getNextId() {
 			imageIndex = imageIndex + 1;
 			if (imageIndex >= images.length) {
@@ -112,7 +129,8 @@ http://www.runningadelaide.net/
 		}
 
 		//fadeBackground();
-		setInterval(fadeBackground, 8000);
+		//setInterval(fadeBackground, 8000);
+		//setTimeout(showHeaderBackBkg,2000);
 
 	</script>
 	
@@ -178,6 +196,21 @@ http://www.runningadelaide.net/
 			background-size: cover;
 			-o-background-size: cover;
 		}
+		
+		#arc-logo-div {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			min-height: auto;
+			text-align: center;
+			color: #fff;
+			background-image: url(../img/arc-front.jpg);
+			background-position: top;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			background-size: cover;
+			-o-background-size: cover;
+		}
 	</style>
 </head>
 
@@ -199,6 +232,7 @@ http://www.runningadelaide.net/
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
+					
 					<li>
 						<a class="page-scroll" href="#about">About</a>
 					</li>
@@ -219,6 +253,10 @@ http://www.runningadelaide.net/
 					</li>
 				</ul>
 			</div>
+			
+			
+			
+			
 			<!-- /.navbar-collapse -->
 		</div>
 		<!-- /.container-fluid -->
@@ -227,20 +265,23 @@ http://www.runningadelaide.net/
 	<header id="headerid">
 		<div id="header-back">
 		</div>
-		<div class="header-content">
-		</div>
-		<div style="position:absolute;top:60px;width:100%">
+		<!--div class="header-content">
+		</div-->
+		<!--div id="arc-logo-div">
 			<img src="img/arc-logo-t.png" style="height:130px" alt="">
-		</div>
+		</div-->
 		<div style="position:absolute;bottom:0;width:100%">
-			
-			<h4 class="header-desc">We are a social Adelaide running group running in and around the CBD</h4>		
-			<!--a href="#about" class="btn btn-default btn-xl page-scroll">Find Out More</a>
+			<img src="img/arc-logo-t.png" style="height: 20vh;" alt="">
 			<br/>
-			<p class="text-muted" style="margin-bottom:0px;">OR</p-->
-			<button style="margin-bottom:20px;" type="submit" class="btn btn-default" onclick='window.location.href="https://www.facebook.com/groups/108841288928/"'>
-				<img src="img/facebook/png/FB_FindUsOnFacebook-144.png" alt="Submit">
-			</button>
+			
+			<h4 class="header-desc">We are a social Adelaide running group running in and around the CBD
+			</h4>		
+			<!--button style="margin-bottom:20px;" type="submit" class="btn btn-default" onclick='window.location.href="https://www.facebook.com/groups/108841288928/"'>
+				<img src="img/facebook/png/FB_FindUsOnFacebook-144.png" alt="Submit" style="max-height: 40px">
+			</button-->
+			<a type="submit" class="social-btn" href="https://www.facebook.com/groups/108841288928/" target="_blank" >
+				<img src="img/facebook/png/FB_FindUsOnFacebook-144.png" alt="Submit" style="max-height: 40px; background-color: rgba(0,0,0,0.6); margin-bottom:20px; padding:2px"/>
+			</a>
 		</div>
 	</header>
 
