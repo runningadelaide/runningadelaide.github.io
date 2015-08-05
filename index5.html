@@ -135,6 +135,26 @@ http://www.runningadelaide.net/
 		//fadeBackground();
 		//setInterval(fadeBackground, 8000);
 		//setTimeout(showHeaderBackBkg,2000);
+function cycleBackgrounds() {
+	var index = 0;
+
+	$imageEls = $('.toggle-image'); // Get the images to be cycled.
+
+	setInterval(function () {
+		// Get the next index.  If at end, restart to the beginning.
+		index = index + 1 < $imageEls.length ? index + 1 : 0;
+		// Show the next image.
+		$imageEls.eq(index).addClass('show');
+		// Hide the previous image.
+		$imageEls.eq(index - 1).removeClass('show');
+
+	}, 2000);
+};
+
+// Document Ready.
+$(function () {
+	cycleBackgrounds();
+});
 
 	</script>
 	
@@ -216,18 +236,55 @@ http://www.runningadelaide.net/
 			-o-background-size: cover;
 		}
 		
-		.figure-img{
-			height:100%;
-			width:100%;
-			overflow:hidden;
-		}
-		
-		.img-in-figure-img{
-			min-width:100%;
-			min-height:100%;
-			display: inline-block; 
-			vertical-align:middle;
-		}
+
+/* Basic background image styling. */
+.background-image {
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+/* Styles for the alternating / transition effect. */
+.toggle-image {
+ 	position: absolute;
+	min-width: 100%;
+	min-height:100%;
+	top: 0;
+	left: 0;
+ 	height: 800px;
+	transition: opacity 1s ease-in-out;
+}
+
+/* Styles for the specific images. */
+.first-image {
+	background-image: url('http://s169923.gridserver.com/images/dtlarooftop.jpg');	
+	z-index: 0;
+	opacity: 0;
+}
+
+.second-image {
+	background-image: url('http://s169923.gridserver.com/images/winterbarrel.jpg');
+	z-index: 0;
+	opacity: 0;
+}
+
+.third-image {
+	background-image: url('http://s169923.gridserver.com/images/catalinaharbor.jpg');
+	z-index: 0;
+	opacity: 0;
+}
+
+.first-image.show {
+	opacity: 1;
+}
+
+.second-image.show {
+	opacity: 1;
+}
+
+.third-image.show {
+	opacity: 1;
+}
 	</style>
 </head>
 
@@ -279,9 +336,9 @@ http://www.runningadelaide.net/
 		<!-- /.container-fluid -->
 	</nav>
 
-	<header id="headerid">
+	<header id="headerid" style="overflow:hidden">
 		<!--div  class="header-back"-->
-		<div  class="bss-slides num1" tabindex="1" autofocus="autofocus" style="height:100%; z-index:0">
+		<!--div  class="bss-slides num1" tabindex="1" autofocus="autofocus" style="height:100%; z-index:0">
             <figure class="figure-img">
 		      <img src="https://lh3.googleusercontent.com/-iEr2Y6XJFQ8/VbmHsYpBnaI/AAAAAAAAADo/sGRI3IgCSWg/s400-Ic42/lofty.jpg" class="img-in-figure-img" />
             </figure>
@@ -291,7 +348,10 @@ http://www.runningadelaide.net/
             <figure  class="figure-img">
 		      <img src="https://lh3.googleusercontent.com/-1wVyX-hFogk/VbmIba8RN7I/AAAAAAAAAD4/WSEvd2STUdA/s400-Ic42/gather.jpg" class="img-in-figure-img" />
             </figure>
-		</div>
+		</div-->
+		<div class="background-image toggle-image first-image show"></div>
+<div class="background-image toggle-image second-image"></div>
+<div class="background-image toggle-image third-image"></div>
 		<!--div class="header-content">
 		</div-->
 		<!--div id="arc-logo-div">
