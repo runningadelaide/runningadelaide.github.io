@@ -224,7 +224,7 @@ header {
     min-height: auto;
     text-align: center;
     color: #fff;
-    //background-image: url(../img/arc-front.jpg);
+    //background-image: url(https://lh3.googleusercontent.com/-aGSqd4Uj2KE/VcKsAyvNkPI/AAAAAAAAAJ4/M1KxC-duUZ8/s800-Ic42/arc-front-blur.jpg);
     background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -527,7 +527,7 @@ body {
 }
 
 .button-facebook-image {
-	background-image: url(../img/facebook/png/FB_FindUsOnFacebook-144.png);
+	background-image: url(../img/social/facebook/png/FB_FindUsOnFacebook-144.png);
 }
 
 .next-training {
