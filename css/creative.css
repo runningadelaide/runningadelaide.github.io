@@ -110,7 +110,7 @@ p {
 }
 
 section {
-    padding: 100px 0;
+	padding:20px 0px;
 }
 
 aside {
@@ -224,8 +224,8 @@ header {
     min-height: auto;
     text-align: center;
     color: #fff;
-    background-image: url(../img/arc-front.jpg);
-    background-position: top;
+    //background-image: url(../img/arc-front.jpg);
+    background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;

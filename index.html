@@ -30,6 +30,9 @@ http://www.runningadelaide.net/
 	<!-- Custom CSS -->
 	<link rel="stylesheet" href="css/creative.css" type="text/css">
 
+	<!-- for swipe support on touch interfaces>
+	<script src="js/hammer.min.js"></script-->
+	
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -83,10 +86,13 @@ http://www.runningadelaide.net/
 		}
 	</script>
 	
+	<!-- required for the cycling background photos -->
+	<link rel="stylesheet" href="css/cyclingbackground.css" type="text/css">
+	<script type="text/javascript" src="./js/index/cyclingbackground.js"></script>
+		
 	<!-- required div called id=wedtraining and id=sattraining -->
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script type="text/javascript" src="./js/index/gsscall.js"></script>
-	
 
 	<!-- this requires the div id = "map-canvas" to be direct child of a div id = "map-wrapper" -->
 	<script src="https://maps.googleapis.com/maps/api/js"></script>
@@ -130,6 +136,35 @@ http://www.runningadelaide.net/
 			background-color: rgba(0,0,0,0.6);
 			padding: 15px;
 		}
+		
+		.training-types {
+			max-width:500px;
+		}
+		
+		.other-links {
+			height:70px;
+		}
+		
+		.other-links-text {
+			font-size:small;
+		}
+		
+		#cover-arc-logo {
+			height: 20vh;
+		}
+
+		#cover-fb-logo {
+			max-height: 40px;
+			background-color: rgba(255,255,255,0.6);
+			margin-bottom:5px;
+			padding:2px
+		}
+		
+		#map-canvas {
+			width: 100%;
+			height: 400px;
+		}
+		
 	</style>
 </head>
 
@@ -171,27 +206,27 @@ http://www.runningadelaide.net/
 					</li>
 				</ul>
 			</div>
-			<!-- /.navbar-collapse -->
 		</div>
-		<!-- /.container-fluid -->
 	</nav>
 
-	<header>
-		<div class="header-content">
-		</div>
+	<header id="headerid" style="overflow:hidden">
+		<!-- these 3 divs are for the cycling background image -->
+		<div class="background-image toggle-image first-image show"></div>
+		<div class="background-image toggle-image second-image"></div>
+		<div class="background-image toggle-image third-image"></div>
+	
 		<div style="position:absolute;bottom:0;width:100%">
-			<h4 class="header-desc">We are a social Adelaide running group running in and around the CBD</h4>		
-			<!--a href="#about" class="btn btn-default btn-xl page-scroll">Find Out More</a>
+			<img id="cover-arc-logo" src="img/arc-logo-t.png" alt="">
 			<br/>
-			<p class="text-muted" style="margin-bottom:0px;">OR</p-->
-			<button style="margin-bottom:20px;" type="submit" class="btn btn-default" onclick='window.location.href="https://www.facebook.com/groups/108841288928/"'>
-				<img src="img/facebook/png/FB_FindUsOnFacebook-144.png" alt="Submit">
-			</button>
+			<h4 class="header-desc" style="margin-bottom:5px;">We are a social Adelaide running group running in and around the CBD</h4>		
+			<a type="submit" class="social-btn" href="https://www.facebook.com/groups/108841288928/" target="_blank" >
+				<img id="cover-fb-logo" src="img/facebook/png/FB_FindUsOnFacebook-144.png" alt="Submit"/>
+			</a>
 		</div>
 	</header>
 
-	<section  id="about" style="padding:20px 0px;">
-		<div class="container" style="width: 100%;">
+	<section  id="about">
+		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 text-center">
 					<h2 class="section-heading text-muted">About</h2>
@@ -206,9 +241,6 @@ http://www.runningadelaide.net/
 				</div>
 			</div>
 		</div>
-		<!--div class="button-center-pad">
-			<a href="#training" class="btn btn-default btn-xl page-scroll">Where to Start</a>
-		</div-->
 	</section>
 	
 	<div class="arc-image-wrapper">
@@ -219,7 +251,7 @@ http://www.runningadelaide.net/
 	</div>
 	</div>
 	
-	<section id="training" style="padding:20px 0px;">
+	<section id="training">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 text-center">
@@ -252,16 +284,14 @@ http://www.runningadelaide.net/
 				</div>
 			</div>
 		</div>
+		
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 text-center">
-					<div class="service-box" style="max-width:500px">
+					<div class="service-box training-types">
 						<img src="img/arc/hare.png" alt="Submit"></img>
 						<h3>Intervals - Wed 6pm</h3>
 						<hr class="primary thin" />
-						<!--p class="text-muted" style="font-size: x-small;">
-							Upcoming session
-						</p-->
 						<p id="wedtraining" class="text-muted">
 							Loading ...
 						</p>
@@ -270,7 +300,7 @@ http://www.runningadelaide.net/
 						<br/>
 						<a id="moreWedTrainLink" href="#wedtraining"  class="page-scroll"
 							onclick="showDivHideLink('moreWedTraining','moreWedTrainLink');">
-							<p class="text-muted small-link" id="showmorewedtrainingctrl">...show more sessions...<p>
+							<p class="text-muted small-link" id="showmorewedtrainingctrl">...show more sessions...</p>
 						</a>
 						
 						<br/>
@@ -284,7 +314,7 @@ http://www.runningadelaide.net/
 							</a>
 						</p>
 						<div id="map-wrapper" style="display:none;">
-							<div id="map-canvas" style="width: 100%; height: 400px;"></div>
+							<div id="map-canvas"></div>
 						</div>
 						
 						<p id="wedmoreinfo" style="display:none" class="text-muted">
@@ -306,7 +336,7 @@ http://www.runningadelaide.net/
 					</div>
 				</div>
 				<div class="col-md-4 text-center">
-					<div class="service-box" style="max-width:500px">
+					<div class="service-box training-types">
 						<img src="img/arc/tortoise.png" alt="Submit"></img>
 						<h3>Long Run - Sat 8am</h3>
 						<hr class="primary thin" />
@@ -346,7 +376,7 @@ http://www.runningadelaide.net/
 					</div>
 				</div>
 				<div class="col-md-4 text-center">
-					<div class="service-box" style="max-width:500px">
+					<div class="service-box training-types">
 						<img src="img/arc/hare.png" alt="Submit"></img>
 						<h3>Upcoming races</h3>
 						<hr class="primary thin" />
@@ -357,7 +387,7 @@ http://www.runningadelaide.net/
 						<div id = "moreRaces" style="display:none"></div>
 						<a id="moreRacesLink" href="#racesdiv"  class="page-scroll"
 							onclick="showDivHideLink('moreRaces','moreRacesLink');">
-							<p class="text-muted small-link">...show more races...<p>
+							<p class="text-muted small-link">...show more races...</p>
 						</a>
 						<hr class="primary thin" />
 						<p class="text-muted">
@@ -378,8 +408,8 @@ http://www.runningadelaide.net/
 	<img src="https://lh3.googleusercontent.com/-ujMGFnRW3Ac/VbmGl0CrBYI/AAAAAAAAADQ/IVm5a8EaPY0/s400-Ic42/result3.jpg" class="arc-image" ></img>
 	</div>
 
-	<section id="faq" style="padding:20px 0px;">
-		<div class="container" style="width: 90%;">
+	<section id="faq">
+		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 text-center">
 					<h2 class="section-heading" >FAQ</h2>
@@ -481,7 +511,7 @@ http://www.runningadelaide.net/
 	<img src="https://lh3.googleusercontent.com/-j_d0jNSR538/VbmFLghQrxI/AAAAAAAAAC4/WgNLvisEfNs/s400-Ic42/social3.jpg" class="arc-image" ></img>
 	</div>
 
-	<section id="merchandise" style="padding:20px 0px;">
+	<section id="merchandise">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 text-center">
@@ -513,7 +543,7 @@ http://www.runningadelaide.net/
 	<img src="https://lh3.googleusercontent.com/-_-4Rk9AzXXQ/VbmAK7f30hI/AAAAAAAAACA/Eb642nCWHqg/s400-Ic42/merch4.jpg" class="arc-image" ></img>
 	</div>
 	
-	<section id="donations" style="padding:20px 0px;">
+	<section id="donations">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 text-center">
@@ -609,7 +639,7 @@ http://www.runningadelaide.net/
 	<img src="img/other/Kosgei.jpg" class="arc-don-image" ></img>
 	</div>
 
-	<section id="contact" style="padding:20px 0px;">
+	<section id="contact">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 text-center">
@@ -650,7 +680,7 @@ http://www.runningadelaide.net/
 		</div>
 	</section>
 	
-	<section id="links" style="padding:20px 0px;" class="bg-faded">
+	<section id="links" class="bg-faded">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 text-center">
@@ -660,33 +690,33 @@ http://www.runningadelaide.net/
 				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
 					<div class="service-box">
 						<a type="submit" class="social-btn" href="http://www.crosbiecrew.net/" target="_blank">
-							<div><img src="img/other/crosbie.png" alt="Submit" style="height:70px;"/></div>
+							<div><img src="img/other/crosbie.png" alt="Submit" class="other-links"/></div>
 						</a>
-						<p class="text-muted" style="font-size: small">The Crosbie Crew - Melbourne based running crew. The Tan, Melbourne</p>
+						<p class="text-muted other-links-text">The Crosbie Crew - Melbourne based running crew. The Tan, Melbourne</p>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
 					<div class="service-box">
 						<a type="submit" class="social-btn" href="http://www.therunningcompany.com.au/" target="_blank">
-							<div style="height:70px;"><img src="img/other/runcomp.png" alt="Submit" style="height:40px; background:#0066cc;"/></div>
+							<div class="other-links"><img src="img/other/runcomp.png" alt="Submit" style="height:40px; background:#0066cc;"/></div>
 						</a>
-						<p class="text-muted" style="font-size: small">The running company - Sydney based running crew. Bondi Beach, Sydney</p>
+						<p class="text-muted other-links-text">The running company - Sydney based running crew. Bondi Beach, Sydney</p>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
 					<div class="service-box">
 						<a type="submit" class="social-btn" href="http://trailrunningsa.com/" target="_blank">
-							<div><img src="img/other/trailsa.png" alt="Submit" style="height:70px;"/></div>
+							<div><img src="img/other/trailsa.png" alt="Submit" class="other-links"/></div>
 						</a>
-						<p class="text-muted" style="font-size: small">Organise both social running groups and races on trails around SA</p>
+						<p class="text-muted other-links-text">Organise both social running groups and races on trails around SA</p>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
 					<div class="service-box">
 						<a type="submit" class="social-btn" href="http://www.sarrc.asn.au/" target="_blank">
-							<div><img src="img/other/sarrc.png" alt="Submit" style="height:70px;"/></div>
+							<div><img src="img/other/sarrc.png" alt="Submit" class="other-links"/></div>
 						</a>
-						<p class="text-muted" style="font-size: small">Organise both social running groups and races on roads around SA</p>
+						<p class="text-muted other-links-text">Organise both social running groups and races on roads around SA</p>
 					</div>
 				</div>
 					
@@ -694,10 +724,7 @@ http://www.runningadelaide.net/
 			</div>
 		</div>
 	</section>
-
-	<!-- jQuery 
-	<script src="js/jquery.js"></script>
--->
+	
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
 
