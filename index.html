@@ -12,7 +12,8 @@ http://www.runningadelaide.net/
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<link rel="icon" type="image/png" href="img/arc/arc-logo-t.png">
+	<link rel="shortcut icon" sizes="228x228" href="arc-logo-228x228.png">
+	<link rel="apple-touch-icon" href="arc-logo-180x180.png">
 
 	<title>ARC - Adelaide Running Crew</title>
 	
@@ -76,13 +77,18 @@ http://www.runningadelaide.net/
 			}
 		}
 		
-		function sendEmail() {
+		function sendEmail(justShow) {
 			var recipient="runningadelaide";
 			var at = String.fromCharCode(64);
 			var dotcom="hotmail.com";
 			var mail="mailto:";
 			var subject="?subject=web enquiry"
-			window.open(mail+recipient+at+dotcom+subject);
+			
+			if (justShow) {
+				document.getElementById('jsarcemail').innerHTML = recipient+at+dotcom;
+			} else {
+				window.open(mail+recipient+at+dotcom+subject);
+			}
 		}
 	</script>
 	
@@ -219,7 +225,7 @@ http://www.runningadelaide.net/
 		<div style="position:absolute;bottom:0;width:100%">
 			<img id="cover-arc-logo" src="img/arc/arc-logo-t.png" alt="">
 			<br/>
-			<h4 class="header-desc" style="margin-bottom:5px;">We are a social Adelaide running group running in and around the CBD</h4>		
+			<h4 class="header-desc" style="margin-bottom:5px;">We are a social Adelaide running group, running in and around the CBD</h4>		
 			<a type="submit" class="social-btn" href="https://www.facebook.com/groups/108841288928/" target="_blank" >
 				<img id="cover-fb-logo" src="img/social/facebook/png/FB_FindUsOnFacebook-144.png" alt="Submit"/>
 			</a>
@@ -360,8 +366,8 @@ http://www.runningadelaide.net/
 						<p class="text-muted">
 							Meet at 8am for a 8:10am start.
 							<br/><br/>
-							Saturday morning runs start all over Adelaide, check the above upcoming session, training plan, facebook or twitter 
-							for the latest information.
+							Saturday morning runs start all over Adelaide, check the above upcoming session for details.
+							Latest information will be posted on our social media pages (facebook/twitter/google+).
 						</p>
 						<br/>
 						<p id="satmoreinfo" style="display:none"class="text-muted">
@@ -444,9 +450,10 @@ http://www.runningadelaide.net/
 					
 					<p id="questiontwo" style="display:none" class="text-muted">
 						Provided you have a basic level of fitness and can run non stop for approximately 30-40. minutes, 
-						then you will be able to cope. We do recommend that before embarking on the Wednesday interval 
-						session that you develop a base of steady running, which can either be done at the Saturday 
-						session or on your own.
+						then you will be able to cope. However, the Wednesday night interval sessions are tailored to suit 
+						both beginners and seasoned runners so are a good place to start running with the ARC.
+						We do recommend that before embarking on the Wednesday interval session that you develop a base of steady 
+						running, which can either be done at the Saturday session or on your own.
 						<br/> <br/>
 						While there are no superstars in the group we are able to cater for a wide range of abilities. 
 						Currently our group includes runners that can run 10km in 37 min right through to runners 
@@ -473,7 +480,7 @@ http://www.runningadelaide.net/
 					
 					<p id="questionfour" style="display:none" class="text-muted">
 						There is no mandatory uniform; feel free to wear any appropriate running gear that you may have.
-						We do have a selection of ARC branded running wear though that is available to
+						We do have a selection of ARC branded running wear that is available to
 						purchase. Currently we are able to provide branded shorts, singlets, t-shirts, caps and even
 						hoodies. For more information, 
 						<a href="#merchandise" class="page-scroll">click here</a>
@@ -501,7 +508,9 @@ http://www.runningadelaide.net/
 					
 					<p id="questionsix" style="display:none" class="text-muted">
 						The Adelaide Running Crew have a number of regular social activities, including the traditional 
-						'Last Wednesday of the Month' dinner after training and the weekly Saturday morning Breakfast.
+						'Last Wednesday of the Month' dinner after training and the weekly Saturday morning Breakfast. 
+						There is also a social committee which organises 3-4 events each year such as lawn bowls, wine 
+						tours and movie nights
 						<br/><br/>
 					</p>
 					
@@ -665,21 +674,12 @@ http://www.runningadelaide.net/
 					</a>
 					
 					<hr class="primary thin" />
-					<button type="submit" class="social-btn" onclick='sendEmail()'>
+					<button type="submit" class="social-btn" onclick='sendEmail(false)'>
 						<img src="img/social/email.png" alt="Submit"/>
 					</button>
-					<!--p class="text-muted">running-adelaide-email-com</p-->
-					
-					<a id="showDon15ExtraLink" href="#googlecontactformhash" class="page-scroll"
-						onclick="toggleDivVisibility('googlecontactform');">
-						<p id="googlecontactformhash" class="text-faded small-link">...Contact Form...</p>
+					<a onclick="sendEmail(true);">
+						<p id="jsarcemail" class="text-muted small-link">Click To Show Email</p-->
 					</a>
-					<div id="googlecontactform" style="display:none;">
-						<iframe src="http://docs.google.com/spreadsheet/embeddedform?bc=transparent&amp;f=Arial%252C%2BVerdana%252C%2Bsans-serif&amp;hl=en_GB&amp;htc=%2523666666&amp;key=0AjqSAjIfmUPodElRaDN2ekcyMTJSLUVmMzd2cjF1U0E&amp;lc=%2523336699&amp;pli=1&amp;tc=%2523333333&amp;ttl=0"
-						width="100%" height="300" title="Contact Us" allowtransparency="true"
-						frameborder="0" marginheight="0" marginwidth="0" id="1105548425">
-						</iframe>
-					</div>
 				</div>
 			</div>
 		</div>
