@@ -19,7 +19,7 @@ body {
 
 hr {
     max-width: 50px;
-    border-color: #00ABEB;
+    border-color: #04A7E1;
     border-width: 3px;
 }
 
@@ -32,7 +32,7 @@ hr.thin {
 }
 
 a {
-    color: #00ABEB;
+    color: #04A7E1;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -84,7 +84,7 @@ p {
 }
 
 .bg-faded {
-	background: rgba(0, 199, 255, 0.9);
+	background:#04A7E1;
 }
 
 .bg-dark {
@@ -198,7 +198,7 @@ aside {
 
     .navbar-default.affix .navbar-header .navbar-brand {
         font-size: 14px;
-        color: #00ABEB;
+        color: #04A7E1;
     }
 
     .navbar-default.affix .navbar-header .navbar-brand:hover,
@@ -213,7 +213,7 @@ aside {
 
     .navbar-default.affix .nav > li>a:hover,
     .navbar-default.affix .nav>li>a:focus:hover {
-        color: #00ABEB;
+        color: #04A7E1;
     }
 }
 
