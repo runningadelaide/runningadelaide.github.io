@@ -1,6 +1,7 @@
 /* Basic background image styling. */
 .background-image {
-	background-position: center center;
+	//background-position: center center;
+	background-position: top !important;
 	background-repeat: no-repeat;
 	background-position: center;
     -webkit-background-size: cover;
@@ -16,25 +17,25 @@
 	min-height:100%;
 	top: 0;
 	left: 0;
-	height: 800px;
+	//height: 800px;
 	transition: opacity 1s ease-in-out;
 }
 
 /* Styles for the specific images. */
 .first-image {
-	background-image: url('https://lh3.googleusercontent.com/-qbKe7J-KhF0/VcKvbBhPNTI/AAAAAAAAAKE/I0e1wMlZeio/s800-Ic42/11133674_10153265979834686_467546949436361610_n.jpg');	
+	background-image: url('https://lh3.googleusercontent.com/-nPKrCbLqDW8/VclC_cJqdvI/AAAAAAAAANs/FxU28zmFIUQ/s800-Ic42/img0-re.jpg');	
 	z-index: 0;
 	opacity: 0;
 }
 
 .second-image {
-	background-image: url('https://lh3.googleusercontent.com/-uhjgGP8EzqY/VbmHsay_AfI/AAAAAAAAADs/BkPNlpni8IA/s400-Ic42/breakfast.jpg');
+	background-image: url('https://lh3.googleusercontent.com/-1EdD2iZB8pM/VclC7sTVzqI/AAAAAAAAANs/_cRo6ua4zfo/s800-Ic42/img4-re.jpg');
 	z-index: 0;
 	opacity: 0;
 }
 
 .third-image {
-	background-image: url('https://lh3.googleusercontent.com/-aGSqd4Uj2KE/VcKsAyvNkPI/AAAAAAAAAJ4/M1KxC-duUZ8/s800-Ic42/arc-front-blur.jpg');
+	background-image: url('https://lh3.googleusercontent.com/-GnYtI0PGzKg/VclDJTGaHOI/AAAAAAAAANs/1OMdWDmkoRg/s800-Ic42/img5-re.jpg');
 	z-index: 0;
 	opacity: 0;
 }
