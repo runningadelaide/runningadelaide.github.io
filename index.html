@@ -177,6 +177,26 @@ http://www.runningadelaide.net/
 			height: 400px;
 		}
 		
+		#moreRacesWrapper{
+			max-height:400px;
+			overflow-y:auto;
+			overflow-x:hidden;
+		}
+				
+		#moreRacesWrapper::-webkit-scrollbar-track {
+			//border: 1px solid black;
+			background-color: #FFFFFF;
+		}
+
+		#moreRacesWrapper::-webkit-scrollbar {
+			width: 2px;
+			background-color: #04A7E1;
+		}
+
+		#moreRacesWrapper::-webkit-scrollbar-thumb {
+			background-color: #04A7E1;	
+		}
+		
 	</style>
 </head>
 
@@ -400,7 +420,9 @@ http://www.runningadelaide.net/
 							Loading ...
 						</p>
 						<br/>
-						<div id = "moreRaces" style="display:none"></div>
+						<div id = "moreRacesWrapper">
+							<div id = "moreRaces" style="display:none;"></div>
+						</div>
 						<a id="moreRacesLink" href="#racesdiv"  class="page-scroll"
 							onclick="showDivHideLink('moreRaces','moreRacesLink');">
 							<p class="small-link">...show more races...</p>
