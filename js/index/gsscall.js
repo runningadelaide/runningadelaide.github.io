@@ -59,10 +59,10 @@ function populateData(dataTable) {
 	var raceString = [];
 	
 	
-	if (rowCount != 2) {
-		console.log("There are not exactly 2 entries");
-		console.log(dataTable);
-	}
+	//if (rowCount != 2) {
+	//	console.log("There are not exactly 2 entries");
+	//	console.log(dataTable);
+	//}
 	
 	for (var i = 0; i < rowCount; i++) {
 		var dateVal = dataTable.getValue(i,0);
