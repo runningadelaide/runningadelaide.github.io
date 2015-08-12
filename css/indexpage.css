@@ -1,0 +1,91 @@
+.arc-image-wrapper{
+	overflow: hidden;
+	text-align:center;
+	width:100%;
+	height: 200px;
+	position: relative;
+}
+
+.arc-image{
+	vertical-align: bottom;
+	height: 200px;
+	display: inline-block;
+}
+
+.arc-don-image-wrapper{
+	overflow: hidden;
+	text-align:center;
+	width:100%;
+	height: 70px;
+	position: relative;
+}
+
+.arc-don-image{
+	vertical-align: bottom;
+	height: 70px;
+	display: inline-block;
+}
+
+.small-link {
+	color: #04A7E1 !important;
+	font-size: small;
+}
+
+.header-desc {
+	background-color: rgba(0,0,0,0.6);
+	padding: 15px;
+}
+
+.training-types {
+	max-width:500px;
+}
+
+.maxwidth {
+	max-width:500px;
+}
+
+.other-links {
+	height:70px;
+}
+
+.other-links-text {
+	font-size:small;
+	color:white;
+}
+
+#cover-arc-logo {
+	height: 130px;
+	height: 20vh;
+}
+
+#cover-fb-logo {
+	max-height: 40px;
+	background-color: rgba(255,255,255,0.6);
+	margin-bottom:5px;
+	padding:2px
+}
+
+#map-canvas {
+	width: 100%;
+	height: 400px;
+}
+
+#moreRacesWrapper{
+	max-height:300px;
+	overflow-y:auto;
+	overflow-x:hidden;
+}
+		
+#moreRacesWrapper::-webkit-scrollbar-track {
+	//border: 1px solid black;
+	background-color: #FFFFFF;
+}
+
+#moreRacesWrapper::-webkit-scrollbar {
+	width: 2px;
+	background-color: #04A7E1;
+}
+
+#moreRacesWrapper::-webkit-scrollbar-thumb {
+	background-color: #04A7E1;	
+}
