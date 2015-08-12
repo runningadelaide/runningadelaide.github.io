@@ -53,6 +53,12 @@
 	color:white;
 }
 
+.social-btn {
+	background-color : transparent;
+	padding: 10px;
+	border: 0;
+}
+
 #cover-arc-logo {
 	height: 130px;
 	height: 20vh;

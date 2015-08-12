@@ -62,27 +62,6 @@ p {
     background-color: #545454;
 }
 
-.bg-images {
-    background-image: url(../img/arc/about-bkg.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-	background-color: black;
-}
-
-.bg-image-faq {
-    background-image: url(../img/arc/faq-bkg.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-	background-color: black;
-}
-
-.bg-image-contact {
-    background-image: url(../img/arc/contact-bkg.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-	background-color: black;
-}
-
 .bg-faded {
 	background:#04A7E1;
 }
@@ -519,28 +498,4 @@ img::-moz-selection {
 
 body {
     webkit-tap-highlight-color: #222;
-}
-
-.button-center-pad {
-	text-align: center;
-	padding-top: 40px;
-}
-
-.button-facebook-image {
-	background-image: url(../img/social/facebook/png/FB_FindUsOnFacebook-144.png);
-}
-
-.next-training {
-    border-style: solid;
-    border-width: 1px;
-    border-color: #00ABEB;
-    border-radius: 5px;
-    #font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
-    #font-weight: 700;
-}
-
-.social-btn {
-	background-color : transparent;
-	padding: 10px;
-	border: 0;
 }
