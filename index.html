@@ -41,70 +41,6 @@ http://www.runningadelaide.net/
 		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	<![endif]-->
-	
-	<script type="text/javascript" src="./js/jquery-1.11.0.min.js"></script>
-	<script type="text/javascript"> 
-		var questionIdList = ["questionone","questiontwo","questionthree","questionfour","questionfive","questionsix"];
-		var donationsIdList = ["don09","don10","don11"];
-	
-		function toggleDivVisibility(elementId) {
-			if (document.getElementById(elementId).style.display == "inline") {
-				document.getElementById(elementId).style.display = "none";
-			} else {
-				document.getElementById(elementId).style.display = "inline";
-			}
-		}
-		
-		function showDivHideLink(divToShowId, linkToHideId) {
-			document.getElementById(divToShowId).style.display = "inline";
-			document.getElementById(linkToHideId).style.display = "none";
-		}
-		
-		function showAndHideQues(elementId) {
-			toggleDivVisibility(elementId);
-			for (var i = 0; i < questionIdList.length; i++) {
-				if (elementId != questionIdList[i])	{
-					document.getElementById(questionIdList[i]).style.display = "none";
-				}
-			}
-		}
-		
-		function showAndHideDons(elementId) {
-			toggleDivVisibility(elementId);
-			for (var i = 0; i < donationsIdList.length; i++) {
-				if (elementId != donationsIdList[i]) {
-					document.getElementById(donationsIdList[i]).style.display = "none";
-				}
-			}
-		}
-		
-		function sendEmail(justShow) {
-			var recipient="runningadelaide";
-			var at = String.fromCharCode(64);
-			var dotcom="hotmail.com";
-			var mail="mailto:";
-			var subject="?subject=web enquiry"
-			
-			if (justShow) {
-				document.getElementById('jsarcemail').innerHTML = recipient+at+dotcom;
-			} else {
-				window.open(mail+recipient+at+dotcom+subject);
-			}
-		}
-	</script>
-	
-	<!-- required for the cycling background photos -->
-	<link rel="stylesheet" href="css/cyclingbackground.css" type="text/css">
-	<script type="text/javascript" src="./js/index/cyclingbackground.js"></script>
-		
-	<!-- required div called id=wedtraining / id=sattraining / id=racesdiv -->
-	<!-- id=moreWedTraining / id=moreSatTraining / id=moreRaces -->
-	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-	<script type="text/javascript" src="./js/index/gsscall.js"></script>
-
-	<!-- this requires the div id = "map-canvas" to be direct child of a div id = "map-wrapper" -->
-	<script src="https://maps.googleapis.com/maps/api/js"></script>
-	<script type="text/javascript" src="./js/index/gmapinit.js"></script>
 </head>
 
 <body id="page-top">
@@ -623,8 +559,8 @@ http://www.runningadelaide.net/
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 text-center">
-					<h2 class="section-heading">Other Links</h2>
-					<hr  />
+					<h2 class="section-heading" style="color:white;">Other Links</h2>
+					<hr  style="border-color:white;"/>
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
 					<div class="service-box">
@@ -663,6 +599,70 @@ http://www.runningadelaide.net/
 			</div>
 		</div>
 	</section>
+	
+		<script type="text/javascript" src="./js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript"> 
+		var questionIdList = ["questionone","questiontwo","questionthree","questionfour","questionfive","questionsix"];
+		var donationsIdList = ["don09","don10","don11"];
+	
+		function toggleDivVisibility(elementId) {
+			if (document.getElementById(elementId).style.display == "inline") {
+				document.getElementById(elementId).style.display = "none";
+			} else {
+				document.getElementById(elementId).style.display = "inline";
+			}
+		}
+		
+		function showDivHideLink(divToShowId, linkToHideId) {
+			document.getElementById(divToShowId).style.display = "inline";
+			document.getElementById(linkToHideId).style.display = "none";
+		}
+		
+		function showAndHideQues(elementId) {
+			toggleDivVisibility(elementId);
+			for (var i = 0; i < questionIdList.length; i++) {
+				if (elementId != questionIdList[i])	{
+					document.getElementById(questionIdList[i]).style.display = "none";
+				}
+			}
+		}
+		
+		function showAndHideDons(elementId) {
+			toggleDivVisibility(elementId);
+			for (var i = 0; i < donationsIdList.length; i++) {
+				if (elementId != donationsIdList[i]) {
+					document.getElementById(donationsIdList[i]).style.display = "none";
+				}
+			}
+		}
+		
+		function sendEmail(justShow) {
+			var recipient="runningadelaide";
+			var at = String.fromCharCode(64);
+			var dotcom="hotmail.com";
+			var mail="mailto:";
+			var subject="?subject=web enquiry"
+			
+			if (justShow) {
+				document.getElementById('jsarcemail').innerHTML = recipient+at+dotcom;
+			} else {
+				window.open(mail+recipient+at+dotcom+subject);
+			}
+		}
+	</script>
+	
+	<!-- required for the cycling background photos -->
+	<link rel="stylesheet" href="css/cyclingbackground.css" type="text/css">
+	<script type="text/javascript" src="./js/index/cyclingbackground.js"></script>
+		
+	<!-- required div called id=wedtraining / id=sattraining / id=racesdiv -->
+	<!-- id=moreWedTraining / id=moreSatTraining / id=moreRaces -->
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript" src="./js/index/gsscall.js"></script>
+
+	<!-- this requires the div id = "map-canvas" to be direct child of a div id = "map-wrapper" -->
+	<script src="https://maps.googleapis.com/maps/api/js"></script>
+	<script type="text/javascript" src="./js/index/gmapinit.js"></script>
 	
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
