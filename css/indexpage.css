@@ -31,6 +31,22 @@
 	font-size: small;
 }
 
+a:hover > p {
+	color: #F16585 !important;
+	text-decoration: underline;
+	-webkit-text-decoration-color: #F16585;
+	-moz-text-decoration-color: #F16585;
+	text-decoration-color: #F16585;
+}
+
+a:focus > p {
+	color: #F16585 !important;
+	text-decoration: underline;
+	-webkit-text-decoration-color: #F16585;
+	-moz-text-decoration-color: #F16585;
+	text-decoration-color: #F16585;
+}
+
 .header-desc {
 	background-color: rgba(0,0,0,0.6);
 	padding: 15px;
