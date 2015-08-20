@@ -32,6 +32,31 @@ function getDateIn7DaysForQuery() {
 	return dateInaWeek.getFullYear() + "-" + (dateInaWeek.getMonth()+1) + "-" + dateInaWeek.getDate() + " 00:00:00.000";
 }
 
+function getDateDiff(earlyDate, lateDate) {
+	var one_hour=1000*60*60;
+	var totalHours = Math.floor((lateDate.getTime()-earlyDate.getTime())/(one_hour));
+	var totalDays = Math.floor(totalHours/24);
+	
+	var weeks = 0;
+	var days = totalDays;
+	
+	if (totalDays >= 7) {
+		weeks = Math.floor(totalDays/7);
+	}
+	
+	if (weeks != 0) {
+		days = totalDays - (weeks * 7);
+	}
+	
+	if (weeks > 0) {
+		return "(" + weeks + "w " + days + "d)";
+	} else {
+		var hours = totalHours - (days*24);
+		return "(" +days + "d " + hours + "h)";
+	}
+}
+
+
 function getTrainingPlan() {
 	var opts = {sendMethod: 'auto'};
 	var query = new google.visualization.Query(gurl, opts);
@@ -66,9 +91,10 @@ function populateData(dataTable) {
 		var dateVal = dataTable.getValue(i,0);
 		// not all races are on sundays
 		if(dataTable.getValue(i,5) == 'Race'){
-			raceString.push(formatTrainString(dataTable,i))
+			var ddString = getDateDiff(new Date(), dataTable.getValue(i,0));
+			raceString.push(formatTrainString(dataTable,i,ddString));
 		} else if(dataTable.getValue(i,1) == 'Wednesday'){
-			wedString.push(formatTrainString(dataTable,i))
+			wedString.push(formatTrainString(dataTable,i));
 		} else if (dataTable.getValue(i,1) == 'Saturday') {
 			satString.push(formatTrainString(dataTable,i));
 		}
@@ -89,11 +115,15 @@ function getDateString(dateVal) {
 	}
 }
 
-function formatTrainString(dataTable, rowNumber) {
+function formatTrainString(dataTable, rowNumber, dateDiffString) {
 	var dateString = getDateString(dataTable.getValue(rowNumber,0));
 	var location = dataTable.getValue(rowNumber,3);
 	var effort = dataTable.getValue(rowNumber,4);
 	var description = dataTable.getValue(rowNumber,2);
+	
+	if (dateDiffString) {
+		dateString = dateString + " " + dateDiffString;
+	}
 
 	if (location == null) {
 		location = "";
