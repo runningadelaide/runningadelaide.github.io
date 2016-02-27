@@ -75,6 +75,10 @@ a:focus > p {
 	border: 0;
 }
 
+.training-height {
+	min-height: 150px;
+}
+
 #cover-arc-logo {
 	height: 130px;
 	height: 20vh;
