@@ -446,17 +446,26 @@ http://www.runningadelaide.net/
 					</p>
 
 					<p class="text-muted">
-						<b>2012/2013/2014/2015</b>
+						<b>2016</b>
 					</p>
-					<div id="don15" style="display:inline">
+					<div id="donCurr" style="display:inline">
 						<p class="text-muted">
-							Since 2012, the Adelaide Running Crew have continued to collect donations for the Hutt Street Centre. The Hutt Street 
-							Centre is a multi-service day centre giving a safe haven for Adelaide’s most vulnerable men and women. 
-							Homelessness can and does happen to anyone. Hutt St Centre is a place of hope and opportunity, helping people 
-							facing homelessness to rebuild their lives, without judgement.
+							Disability Recreation and Sports SA is a not-for-profit, member-driven Association that strives to 
+							support people with a disability to lead active, healthy and connected lives through participation in 
+							recreation, fitness and sport.
+							<br/><br/>
+							DRS actively partners with other NFP’s, government agencies and the wider community to ensure people 
+							with a disability can access the widest possible range of services and activities regardless of age, 
+							location, cultural background, or type of disability.
+							<br/><br/>
+							For more information on Disability Recreation and Sports SA – go to
+							<a href="http://www.drssa.org.au/" target="_blank">
+								http://www.drssa.org.au/
+							</a>
+							<br/><br/>
 						</p>
 						
-						<p id="don15extra" style="display:none" class="text-muted">
+						<p id="donCurrExtra" style="display:none" class="text-muted">
 							At Hutt Street there is so much that happens in the Day Centre and behind the scenes.
 							<br/><br/>
 							If you walked through the doors you would find hundreds of men and women enjoying healthy breakfasts and 
@@ -476,10 +485,10 @@ http://www.runningadelaide.net/
 							<br/><br/>
 						</p>
 						
-						<a id="showDon15ExtraLink" href="#don15extra" class="page-scroll"
-							onclick="showDivHideLink('don15extra','showDon15ExtraLink');">
-							<p id="huttStreetMoreInfoCtrl" class="small-link">...more info...</p>
-						</a>
+						<!--a id="showDonCurrExtraLink" href="#donCurrextra" class="page-scroll"
+							onclick="showDivHideLink('donCurrExtra','showDonCurrExtraLink');">
+							<p id="donCurrMoreInfoCtrl" class="small-link">...more info...</p>
+						</a-->
 						
 					</div>
 
@@ -489,15 +498,26 @@ http://www.runningadelaide.net/
 					</p>
 
 					<p class="text-muted">
+						<a onclick="showAndHideDons('don12');" href="#pastdonationhash" class="page-scroll">2012 - 2015</a>
 						<a onclick="showAndHideDons('don11');" href="#pastdonationhash" class="page-scroll">2011</a>
 						<a onclick="showAndHideDons('don10');" href="#pastdonationhash" class="page-scroll">2010</a>
 						<a onclick="showAndHideDons('don09');" href="#pastdonationhash" class="page-scroll">2009</a>
+					</p>
+					
+					
+					<p id="don12" style="display:none" class="text-muted">
+						From 2012 to 2015 ARC collected donations for the Hutt Street Centre. The Hutt Street 
+						Centre is a multi-service day centre giving a safe haven for Adelaide’s most vulnerable men and women. 
+						Homelessness can and does happen to anyone. Hutt St Centre is a place of hope and opportunity, helping people 
+						facing homelessness to rebuild their lives, without judgement.
+						<br/><br/>
 					</p>
 					
 					<p id="don11" style="display:none" class="text-muted">
 						In 2011 ARC raised $516 towards The Marathon Project, a not for profit organisation established to address the 
 						incidence of chronic disease and inactivity within Indigenous Australia. They train young Indigenous men 
 						and woman to run, jog or walk and make activity and regular part of their lives.
+						<br/><br/>
 					</p>
 					
 					<p id="don10" style="display:none" class="text-muted">
@@ -522,6 +542,7 @@ http://www.runningadelaide.net/
 	</section>
 	
 	<div class="arc-don-image-wrapper">
+	<img src="img/other/drssa-logo.png" class="arc-don-image" ></img>
 	<img src="img/other/huttstreetlogo.png" class="arc-don-image" ></img>
 	<img src="img/other/imp_Logo.gif" class="arc-don-image" ></img>
 	<img src="img/other/Kosgei.jpg" class="arc-don-image" ></img>
@@ -607,7 +628,7 @@ http://www.runningadelaide.net/
 		<script type="text/javascript" src="./js/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript"> 
 		var questionIdList = ["questionone","questiontwo","questionthree","questionfour","questionfive","questionsix"];
-		var donationsIdList = ["don09","don10","don11"];
+		var donationsIdList = ["don09","don10","don11","don12"];
 	
 		function toggleDivVisibility(elementId) {
 			if (document.getElementById(elementId).style.display == "inline") {
