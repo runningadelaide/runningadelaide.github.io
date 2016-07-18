@@ -36,7 +36,30 @@ http://www.runningadelaide.net/
 	<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-	<![endif]-->	
+	<![endif]-->
+	
+	<script type="text/javascript" src="./js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript"> 	
+		function showDivHideLink(divToShowId, linkToHideId) {
+			document.getElementById(divToShowId).style.display = "inline";
+			document.getElementById(linkToHideId).style.display = "none";
+		}
+	</script>
+	
+	<!-- required div called id=wedtraining and id=sattraining -->
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript" src="./js/index/gsscall2.js"></script>
+	
+	<!-- Bootstrap Core JavaScript -->
+	<script src="js/bootstrap.min.js"></script>
+
+	<!-- Plugin JavaScript -->
+	<script src="js/jquery.easing.min.js"></script>
+	<script src="js/jquery.fittext.js"></script>
+	<script src="js/wow.min.js"></script>
+
+	<!-- Custom Theme JavaScript -->
+	<script src="js/creative.js"></script>
 
 	<style>
 		.servicebox-compact {
@@ -163,30 +186,5 @@ http://www.runningadelaide.net/
 			</div>
 		</div>
 	</section>
-	
-	<script type="text/javascript" src="./js/jquery-1.11.0.min.js"></script>
-	<script type="text/javascript"> 	
-		function showDivHideLink(divToShowId, linkToHideId) {
-			document.getElementById(divToShowId).style.display = "inline";
-			document.getElementById(linkToHideId).style.display = "none";
-		}
-	</script>
-	
-	
-	<!-- required div called id=wedtraining and id=sattraining -->
-	<!--script type="text/javascript" src="https://www.google.com/jsapi"></script-->
-	<script type="text/javascript" src="./js/index/gsscall2.js"></script>
-	<script type="text/javascript" src="http://spreadsheets.google.com/a/google.com/tq?key=1SQq7DSinO7do-sdqUjZZb0sV437SHRMICMlUQlFFy-g&tq=select%20*%20limit%2010&tqx=responseHandler:getTrainingPlan2"></script>
-	
-	<!-- Bootstrap Core JavaScript -->
-	<script src="js/bootstrap.min.js"></script>
-
-	<!-- Plugin JavaScript -->
-	<script src="js/jquery.easing.min.js"></script>
-	<script src="js/jquery.fittext.js"></script>
-	<script src="js/wow.min.js"></script>
-
-	<!-- Custom Theme JavaScript -->
-	<script src="js/creative.js"></script>
 </body>
 </html>
