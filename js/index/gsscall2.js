@@ -96,7 +96,7 @@ function populateData(dataTable) {
 		} else if(dataTable.getValue(i,1) == 'Wednesday'){
 			wedString.push(formatTrainString(dataTable,i));
 		} else if (dataTable.getValue(i,1) == 'Saturday') {
-			satString.push(formatTrainString(dataTable,i));
+			satString.push(formatTrainString(dataTable,i,null,true));
 		}
 	}
 	
@@ -115,7 +115,7 @@ function getDateString(dateVal) {
 	}
 }
 
-function formatTrainString(dataTable, rowNumber, dateDiffString) {
+function formatTrainString(dataTable, rowNumber, dateDiffString, showLink) {
 	var dateString = getDateString(dataTable.getValue(rowNumber,0));
 	var location = dataTable.getValue(rowNumber,3);
 	var effort = dataTable.getValue(rowNumber,4);
@@ -134,15 +134,18 @@ function formatTrainString(dataTable, rowNumber, dateDiffString) {
 	if (effort == null) {
 		effort = "";
 	}
-	
-	var urlComp = encodeURIComponent(location + " " + description + " SA Australia");
-	var url = "http://maps.google.com/?q=" + urlComp;
-	
+
+	var link = "";
+	if (showLink) {
+		var urlComp = encodeURIComponent(location + " " + description + " SA Australia");
+		var url = "http://maps.google.com/?q=" + urlComp;
+		link = "<a href='" + url + "'> &#10138; </a>";
+	}
 	
 	return "<b>" + dateString + "</b><br/>" +
-			"<a href='" + url + "'>" + location + "</a>" +
+				location +
 				effort + " <br/>" +
-				description;
+				description + link;
 }
 
 function formatRaceString(dataTable, rowNumber) {
