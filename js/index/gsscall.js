@@ -172,12 +172,20 @@ function generateExtraTraining(trainString) {
 function populatePTag(wedString, satString, raceString) {
 	if (wedString) {
 		document.getElementById(gss_wedtraining_div_id).innerHTML = wedString;
+	} else {
+		document.getElementById(gss_wedtraining_div_id).innerHTML = "Oops, no training schedule found. However, we will still be running, check Facebook on wednesday for more details.";
 	}
+	
 	if (satString) {
 		document.getElementById(gss_sattraining_div_id).innerHTML = satString;
+	} else {
+		document.getElementById(gss_sattraining_div_id).innerHTML = "Oops, no training schedule found. However, we will still be running, check Facebook on Friday evening for more details.";
 	}
+	
 	if (raceString) {
 		document.getElementById(gss_race_div_id).innerHTML = raceString;
+	} else {
+		document.getElementById(gss_race_div_id).innerHTML = "No races found. We will update soon.";
 	}
 }
 
@@ -199,8 +207,22 @@ function populateExtraTS (wedString,satString, raceString) {
 		fullRaceHtmlString = fullRaceHtmlString + generateExtraTraining(raceString[i]);
 	}
 	
-	document.getElementById("moreWedTraining").innerHTML = fullWedHtmlString;
-	document.getElementById("moreSatTraining").innerHTML = fullSatHtmlString;
-	document.getElementById("moreRaces").innerHTML = fullRaceHtmlString;
+	if (fullWedHtmlString) {
+		document.getElementById("moreWedTraining").innerHTML = fullWedHtmlString;
+	} else {
+		document.getElementById("showmorewedtrainingctrl").style.visibility = "hidden";
+	}
+	
+	if (fullSatHtmlString) {
+		document.getElementById("moreSatTraining").innerHTML = fullSatHtmlString;
+	} else {
+		document.getElementById("showmoresattrainingctrl").style.visibility = "hidden";
+	}
+	
+	if (fullRaceHtmlString) {
+		document.getElementById("moreRaces").innerHTML = fullRaceHtmlString;
+	} else {
+		document.getElementById("showmoreracectrl").style.visibility = "hidden";
+	}
 }
 
