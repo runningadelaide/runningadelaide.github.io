@@ -139,6 +139,8 @@ function formatTrainString(dataTable, rowNumber, dateDiffString, showLink) {
 	var link = "";
 	if (showLink) {
 		var urlComp = encodeURIComponent(location + " " + description + " SA Australia");
+		//encodeURIComponent() will not encode: ~!*()'
+		urlComp = urlComp.replace("'","","g");
 		var url = "http://maps.google.com/?q=" + urlComp;
 		link = "<a href='" + url + "'> &#10138; </a>";
 	}
