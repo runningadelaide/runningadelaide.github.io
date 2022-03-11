@@ -1,7 +1,7 @@
 /* Basic background image styling. */
 .background-image {
 	//background-position: center center;
-	background-position: top !important;
+	//background-position: top !important;
 	background-repeat: no-repeat;
 	background-position: center;
     -webkit-background-size: cover;
@@ -23,22 +23,12 @@
 
 /* Styles for the specific images. */
 .first-image {
-	background-image: url('https://lh3.googleusercontent.com/-4D4W4APEZDA/Vd2-DoM_zNI/AAAAAAAAARg/UGNIsVK7nB8/s2048-Ic42/madsam.jpg');	
+	background-image: url('https://drive.google.com/uc?id=1L22V_xgPUujf6GqSHcjcLBgJSeXmYesE');	
 	z-index: 0;
 	opacity: 0;
 }
 
-.second-image {
-	background-image: url('https://lh3.googleusercontent.com/-T1kwpDUDCL8/VdflwiSPcjI/AAAAAAAAAQk/4e1DzrloBUA/s2048-Ic42/nicole-60-blur20.jpg');
-	z-index: 0;
-	opacity: 0;
-}
 
-.third-image {
-	background-image: url('https://lh3.googleusercontent.com/-hmfe7xKHsuY/VdfluQuJHYI/AAAAAAAAAQI/h4XzhFrXoEo/s2048-Ic42/group-60-blur30.jpg');
-	z-index: 0;
-	opacity: 0;
-}
 
 .first-image.show {
 	opacity: 1;
