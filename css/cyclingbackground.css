@@ -23,7 +23,7 @@
 
 /* Styles for the specific images. */
 .first-image {
-	background-image: url('https://drive.google.com/uc?id=1L22V_xgPUujf6GqSHcjcLBgJSeXmYesE');	
+	background-image: url('https://storage.googleapis.com/arc-training/website/stampede-relay-crop.jpg');	
 	z-index: 0;
 	opacity: 0;
 }
