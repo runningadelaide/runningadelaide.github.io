@@ -142,7 +142,7 @@ function formatTrainString(dataTable, rowNumber, dateDiffString, isWed) {
 		effort = "";
 	}
 
-	var htmlLocationLink;
+	var htmlLocationLink = "";
 	if (isWed == true) {
 		htmlLocationLink = "<a href='" + wedPinLink + "' target='_blank'>" + location +"</a>";
 	} else if (pinLink == null) {
@@ -151,7 +151,7 @@ function formatTrainString(dataTable, rowNumber, dateDiffString, isWed) {
 		htmlLocationLink = "<a href='" + pinLink + "' target='_blank'>" + location +"</a><br/>";
 	}
 
-	var htmlMapLink;
+	var htmlMapLink = "";
 	if (mapLink != null) {
 		htmlMapLink = "<a href='" + stravaLink + "' target='_blank'>Route Link</a><br/>";
 	}
