@@ -95,9 +95,9 @@ function populateData(dataTable) {
 			var ddString = getDateDiff(new Date(), dataTable.getValue(i,0));
 			raceString.push(formatTrainString(dataTable,i,ddString));
 		} else if(dataTable.getValue(i,1) == 'Wednesday'){
-			wedString.push(formatTrainString(dataTable,i));
+			wedString.push(formatTrainString(dataTable,i, null, true));
 		} else if (dataTable.getValue(i,1) == 'Saturday') {
-			satString.push(formatTrainString(dataTable,i,null,true));
+			satString.push(formatTrainString(dataTable,i,null));
 		}
 	}
 	
@@ -116,18 +116,24 @@ function getDateString(dateVal) {
 	}
 }
 
-function formatTrainString(dataTable, rowNumber, dateDiffString, showLink) {
+function formatTrainString(dataTable, rowNumber, dateDiffString, isWed) {
+	var wedPinLink = "https://maps.app.goo.gl/1ce5Js1C8yu2Fzr28";
+	
 	var dateString = getDateString(dataTable.getValue(rowNumber,0));
 	var location = dataTable.getValue(rowNumber,3);
 	var effort = dataTable.getValue(rowNumber,4);
 	var description = dataTable.getValue(rowNumber,2);
+	
+	var pinLink = dataTable.getValue(rowNumber,6);
+	var mapLink = dataTable.getValue(rowNumber,7);
+	var stravaLink = dataTable.getValue(rowNumber,8);
 	
 	if (dateDiffString) {
 		dateString = dateString + " " + dateDiffString;
 	}
 
 	if (location == null) {
-		location = "";
+		location = "link";
 	} else {
 		location = location + ",";
 	}
@@ -136,19 +142,25 @@ function formatTrainString(dataTable, rowNumber, dateDiffString, showLink) {
 		effort = "";
 	}
 
-	var link = "";
-	if (showLink) {
-		var urlComp = encodeURIComponent(location + " " + description + " SA Australia");
-		//encodeURIComponent() will not encode: ~!*()'
-		urlComp = urlComp.replace("'","","g");
-		var url = "http://maps.google.com/?q=" + urlComp;
-		link = "<a href='" + url + "'> &#10138; </a>";
+	var htmlLocationLink;
+	if (isWed == true) {
+		htmlLocationLink = "<a href='" + wedPinLink + "' target='_blank'>" + location +"</a>";
+	} else if (pinLink == null) {
+		htmlLocationLink = location;
+	} else {
+		htmlLocationLink = "<a href='" + pinLink + "' target='_blank'>" + location +"</a><br/>";
+	}
+
+	var htmlMapLink;
+	if (mapLink != null) {
+		htmlMapLink = "<a href='" + stravaLink + "' target='_blank'>Route Link</a><br/>";
 	}
 	
 	return "<b>" + dateString + "</b><br/>" +
-				location +
+				htmlLocationLink +
 				effort + " <br/>" +
-				description + link;
+				description + " <br/>" + 
+				htmlMapLink
 }
 
 function formatRaceString(dataTable, rowNumber) {
