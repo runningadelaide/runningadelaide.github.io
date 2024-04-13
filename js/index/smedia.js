@@ -76,6 +76,8 @@ function populateData(dataTable) {
 			satString.push(formatTrainStringMap(dataFromGS(dataTable,i),false));
 		}
 	}
+
+	populateExtraTS (wedString,satString);
 }
 
 function populateDataTest() {
@@ -176,20 +178,6 @@ function dataFromGS(dataTable, rowNumber) {
 	inputMap.set("stravaLink",dataTable.getValue(rowNumber,8));
 
 	return inputMap;				
-}
-
-function populatePTag(wedString, satString) {
-	if (wedString) {
-		document.getElementById(gss_wedtraining_div_id).innerHTML = wedString;
-	} else {
-		document.getElementById(gss_wedtraining_div_id).innerHTML = "Oops, no training schedule found. However, we will still be running, check Facebook on wednesday for more details.";
-	}
-	
-	if (satString) {
-		document.getElementById(gss_sattraining_div_id).innerHTML = satString;
-	} else {
-		document.getElementById(gss_sattraining_div_id).innerHTML = "Oops, no training schedule found. However, we will still be running, check Facebook on Friday evening for more details.";
-	}
 }
 
 function populateExtraTS (wedString,satString) {
