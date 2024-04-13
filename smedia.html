@@ -48,7 +48,7 @@ http://www.runningadelaide.net/
 	
 	<!-- required div called id=wedtraining and id=sattraining -->
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-	<script type="text/javascript" src="./js/index/smedia.js"></script>
+	
 	
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
@@ -97,6 +97,12 @@ http://www.runningadelaide.net/
 			padding: 10px;
 			border: 0;
 		}
+
+		textarea {
+			width: 100%;
+			height: 9em;
+			border: none;
+		}
 	</style>
 	
 </head>
@@ -130,36 +136,19 @@ http://www.runningadelaide.net/
 				<div class="col-md-6 text-center">
 					<div class="service-box servicebox-compact" style="margin:0px">
 						<h4>Intervals - Wed 6pm</h4>
-						<p id="wedtraining" class="text-muted">
-							Loading ...
-						</p>
-						
-						<div id="moreWedTraining" style="display:none;"></div>
-						<br/>
-						<a id="moreWedTrainLink" href="#wedtraining"  class="page-scroll"
-							onclick="showDivHideLink('moreWedTraining','moreWedTrainLink');">
-							<p class="text-muted small-link" id="showmorewedtrainingctrl">...show more sessions...<p>
-						</a>
+						<div id="moreWedTraining"></div>
 					</div>
 				</div>
 				<div class="col-md-6 text-center">
 					<div class="service-box servicebox-compact">
 						<h4>Long Run - Sat 8am</h4>
-						<p id="sattraining" class="text-muted">
-							Loading ...
-						</p>
-						
-						<div id="moreSatTraining" style="display:none;"></div>
-						<br/>
-						<a id="showMoreSatTrainLink" href="#sattraining" class="page-scroll"
-							onclick="showDivHideLink('moreSatTraining','showMoreSatTrainLink');" >
-							<p class="text-muted small-link" id="showmoresattrainingctrl">...show more sessions...</p>
-						</a>
+						<div id="moreSatTraining"></div>
 					</div>
 				</div>
-				
 			</div>
 		</div>
 	</section>
+
+	<script type="text/javascript" src="./js/index/smedia.js"></script>
 </body>
 </html>

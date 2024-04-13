@@ -7,14 +7,14 @@ Maybe jquery as well but not sure
 var gss_wedtraining_div_id = "wedtraining";
 var gss_sattraining_div_id = "sattraining";
 var gss_race_div_id = "racesdiv";
+var isTest = false;
 
-google.load('visualization', '1', {'packages':['corechart']});
-google.setOnLoadCallback(getTrainingPlan);
-
-//wed test
-//console.log(formatTrainString(null,null, null, true));
-//sat test
-//console.log(formatTrainString(null,null,null));
+if (isTest) {
+	populateDataTest();
+} else {
+	google.load('visualization', '1', {'packages':['corechart']});
+	google.setOnLoadCallback(getTrainingPlan);
+}
 
 
 var weekday = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
@@ -38,31 +38,6 @@ function getDateIn7DaysForQuery() {
 	return dateInaWeek.getFullYear() + "-" + (dateInaWeek.getMonth()+1) + "-" + dateInaWeek.getDate() + " 00:00:00.000";
 }
 
-function getDateDiff(earlyDate, lateDate) {
-	var one_hour=1000*60*60;
-	var totalHours = Math.floor((lateDate.getTime()-earlyDate.getTime())/(one_hour));
-	var totalDays = Math.floor(totalHours/24);
-	
-	var weeks = 0;
-	var days = totalDays;
-	
-	if (totalDays >= 7) {
-		weeks = Math.floor(totalDays/7);
-	}
-	
-	if (weeks != 0) {
-		days = totalDays - (weeks * 7);
-	}
-	
-	if (weeks > 0) {
-		return "(" + weeks + "w " + days + "d)";
-	} else {
-		var hours = totalHours - (days*24);
-		return "(" +days + "d " + hours + "h)";
-	}
-}
-
-
 function getTrainingPlan() {
 
 	var opts = {sendMethod: 'auto'};
@@ -72,6 +47,7 @@ function getTrainingPlan() {
 						" or (F = 'Race' and A >= datetime '" + getDateTimeForQuery() + "')" + 
 						" Order By A"
 						;
+
 	//console.log(queryString);
 	query.setQuery(queryString);
 	query.send(handleQueryResponse);
@@ -89,25 +65,30 @@ function handleQueryResponse(response) {
 
 function populateData(dataTable) {
 	var rowCount = dataTable.getNumberOfRows();
-	
+
 	var wedString = [];
 	var satString = [];
-	var raceString = [];
 
 	for (var i = 0; i < rowCount; i++) {
-		// var dateVal = dataTable.getValue(i,0);
-		// not all races are on sundays
-		if(dataTable.getValue(i,5) == 'Race'){
-			var ddString = getDateDiff(new Date(), dataTable.getValue(i,0));
-			raceString.push(formatTrainString(dataTable,i,ddString));
-		} else if(dataTable.getValue(i,1) == 'Wednesday'){
-			wedString.push(formatTrainString(dataTable,i, null, true));
+		if(dataTable.getValue(i,1) == 'Wednesday'){
+			wedString.push(formatTrainStringMap(dataFromGS(dataTable,i),true));
 		} else if (dataTable.getValue(i,1) == 'Saturday') {
-			satString.push(formatTrainString(dataTable,i,null));
+			satString.push(formatTrainStringMap(dataFromGS(dataTable,i),false));
 		}
 	}
+}
 
-	populatePTag (wedString[0],satString[0]);
+function populateDataTest() {
+	var rowCount = 6;
+
+	var wedString = [];
+	var satString = [];
+
+	for (var i = 0; i < rowCount; i++) {
+		wedString.push(formatTrainStringMap(dataFromTest(true, i),true));	
+		satString.push(formatTrainStringMap(dataFromTest(false, i),false));	
+	}
+
 	populateExtraTS (wedString,satString);
 }
 
@@ -121,35 +102,37 @@ function getDateString(dateVal) {
 	}
 }
 
-function formatTrainString(dataTable, rowNumber, dateDiffString, isWed) {
+function dataFromTest(isWed, index) {
+
+	var inputMap = new Map();
+
+	if (isWed == true) {
+		inputMap.set("dateString","Wed Apr 10 | " + index);
+		inputMap.set("location","Start of Uni Loop");
+		inputMap.set("effort","6.4k");
+		inputMap.set("description","2*400m, 2*800m, 1*1600m, 2*800m, 2*400m");
+		inputMap.set("satPinLink","https://maps.app.goo.gl/dFZpLyYUuKWmsZbU6");
+		inputMap.set("stravaLink","https://www.strava.com/routes/3204260194096713614");
+	} else {
+		inputMap.set("dateString","Sat Apr 6 | " + index);
+		inputMap.set("location","Meet at Grange Jetty, coffe after at Cooks Pantry (6 Jetty St., Grange)");
+		inputMap.set("effort","45-60min");
+		inputMap.set("description","Grange Beach");
+		inputMap.set("satPinLink","https://maps.app.goo.gl/dFZpLyYUuKWmsZbU6");
+		inputMap.set("stravaLink","https://www.strava.com/routes/3204260194096713614");
+	}
+	return inputMap;			
+}
+
+function formatTrainStringMap(dataMap, isWed) {
 	var wedPinLink = "https://maps.app.goo.gl/1ce5Js1C8yu2Fzr28";
 	
-	var dateString = getDateString(dataTable.getValue(rowNumber,0));
-	var location = dataTable.getValue(rowNumber,3);
-	var effort = dataTable.getValue(rowNumber,4);
-	var description = dataTable.getValue(rowNumber,2);	
-	var satPinLink = dataTable.getValue(rowNumber,6);
-	var stravaLink = dataTable.getValue(rowNumber,8);
-
-	// wed test
-	// var dateString = "Wed Apr 10";
-	// var location = "Start of Uni Loop";
-	// var effort = "6.4k";
-	// var description = "2*400m, 2*800m, 1*1600m, 2*800m, 2*400m";	
-	// var satPinLink = "https://maps.app.goo.gl/dFZpLyYUuKWmsZbU6";
-	// var stravaLink = "https://www.strava.com/routes/3204260194096713614";
-
-	// sat test
-	// var dateString = "Sat Apr 6";
-	// var location = "Meet at Grange Jetty, coffe after at Cooks Pantry (6 Jetty St., Grange)";
-	// var effort = "45-60min";
-	// var description = "Grange Beach";	
-	// var satPinLink = "https://maps.app.goo.gl/dFZpLyYUuKWmsZbU6";
-	// var stravaLink = "https://www.strava.com/routes/3204260194096713614";
-	
-	if (dateDiffString) {
-		dateString = dateString + " " + dateDiffString;
-	}
+	var dateString = dataMap.get("dateString");
+	var location = dataMap.get("location");
+	var effort = dataMap.get("effort");
+	var description = dataMap.get("description");
+	var satPinLink = dataMap.get("satPinLink");
+	var stravaLink = dataMap.get("stravaLink");
 
 	var pinLink = wedPinLink;
 	if(!isWed) {
@@ -160,7 +143,7 @@ function formatTrainString(dataTable, rowNumber, dateDiffString, isWed) {
 	
 	var routeText = "";
 	if(!isWed) {
-		routeText = "<br/>Planned route: " + stravaLink;
+		routeText = "\rPlanned route: " + stravaLink;
 	}
 
 	var preText = "Tonights session meet at 6pm for 6:10pm start: ";
@@ -168,20 +151,31 @@ function formatTrainString(dataTable, rowNumber, dateDiffString, isWed) {
 		preText = "Tomorrows session meet at 8 for a 8:10am start: ";
 	}
 
-	return "<b>" + dateString + "</b><br/>" +
-				preText +
-				location + ", " +
-				effort + ", " +
-				description + "<br/><br/>" + 
-				startText +
-				routeText;
+	var content = preText +
+		location + ", " +
+		effort + ", " +
+		description + "\r\r" + 
+		startText +
+		routeText;
+
+	var keyValMap = new Map();
+	keyValMap.set("date", dateString);
+	keyValMap.set("content", content);
+	
+	return keyValMap;
 }
 
+function dataFromGS(dataTable, rowNumber) {
 
-function generateExtraTraining(trainString) {
-	return "<br/><p class='text-muted'>" + 
-			trainString +
-			"</p>";
+	var inputMap = new Map();
+	inputMap.set("dateString", getDateString(dataTable.getValue(rowNumber,0)));
+	inputMap.set("location",dataTable.getValue(rowNumber,3));
+	inputMap.set("effort",dataTable.getValue(rowNumber,4));
+	inputMap.set("description",dataTable.getValue(rowNumber,2));
+	inputMap.set("satPinLink",dataTable.getValue(rowNumber,6));
+	inputMap.set("stravaLink",dataTable.getValue(rowNumber,8));
+
+	return inputMap;				
 }
 
 function populatePTag(wedString, satString) {
@@ -199,30 +193,40 @@ function populatePTag(wedString, satString) {
 }
 
 function populateExtraTS (wedString,satString) {
-	var fullWedHtmlString = "";
-	var fullSatHtmlString = "";
-
-	for (var i = 1; i < wedString.length; i++) {
-		fullWedHtmlString = fullWedHtmlString + generateExtraTraining(wedString[i]);
+	let wedDiv = document.getElementById("moreWedTraining");
+	for (var i = 0; i < wedString.length; i++) {
+		let textAreaId = "textArea-wed-" + i;
+		addTextAndCopyButton(wedDiv, wedString[i], textAreaId);
 	}
 	
-	for (var i = 1; i < satString.length; i++) {
-		fullSatHtmlString = fullSatHtmlString + generateExtraTraining(satString[i]);
+	let satDiv = document.getElementById("moreSatTraining");
+	for (var i = 0; i < satString.length; i++) {
+		let textAreaId = "textArea-sat-" + i;
+		addTextAndCopyButton(satDiv, satString[i], textAreaId);
 	}
-
-	
-	if (fullWedHtmlString) {
-		document.getElementById("moreWedTraining").innerHTML = fullWedHtmlString;
-	} else {
-		document.getElementById("showmorewedtrainingctrl").style.visibility = "hidden";
-	}
-	
-	if (fullSatHtmlString) {
-		document.getElementById("moreSatTraining").innerHTML = fullSatHtmlString;
-	} else {
-		document.getElementById("showmoresattrainingctrl").style.visibility = "hidden";
-	}
-	
-
 }
 
+function addTextAndCopyButton(parentDiv, contentMap,textAreaId) {
+	let copyButton = document.createElement("button");
+	copyButton.innerHTML = contentMap.get("date");
+	copyButton.onclick = function() { copyTextAreaText(textAreaId); };
+
+	let textAreaDiv = document.createElement("textarea");
+	textAreaDiv.textContent = contentMap.get("content");
+	textAreaDiv.id = textAreaId;
+
+	parentDiv.appendChild(copyButton);
+	parentDiv.appendChild(textAreaDiv);
+}
+
+function copyTextAreaText(textAreaId) {
+
+	var copyText = document.getElementById(textAreaId);
+
+	// Copy the text inside the text field
+	navigator.clipboard.writeText(copyText.textContent);
+
+	if (isTest) {
+		alert(textAreaId + " | " + copyText.value);
+	}
+}
