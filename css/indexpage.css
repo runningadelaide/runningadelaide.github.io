@@ -85,10 +85,10 @@ a:focus > p {
 }
 
 #cover-fb-logo {
-	max-height: 40px;
-	background-color: rgba(255,255,255,0.6);
+	max-height: 60px;
+	border-radius: 10px;
 	margin-bottom:5px;
-	padding:2px
+	padding:5px
 }
 
 #map-canvas {
