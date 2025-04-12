@@ -6,6 +6,17 @@
 	position: relative;
 }
 
+.arc-image-wrapper .arc-image {
+    transition: transform 0.2s ease; /* Smooth animation */
+	border-radius: 15px; /* Rounded corners */
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.arc-image-wrapper .arc-image:hover {
+    transform: scale(1.02); /* Enlarge slightly on hover */
+}
+
 .arc-image{
 	vertical-align: bottom;
 	height: 200px;
@@ -103,7 +114,7 @@ a:focus > p {
 }
 		
 #moreRacesWrapper::-webkit-scrollbar-track {
-	//border: 1px solid black;
+	border: 1px solid black;
 	background-color: #FFFFFF;
 }
 
