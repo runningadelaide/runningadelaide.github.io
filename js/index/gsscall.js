@@ -117,7 +117,7 @@ function getDateString(dateVal) {
 }
 
 function formatTrainString(dataTable, rowNumber, dateDiffString, isWed) {
-	var wedPinLink = "https://maps.app.goo.gl/1ce5Js1C8yu2Fzr28";
+	var wedPinLink = "https://maps.app.goo.gl/NFkGSGo5jo4hQgDQ9";
 	
 	var dateString = getDateString(dataTable.getValue(rowNumber,0));
 	var location = dataTable.getValue(rowNumber,3);
