@@ -14,8 +14,10 @@ google.setOnLoadCallback(getTrainingPlan);
 var weekday = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
 var month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
-// this is my test spreadsheet
+// EL Test Sheet
 //var ssKey = "1QpeAo6u9-t0JGzuAMTwRL7xx6cEmdC2j0N_XddaHteI";
+// TO Test Sheet
+//var ssKey = "148bpCq2vBu4SS1YxGH_0YmHd0pj_xmbhskwsoB-_npA";
 
 // the following is the ARC SS
 var ssKey = "1SQq7DSinO7do-sdqUjZZb0sV437SHRMICMlUQlFFy-g";
@@ -63,7 +65,7 @@ function getTrainingPlan() {
 	var query = new google.visualization.Query(gurl, opts);
 	var queryString = "select * where " + 
 						"(A >= datetime '" + getDateTimeForQuery() + "' and A < datetime '" + getDateIn7DaysForQuery() + "')" +
-						" or (F = 'Race' and A >= datetime '" + getDateTimeForQuery() + "')" + 
+						" or (B = 'Race' and A >= datetime '" + getDateTimeForQuery() + "')" + 
 						" Order By A"
 						;
 	//console.log(queryString);
@@ -91,7 +93,7 @@ function populateData(dataTable) {
 	for (var i = 0; i < rowCount; i++) {
 		var dateVal = dataTable.getValue(i,0);
 		// not all races are on sundays
-		if(dataTable.getValue(i,5) == 'Race'){
+		if(dataTable.getValue(i,1) == 'Race'){
 			var ddString = getDateDiff(new Date(), dataTable.getValue(i,0));
 			raceString.push(formatTrainString(dataTable,i,ddString));
 		} else if(dataTable.getValue(i,1) == 'Wednesday'){
@@ -123,8 +125,8 @@ function formatTrainString(dataTable, rowNumber, dateDiffString, isWed) {
 	var location = dataTable.getValue(rowNumber,3);
 	var effort = dataTable.getValue(rowNumber,4);
 	var description = dataTable.getValue(rowNumber,2);
-	var pinLink = dataTable.getValue(rowNumber,6);
-	var stravaLink = dataTable.getValue(rowNumber,7);
+	var pinLink = dataTable.getValue(rowNumber,5);
+	var stravaLink = dataTable.getValue(rowNumber,6);
 	
 	if (dateDiffString) {
 		dateString = dateString + " " + dateDiffString;
