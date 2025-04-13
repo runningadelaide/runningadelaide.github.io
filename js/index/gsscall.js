@@ -123,10 +123,8 @@ function formatTrainString(dataTable, rowNumber, dateDiffString, isWed) {
 	var location = dataTable.getValue(rowNumber,3);
 	var effort = dataTable.getValue(rowNumber,4);
 	var description = dataTable.getValue(rowNumber,2);
-	
 	var pinLink = dataTable.getValue(rowNumber,6);
-	var mapLink = dataTable.getValue(rowNumber,7);
-	var stravaLink = dataTable.getValue(rowNumber,8);
+	var stravaLink = dataTable.getValue(rowNumber,7);
 	
 	if (dateDiffString) {
 		dateString = dateString + " " + dateDiffString;
@@ -152,7 +150,7 @@ function formatTrainString(dataTable, rowNumber, dateDiffString, isWed) {
 	}
 
 	var htmlMapLink = "";
-	if (mapLink != null) {
+	if (stravaLink != null) {
 		htmlMapLink = "<a href='" + stravaLink + "' target='_blank'>Route Link</a><br/>";
 	}
 	
