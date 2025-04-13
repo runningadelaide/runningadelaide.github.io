@@ -126,6 +126,7 @@ function formatTrainString(dataTable, rowNumber, dateDiffString, isWed) {
 	
 	var pinLink = dataTable.getValue(rowNumber,6);
 	// var mapLink = dataTable.getValue(rowNumber,7); // Removed this column
+	var mapLink = "";
 	var stravaLink = dataTable.getValue(rowNumber,7); // Reduced this by one
 	
 	if (dateDiffString) {
