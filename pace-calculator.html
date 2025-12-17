@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Free running pace calculator by Adelaide Running Crew. Calculate splits for 5k, 10k, Half Marathon, Marathon and Adelaide City to Bay and ADF fitness tests. Optimise your training with our easy-to-use tool.">
+    <meta name="keywords"
+        content="running pace calculator, run splits, adelaide running crew, adelaide city to bay calculator, marathon pace, half marathon pace, adelaide runners, adf fitness test calculator">
+    <meta name="author" content="Adelaide Running Crew">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://runningadelaide.net/">
+    <meta property="og:title" content="Adelaide Running Crew - Running Pace Calculator">
+    <meta property="og:description"
+        content="Calculate your running pace and splits for any distance including Adelaide City to Bay and Marathons and ADF fitness tests. Free tool for Adelaide runners.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://runningadelaide.net/">
+    <meta property="twitter:title" content="Adelaide Running Crew - Running Pace Calculator">
+    <meta property="twitter:description"
+        content="Calculate your running pace and splits for any distance including Adelaide City to Bay and Marathons and ADF fitness tests.">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Running Pace Calculator",
+      "url": "https://runningadelaide.net/",
+      "description": "A free tool to calculate running pace, speed, and splits for various distances including 5k, 10k, Half Marathon, Marathon, and Adelaide City to Bay and ADF fitness tests.",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Any",
+      "author": {
+        "@type": "Organization",
+        "name": "Adelaide Running Crew",
+        "url": "https://runningadelaide.net/"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "AUD"
+      }
+    }
+    </script>
+    <title>Adelaide Running Crew - Running Pace Calculator</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent: #00AEEF;
+            /* Arc Blue */
+            --accent-hover: #0090C5;
+            /* Darker Arc Blue */
+            --input-bg: #334155;
+            --border-color: #475569;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            position: relative;
+            /* For absolute logo positioning */
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s ease;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            color: var(--accent);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        select,
+        input[type="number"] {
+            width: 100%;
+            padding: 12px 16px;
+            background-color: var(--input-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-main);
+            font-size: 1rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            box-sizing: border-box;
+            /* Ensure padding doesn't affect width */
+            appearance: textfield;
+            /* Standard property for Firefox compat */
+        }
+
+        select:focus,
+        input[type="number"]:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(190, 242, 100, 0.2);
+        }
+
+        .toggle-group {
+            display: flex;
+            background-color: var(--input-bg);
+            border-radius: 12px;
+            padding: 4px;
+            margin-bottom: 24px;
+        }
+
+        .toggle-option {
+            flex: 1;
+            text-align: center;
+            padding: 8px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .toggle-option.active {
+            background-color: var(--accent);
+            color: var(--card-bg);
+        }
+
+        .time-inputs {
+            display: flex;
+            gap: 10px;
+        }
+
+        .time-field {
+            flex: 1;
+        }
+
+        .time-field label {
+            text-align: center;
+            font-size: 0.75rem;
+            margin-bottom: 4px;
+        }
+
+        .time-field input {
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Results Section */
+        .results {
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 16px;
+            padding: 24px;
+            margin-top: 32px;
+            text-align: center;
+        }
+
+        .result-item {
+            margin-bottom: 16px;
+        }
+
+        .result-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .result-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .result-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1.1;
+        }
+
+        .result-unit {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        .distance-input-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .logo-link {
+            position: fixed;
+            top: 20px;
+            left: 40px;
+            display: block;
+            width: 150px;
+            height: 150px;
+            transition: transform 0.2s ease;
+            z-index: 100;
+        }
+
+        .logo-link:hover {
+            transform: scale(1.1);
+        }
+
+        .logo-link img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        @media (max-width: 480px) {
+            .logo-link {
+                width: 50px;
+                height: 50px;
+                top: 15px;
+                left: 15px;
+            }
+
+            .container {
+                padding-top: 60px;
+                /* Make room for logo if needed or keep standard */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="https://runningadelaide.net/" target="_blank" class="logo-link" title="Visit Adelaide Running Crew">
+        <img src="https://storage.googleapis.com/arc-training/website/icons/arc-logo-t.png"
+            alt="Adelaide Running Crew Logo">
+    </a>
+
+    <main class="container">
+        <h1>Adelaide Running Crew<br>Running Pace Calculator</h1>
+
+        <div class="toggle-group" id="unitToggle">
+            <div class="toggle-option active" data-unit="metric">Metric (km)</div>
+            <div class="toggle-option" data-unit="imperial">Imperial (mi)</div>
+        </div>
+
+        <div class="form-group">
+            <label for="distanceSelect">Distance</label>
+            <select id="distanceSelect">
+                <option value="1">1 km</option>
+                <option value="5">5 km</option>
+                <option value="10">10 km</option>
+                <option value="21.0975">Half Marathon</option>
+                <option value="42.195">Marathon</option>
+                <option value="custom">Custom Distance</option>
+            </select>
+        </div>
+
+        <div class="form-group hidden" id="customDistanceGroup">
+            <label for="customDistance">Custom Distance</label>
+            <div class="distance-input-group">
+                <input type="number" id="customDistance" placeholder="Distance" step="0.01">
+                <div style="display:flex; align-items:center; color: var(--text-secondary); font-weight:600;"
+                    id="customUnitLabel">km</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Time</label>
+            <div class="time-inputs">
+                <div class="time-field">
+                    <input type="number" id="hours" placeholder="00" min="0">
+                    <label>Hrs</label>
+                </div>
+                <div class="time-field">
+                    <input type="number" id="minutes" placeholder="00" min="0" max="59">
+                    <label>Mins</label>
+                </div>
+                <div class="time-field">
+                    <input type="number" id="seconds" placeholder="00" min="0" max="59">
+                    <label>Secs</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Pace <span style="font-weight:400; color:var(--text-secondary); font-size:0.8em;"
+                    id="paceUnitLabel">(min / km)</span></label>
+            <div class="time-inputs">
+                <div class="time-field">
+                    <input type="number" id="paceMinutes" placeholder="00" min="0">
+                    <label>Mins</label>
+                </div>
+                <div class="time-field">
+                    <input type="number" id="paceSeconds" placeholder="00" min="0" max="59">
+                    <label>Secs</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="results">
+            <div class="result-item">
+                <div class="result-label">Pace</div>
+                <div class="result-value" id="paceSummaryValue">--:--</div>
+                <div class="result-unit" id="paceSummaryUnit">min / km</div>
+            </div>
+            <div class="result-item">
+                <div class="result-label">Time</div>
+                <div class="result-value" id="timeSummaryValue">--:--:--</div>
+                <div class="result-unit">h : m : s</div>
+            </div>
+            <div class="result-item">
+                <div class="result-label">Speed</div>
+                <div class="result-value" id="speedValue">--</div>
+                <div class="result-unit" id="speedUnit">km / h</div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Constants
+        const MILE_TO_KM = 1.609344;
+
+        // State
+        let currentUnit = 'metric';
+        let lastEditedMode = 'time'; // 'time' or 'pace'
+
+        // Elements
+        const unitToggles = document.querySelectorAll('.toggle-option');
+        const distanceSelect = document.getElementById('distanceSelect');
+        const customDistanceGroup = document.getElementById('customDistanceGroup');
+        const customDistanceInput = document.getElementById('customDistance');
+        const customUnitLabel = document.getElementById('customUnitLabel');
+
+        const timeInputs = {
+            h: document.getElementById('hours'),
+            m: document.getElementById('minutes'),
+            s: document.getElementById('seconds')
+        };
+
+        const paceInputs = {
+            m: document.getElementById('paceMinutes'),
+            s: document.getElementById('paceSeconds')
+        };
+
+        const paceUnitLabel = document.getElementById('paceUnitLabel');
+        const speedValue = document.getElementById('speedValue');
+        const speedUnit = document.getElementById('speedUnit');
+        const paceSummaryValue = document.getElementById('paceSummaryValue');
+        const paceSummaryUnit = document.getElementById('paceSummaryUnit'); // Fixed: Added selection
+        const timeSummaryValue = document.getElementById('timeSummaryValue');
+
+        // Event Listeners
+        unitToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                unitToggles.forEach(t => t.classList.remove('active'));
+                toggle.classList.add('active');
+                setUnit(toggle.dataset.unit);
+                updateOptions();
+                calculate();
+            });
+        });
+
+        distanceSelect.addEventListener('change', () => {
+            if (distanceSelect.value === 'custom') {
+                customDistanceGroup.classList.remove('hidden');
+            } else {
+                customDistanceGroup.classList.add('hidden');
+            }
+            calculate();
+        });
+
+        // Time Inputs -> Calculate Pace
+        Object.values(timeInputs).forEach(input => {
+            input.addEventListener('input', () => {
+                lastEditedMode = 'time';
+                calculate();
+            });
+        });
+
+        // Pace Inputs -> Calculate Time
+        Object.values(paceInputs).forEach(input => {
+            input.addEventListener('input', () => {
+                lastEditedMode = 'pace';
+                calculate();
+            });
+        });
+
+        customDistanceInput.addEventListener('input', calculate);
+
+        function setUnit(unit) {
+            currentUnit = unit;
+            if (currentUnit === 'metric') {
+                paceUnitLabel.textContent = '(min / km)';
+                if (paceSummaryUnit) paceSummaryUnit.textContent = 'min / km';
+                speedUnit.textContent = 'km / h';
+                customUnitLabel.textContent = 'km';
+            } else {
+                paceUnitLabel.textContent = '(min / mi)';
+                if (paceSummaryUnit) paceSummaryUnit.textContent = 'min / mi';
+                speedUnit.textContent = 'mph';
+                customUnitLabel.textContent = 'mi';
+            }
+        }
+
+        function updateOptions() {
+            const selectedValue = distanceSelect.value;
+            distanceSelect.innerHTML = '';
+
+            if (currentUnit === 'metric') {
+                addOption('1', '1 km');
+                addOption('2.4', '2.4km (ADF Fitness Test)');
+                addOption('5', '5 km');
+                addOption('10', '10 km');
+                addOption('12', '12km (Adelaide City to Bay)');
+                addOption('21.0975', '21.1km (Half Marathon)');
+                addOption('42.195', '42.2km (Marathon)');
+            } else {
+                addOption('1.60934', '1 mi');
+                addOption('2.4', '1.5 mi (ADF Fitness Test)');
+                addOption('5', '3.5 mi (5km)');
+                addOption('10', '6.2 mi (10km)');
+                addOption('12', '7.5 mi (Adelaide City to Bay)');
+                addOption('21.0975', '13.1 mi (Half Marathon)');
+                addOption('42.195', '26.2 mi (Marathon)');
+            }
+            addOption('custom', 'Custom Distance');
+
+            if (selectedValue === 'custom') {
+                distanceSelect.value = 'custom';
+            } else {
+                let found = false;
+                for (let opt of distanceSelect.options) {
+                    if (opt.value === selectedValue) {
+                        distanceSelect.value = selectedValue;
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) distanceSelect.selectedIndex = 0;
+            }
+        }
+
+        function addOption(value, text) {
+            const option = document.createElement('option');
+            option.value = value;
+            option.textContent = text;
+            distanceSelect.appendChild(option);
+        }
+
+        function getDistanceKm() {
+            if (distanceSelect.value === 'custom') {
+                const val = parseFloat(customDistanceInput.value);
+                if (!val) return 0;
+                return currentUnit === 'metric' ? val : val * MILE_TO_KM;
+            }
+            return parseFloat(distanceSelect.value);
+        }
+
+        function calculate() {
+            const distanceKm = getDistanceKm();
+            if (!distanceKm) return;
+
+            if (lastEditedMode === 'time') {
+                const hrs = parseFloat(timeInputs.h.value) || 0;
+                const mins = parseFloat(timeInputs.m.value) || 0;
+                const secs = parseFloat(timeInputs.s.value) || 0;
+
+                const totalMinutes = (hrs * 60) + mins + (secs / 60);
+
+                if (totalMinutes > 0) {
+                    const distUnits = currentUnit === 'metric' ? distanceKm : distanceKm / MILE_TO_KM;
+                    const pace = totalMinutes / distUnits;
+
+                    updatePaceInputs(pace);
+                    updateResults(distUnits, totalMinutes, pace);
+                }
+
+            } else {
+                const pMins = parseFloat(paceInputs.m.value) || 0;
+                const pSecs = parseFloat(paceInputs.s.value) || 0;
+
+                const paceMinPerUnit = pMins + (pSecs / 60);
+
+                if (paceMinPerUnit > 0) {
+                    const distUnits = currentUnit === 'metric' ? distanceKm : distanceKm / MILE_TO_KM;
+                    const totalMinutes = paceMinPerUnit * distUnits;
+
+                    updateTimeInputs(totalMinutes);
+                    updateResults(distUnits, totalMinutes, paceMinPerUnit);
+                }
+            }
+        }
+
+        function updatePaceInputs(paceInMin) {
+            const mins = Math.floor(paceInMin);
+            const secs = Math.round((paceInMin - mins) * 60);
+
+            let finalMins = mins;
+            let finalSecs = secs;
+            if (finalSecs === 60) {
+                finalMins++;
+                finalSecs = 0;
+            }
+
+            paceInputs.m.value = finalMins;
+            paceInputs.s.value = finalSecs;
+        }
+
+        function updateTimeInputs(totalMinutes) {
+            const hours = Math.floor(totalMinutes / 60);
+            const remainingMinutes = totalMinutes % 60;
+            const mins = Math.floor(remainingMinutes);
+            const secs = Math.round((remainingMinutes - mins) * 60);
+
+            let finalHours = hours;
+            let finalMins = mins;
+            let finalSecs = secs;
+
+            if (finalSecs === 60) {
+                finalMins++;
+                finalSecs = 0;
+            }
+            if (finalMins === 60) {
+                finalHours++;
+                finalMins = 0;
+            }
+
+            timeInputs.h.value = finalHours;
+            timeInputs.m.value = finalMins;
+            timeInputs.s.value = finalSecs;
+        }
+
+        function updateResults(distUnits, totalMinutes, pace) {
+            // Speed = Dist / (Time/60)
+            const speed = distUnits / (totalMinutes / 60);
+            speedValue.textContent = isFinite(speed) ? speed.toFixed(2) : '--';
+
+            // Pace Summary
+            const paceMins = Math.floor(pace);
+            const paceSecs = Math.round((pace - paceMins) * 60);
+            let finalPaceMins = paceMins;
+            let finalPaceSecs = paceSecs;
+            if (finalPaceSecs === 60) {
+                finalPaceMins++;
+                finalPaceSecs = 0;
+            }
+            paceSummaryValue.textContent = `${finalPaceMins}:${finalPaceSecs.toString().padStart(2, '0')}`;
+
+            // Time Summary
+            const hrs = Math.floor(totalMinutes / 60);
+            const mins = Math.floor(totalMinutes % 60);
+            const secs = Math.round((totalMinutes - Math.floor(totalMinutes)) * 60);
+
+            let finalHrs = hrs;
+            let finalMinsSummary = mins;
+            let finalSecsSummary = secs;
+            if (finalSecsSummary === 60) {
+                finalMinsSummary++;
+                finalSecsSummary = 0;
+            }
+            if (finalMinsSummary === 60) {
+                finalHrs++;
+                finalMinsSummary = 0;
+            }
+
+            timeSummaryValue.textContent = `${finalHrs}:${finalMinsSummary.toString().padStart(2, '0')}:${finalSecsSummary.toString().padStart(2, '0')}`;
+        }
+
+        function clearResults() {
+            speedValue.textContent = '--';
+            paceSummaryValue.textContent = '--:--';
+            timeSummaryValue.textContent = '--:--:--';
+        }
+
+        // Initialize
+        updateOptions();
+    </script>
+
+</body>
+
+</html>
