@@ -8,4 +8,8 @@
     <loc>https://runningadelaide.net/pace-calculator.html</loc>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://runningadelaide.net/split-calculator.html</loc>
+    <priority>0.8</priority>
+  </url>
 </urlset>

@@ -1,659 +1,677 @@
 <!DOCTYPE html>
-<!--
-File has been modified by Eric Lam for the Adelaide Running Crew Website
-http://www.runningadelaide.net/
--->
 <html lang="en">
 
 <head>
-
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Adelaide Running Crew is a free running group in Adelaide, we run together on Wednesdays and Saturdays with social events throughout the year!">
-	<meta name="author" content="Eric Lam">
-	<link rel="shortcut icon" sizes="228x228" href="arc-logo-228x228.png">
-	<link rel="apple-touch-icon" href="arc-logo-180x180.png">
+	<meta name="description"
+		content="Adelaide Running Crew is a free social running group in Adelaide. We run together on Wednesdays and Saturdays with social events throughout the year!">
+	<meta name="author" content="Adelaide Running Crew">
+	<link rel="shortcut icon" sizes="228x228"
+		href="https://storage.googleapis.com/arc-training/website/arc-logo-228x228.png">
+	<link rel="apple-touch-icon" href="https://storage.googleapis.com/arc-training/website/arc-logo-180x180.png">
 
 	<!-- Social Media Meta Tags (Open Graph) -->
 	<meta property="og:title" content="Adelaide Running Crew">
-	<meta property="og:description" content="Adelaide Running Crew is a free running group in Adelaide, we run together on Wednesdays and Saturdays with social events throughout the year!">
-	<meta property="og:image" content="https://storage.googleapis.com/arc-training/website/stampede-relay-crop-1200-resize.webp">
+	<meta property="og:description"
+		content="Adelaide Running Crew is a free social running group in Adelaide. We run together on Wednesdays and Saturdays with social events throughout the year!">
+	<meta property="og:image"
+		content="https://storage.googleapis.com/arc-training/website/stampede-relay-crop-1200-resize.webp">
 	<meta property="og:url" content="https://runningadelaide.net/">
 	<meta property="og:type" content="website">
 	<meta property="og:site_name" content="Adelaide Running Crew">
 
 	<title>ARC - Adelaide Running Crew</title>
 	<link rel="canonical" href="https://runningadelaide.net/" />
-	
-	<!-- Bootstrap Core CSS -->
-	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 
 	<!-- Custom Fonts -->
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap"
+		rel="stylesheet">
 
-	<!-- Plugin CSS -->
-	<link rel="stylesheet" href="css/animate.min.css" type="text/css">
-
-	<!-- Custom CSS -->
-	<link rel="stylesheet" href="css/creative.css" type="text/css">
-	<link rel="stylesheet" href="css/indexpage.css" type="text/css">
-
-	<!-- for swipe support on touch interfaces>
-	<script src="js/hammer.min.js"></script-->
-	
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-	<![endif]-->
-
+	<!-- Custom Modern Stylesheet -->
+	<link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 
 <body id="page-top">
 
-	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-		<div class="container-fluid">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand page-scroll" href="#page-top">ARC</a>
-			</div>
-
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav navbar-right">
-					<li>
-						<a class="page-scroll" href="#about">About</a>
-					</li>
-					<li>
-						<a class="page-scroll" href="#training">Training</a>
-					</li>
-					<li>
-						<a class="page-scroll" href="#faq">FAQ</a>
-					</li>
-					<li>
-						<a class="page-scroll" href="#social">Social Events</a>
-					</li>
-					<li>
-						<a class="page-scroll" href="#merchandise">Merchandise</a>
-					</li>
-					<li>
-						<a class="page-scroll" href="#donations">Donations</a>
-					</li>					
-					<li>
-						<a class="page-scroll" href="#pace-calculator">Running Tools</a>
-					</li>
-					<li>
-						<a class="page-scroll" href="#contact">Contact</a>
-					</li>
-				</ul>
-			</div>
+	<!-- Sticky Glassmorphic Navigation Bar -->
+	<nav class="navbar">
+		<div class="container">
+			<a class="nav-brand" href="#page-top">
+				<img src="https://storage.googleapis.com/arc-training/website/arc-logo-t.png"
+					alt="Adelaide Running Crew Logo">
+			</a>
+			<button class="nav-toggle" aria-label="Toggle navigation">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+			<ul class="nav-menu">
+				<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+				<li class="nav-item"><a class="nav-link" href="#training">Training</a></li>
+				<li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+				<li class="nav-item"><a class="nav-link" href="#social">Socials</a></li>
+				<li class="nav-item"><a class="nav-link" href="#merchandise">Merchandise</a></li>
+				<li class="nav-item"><a class="nav-link" href="#donations">Donations</a></li>
+				<li class="nav-item"><a class="nav-link" href="#tools">Running Tools</a></li>
+				<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+			</ul>
 		</div>
 	</nav>
 
-	<header id="headerid" style="overflow:hidden">
-		<!-- these 3 divs are for the cycling background image -->
-		<div class="background-image toggle-image first-image show"></div>
-		<!--div class="background-image toggle-image second-image"></div-->
-		<!--div class="background-image toggle-image third-image"></div-->
-
-		
-		<div style="position:absolute;bottom:0;width:100%">
-			<img id="cover-arc-logo" src="https://storage.googleapis.com/arc-training/website/icons/arc-logo-t.png" alt="ARC Adelaide Running Crew logo" class="wow flip" data-wow-duration="2s" style="visibility: visible; animation-duration: 2s;">
-			<br>
-			<h4 class="header-desc" style="margin-bottom:5px;">We are a free social Adelaide running group, running in and around the CBD</h4>		
-			<a type="submit" class="social-btn" href="https://www.facebook.com/adelaiderunning" target="_blank">
-				<img id="cover-fb-logo" src="https://storage.googleapis.com/arc-training/website/Facebook_Logo_Primary.png" alt="Facebook logo"></a>
-			<a type="submit" class="social-btn" href="https://www.instagram.com/adelaiderunningcrew/" target="_blank">
-				<img id="cover-fb-logo" src="https://storage.googleapis.com/arc-training/website/Instagram_Glyph_Gradient.png" alt="Instagram logo"></a>
+	<!-- Hero Header -->
+	<header class="hero">
+		<div class="hero-bg"></div>
+		<div class="hero-content">
+			<img class="hero-logo" src="https://storage.googleapis.com/arc-training/website/icons/arc-logo-t.png"
+				alt="Adelaide Running Crew logo">
+			<h1 class="hero-title">Adelaide Running Crew</h1>
+			<p class="hero-desc">We are a free social Adelaide running group, running in and around the CBD</p>
+			<div class="hero-actions" style="display: flex; justify-content: center; gap: 16px; align-items: center;">
+				<a class="social-btn" href="https://www.facebook.com/adelaiderunning" target="_blank"
+					rel="noopener noreferrer">
+					<img id="cover-fb-logo"
+						src="https://storage.googleapis.com/arc-training/website/Facebook_Logo_Primary.png"
+						alt="Facebook logo" style="max-height: 60px; border-radius: 10px; padding: 5px;">
+				</a>
+				<a class="social-btn" href="https://www.instagram.com/adelaiderunningcrew/" target="_blank"
+					rel="noopener noreferrer">
+					<img id="cover-ig-logo"
+						src="https://storage.googleapis.com/arc-training/website/Instagram_Glyph_Gradient.png"
+						alt="Instagram logo" style="max-height: 60px; border-radius: 10px; padding: 5px;">
+				</a>
+			</div>
 		</div>
 	</header>
 
-	<section  id="about">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2 text-center">
-					<h1 class="section-heading">About Us</h1>
-					<hr />
-					<p class="text-muted">
-						Formed in 2009, Adelaide Running Crew is a free social running group aimed at helping members achieve their running goals.
-						<br/><br/>
-						We do this through group training sessions conducted in a supportive atmosphere. All members of our group have different running goals 
-						and abilities - from purely social runners right through to those training for half, full and ultra marathons (including those chasing a podium finish!)
-						<br/><br/>
-						It's all about running together, having fun and celebrating each others achievements. It's free to join and train with us.
-						<br/><br/>
-						Adelaide Running Crew is one of the original social running groups in Adelaide and has helped thousands improve their running ability!
-					</p>
-				</div>
+	<!-- About Us Section -->
+	<section id="about">
+		<div class="container text-center">
+			<h2 class="section-title">About Us</h2>
+			<p class="section-subtitle">Formed in 2009, Adelaide Running Crew is one of the original social running
+				groups in Adelaide</p>
+			<div style="max-width: 800px; margin: 0 auto;">
+				<p>Adelaide Running Crew is a free social running group aimed at helping members achieve their running
+					goals. We do this through group training sessions conducted in a supportive atmosphere run by
+					volunteer coaches. All members
+					of our group have different running goals and abilities - from purely social runners right through
+					to those training for half, full, and ultra marathons (including those chasing a podium finish!)
+				</p>
+				<br>
+				<p>It's all about running together, having fun, and celebrating each other's achievements. It is free to
+					join and train with us, and we have helped thousands of runners improve their running ability since
+					we began!</p>
+				<br>
+				<p><a href="#faq" style="text-decoration: underline; color: inherit;">Please see our FAQ for more
+						information.</a></p>
 			</div>
 		</div>
 	</section>
-	
-	<div class="arc-image-wrapper">
-    <div>
-    <img src="https://storage.googleapis.com/arc-training/website/group-photos/PXL_20250226_075626708_2.webp" class="arc-image" alt="ARC Adelaide Running Crew group photo February 2025">
-    <img src="https://storage.googleapis.com/arc-training/website/satbreak1-small.webp" class="arc-image" alt="ARC Adelaide Running Crew Saturday breakfast">
-    <img src="https://storage.googleapis.com/arc-training/website/satrun2-small.webp" class="arc-image" alt="ARC Adelaide Running Crew Saturday run">
-    <img src="https://storage.googleapis.com/arc-training/website/arc-breakfast-henley-small.webp" class="arc-image" alt="ARC Adelaide Running Crew breakfast at Henley Beach">
-    <img src="https://storage.googleapis.com/arc-training/website/group-photos/PXL_20250226_074110594_1.webp" class="arc-image" alt="ARC Adelaide Running Crew group photo February 2025">
-    </div>
-    </div>
-	
+
+	<!-- Image Slider 1 -->
+	<div class="carousel-container">
+		<div class="container">
+			<div class="carousel-track">
+				<div class="carousel-item"><img
+						src="https://storage.googleapis.com/arc-training/website/group-photos/PXL_20250226_075626708_2.webp"
+						alt="ARC Group photo February 2025"></div>
+				<div class="carousel-item"><img
+						src="https://storage.googleapis.com/arc-training/website/satbreak1-small.webp"
+						alt="ARC Saturday breakfast session"></div>
+				<div class="carousel-item"><img
+						src="https://storage.googleapis.com/arc-training/website/satrun2-small.webp"
+						alt="ARC Saturday morning run"></div>
+				<div class="carousel-item"><img
+						src="https://storage.googleapis.com/arc-training/website/arc-breakfast-henley-small.webp"
+						alt="ARC Breakfast at Henley Beach"></div>
+				<div class="carousel-item"><img
+						src="https://storage.googleapis.com/arc-training/website/group-photos/PXL_20250226_074110594_1.webp"
+						alt="ARC Group session photo"></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Training Section -->
 	<section id="training">
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-12 text-center">
-					<h2 class="section-heading">Training</h2>
-					<hr>
-					<p class="text-muted">
-					We run as a group on Wednesdays at 6pm starting in North Adelaide (Start of Uni Loop) and on Saturdays at 8am starting
-					from a range of locations in and around the CBD. See below for full details about our runs.
-					</p>
-					<p class="text-muted" style="font-size: large; ">
-						<a target="_blank" href="https://docs.google.com/spreadsheets/d/1SQq7DSinO7do-sdqUjZZb0sV437SHRMICMlUQlFFy-g/pub">
-							Full Year Training Plan (Google Sheet)
-						</a>
-					</p>
-				</div>
-			</div>
-		</div>
-		
-		<div class="container">
-			<div class="row">
-				<div class="col-md-4 text-center">
-					<div class="service-box training-types">
-						<img src="https://storage.googleapis.com/arc-training/website/icons/hare-mirror.png" alt="ARC Adelaide Running Crew is one of the top runnning groups in Adelaide" class="wow bounceInLeft"  data-wow-duration="2s"></img>
-						<h3>Intervals - Wed 6pm</h3>
-						<hr class="thin" />
-						
-						<p id="wedtraining" class="text-muted training-height">
-						    Loading ...
-						</p>
-						
-						<div id="moreWedTraining" style="display:none;"></div>
-						
-						<a id="moreWedTrainLink" href="#wedtraining"  class="page-scroll"
-							onclick="showDivHideLink('moreWedTraining','moreWedTrainLink');">
-							<p class="small-link" id="showmorewedtrainingctrl">...show more sessions...</p>
-						</a>
-						
-						<hr class="thin" />
-						
-						<p class="text-muted">
-							Meet at 6pm for a 6:10pm start.
-							<br/><br/>
-							Meet at the start of Uni Loop, corner of Jerningham St and Mackinnon Parade in North Adelaide
-							<a target="_blank" href="https://maps.app.goo.gl/NFkGSGo5jo4hQgDQ9">
-							(Google Map Link)
-							</a>
-						</p>
-						<div id="map-wrapper" style="display:none;">
-							<div id="map-canvas"></div>
-						</div>
-						
-						<p id="wedmoreinfo" style="display:none" class="text-muted">
-							<br>
-							All Wednesday training sessions start at the same location and are conducted around Uni Loop or at other neaby 
-							locations along the River Torrens and Brougham Gardens.
-							<br><br>
-							Following the warm up, runners do a series of strides and drills 
-							before commencing the main part of the session. The night concludes with
- 							a cool down run and stretching.
-							<br><br>
-							Sessions usually finish around 7:30pm
-							<br>
-						</p>
-						<br/>
-						<a id="wedMoreInfoLink" href="#wedmoreinfo" class="page-scroll"
-							onclick="showDivHideLink('wedmoreinfo','wedMoreInfoLink');" >
-							<p id="wedtrainmoreinfoctrl" class="small-link">...more info...</p>
-						</a>
-						
-					</div>
-				</div>
-				<div class="col-md-4 text-center">
-					<div class="service-box training-types">
-						<img src="https://storage.googleapis.com/arc-training/website/icons/tortoise.png" alt="ARC Adelaide Running Crew tortoise mascot" class="wow swing"  data-wow-duration="2s"></img>
-						<h3>Long Run - Sat 8am</h3>
-						<hr class="thin" />
-						<p id="sattraining" class="text-muted training-height">
-							Loading ...
-						</p>
-						
-						<div id="moreSatTraining" style="display:none;"></div>
-						
-						<a id="showMoreSatTrainLink" href="#sattraining" class="page-scroll"
-							onclick="showDivHideLink('moreSatTraining','showMoreSatTrainLink');" >
-							<p class="small-link" id="showmoresattrainingctrl">...show more sessions...</p>
-						</a>
-						<hr class="thin" />
-						<p class="text-muted" style="font-size: smaller;">
-							<b>NOTE</b> - Saturday run locations are subject to change and not final until 8am Friday each week!
-						</p><br>
+			<h2 class="section-title text-center">Training</h2>
+			<p class="section-subtitle text-center">We do interval training on Wednesday nights and long runs on
+				Saturday mornings</p>
 
-						<p class="text-muted">
-							Meet at 8am for a 8:10am start.
-							<br><br>
-							Saturday morning runs start all over Adelaide, check the above upcoming session for details
-						</p>
-						<br>
-						<p id="satmoreinfo" style="display:none" class="text-muted">
-							Saturday morning runs are normally 10-12km in length and take place at a variety of locations around Adelaide each week, runners are welcome to run shorter distances if they prefer
-							<br><br>
-							Location details for the Saturday runs will be listed in the training schedule
-							<br><br>
-							All runs start at a cafe where we can grab a coffee and Breakfast afterwards
-							<br><br>
-						</p>
-						<a id="satmoreinfolink" href="#satmoreinfo" class="page-scroll" onclick="showDivHideLink('satmoreinfo','satmoreinfolink');">
-							<p id="sattrainlocationctrl" class="small-link">...more info...</p>
-						</a>
-						
-					</div>
-				</div>
-				<div class="col-md-4 text-center">
-					<div class="service-box training-types">
-						<img src="https://storage.googleapis.com/arc-training/website/icons/hare.png" alt="ARC Adelaide Running Crew hare mascot" class="wow bounceInRight"  data-wow-duration="2s"></img>
-						<h3>Upcoming races</h3>
-						<hr class="thin" />
-						<p id="racesdiv" class="text-muted training-height">
-							Loading ...
-						</p>
-						
-						<div id = "moreRacesWrapper">
-							<div id = "moreRaces" style="display:none;"></div>
+			<div
+				style="margin-bottom: 40px; display: flex; justify-content: center; align-items: center; gap: 16px; flex-wrap: wrap; width: 100%;">
+				<a target="_blank" rel="noopener noreferrer"
+					href="https://docs.google.com/spreadsheets/d/1SQq7DSinO7do-sdqUjZZb0sV437SHRMICMlUQlFFy-g/pub"
+					class="btn-main btn-secondary btn-compact"
+					style="display: inline-flex !important; align-items: center; justify-content: center; gap: 8px;">
+					Full Year Training Plan
+					<img src="https://storage.googleapis.com/arc-training/website/google-ss.png" alt="Google Sheets"
+						style="height: 18px; width: 18px; object-fit: contain; vertical-align: middle;">
+				</a>
+				<a href="mini-tp.html" class="btn-main btn-secondary btn-compact">
+					Training Plan Quickview
+				</a>
+			</div>
+
+			<div class="grid-3">
+				<!-- Wednesday Intervals -->
+				<div class="card">
+					<img src="https://storage.googleapis.com/arc-training/website/icons/hare-mirror.png"
+						alt="Interval training mascot" class="card-header-icon">
+					<h3>Intervals - Wed 6pm</h3>
+					<hr class="thin">
+
+					<div class="schedule-scroll-container">
+						<div id="wedtraining" class="runs-list">
+							<p class="text-muted text-center">Loading schedule...</p>
 						</div>
-						<a id="moreRacesLink" href="#racesdiv"  class="page-scroll"
-							onclick="showDivHideLink('moreRaces','moreRacesLink');">
-							<p id = "showmoreracectrl" class="small-link">...show more races...</p>
-						</a>
-						<hr class="thin" />
-						<p class="text-muted">
-							Races listed above are events in Adelaide and interstate that Adelaide Running Crew members often participate in
-						</p>
 					</div>
+
+					<hr class="thin">
+					<p>Meet at 6:00pm for a 6:10pm start</p>
+					<p style="margin-top: 10px;">Wed sessions always start at the same location - please meet at the
+						start of Uni Loop in North Adelaide <a target="_blank" rel="noopener noreferrer"
+							href="https://maps.app.goo.gl/NFkGSGo5jo4hQgDQ9">(Google Map Link)</a></p>
+
+					<br>
+					<p style="margin-top: 10px;">See
+						<a href="#faq" style="text-decoration: underline; color: inherit;">
+							Wednesday Interval Training FAQ</a> section below for more details about these sessions
+					</p>
+				</div>
+
+				<!-- Saturday Long Run -->
+				<div class="card">
+					<img src="https://storage.googleapis.com/arc-training/website/icons/tortoise.png"
+						alt="Long run mascot" class="card-header-icon">
+					<h3>Long Run - Sat 8am</h3>
+					<hr class="thin">
+
+					<div class="schedule-scroll-container">
+						<div id="sattraining" class="runs-list">
+							<p class="text-muted text-center">Loading schedule...</p>
+						</div>
+					</div>
+
+					<hr class="thin">
+					<p style="font-size: 0.85rem; font-style: italic; margin-bottom: 10px;"><b>Note:</b> Saturday run
+						locations
+						are subject to late changes and are not finalised until 8am Friday each week.</p>
+					<p>Meet at 8:00am for a 8:10am start</p>
+					<p style="margin-top: 10px;">Saturday morning runs are normally 10-12km in length and take place at
+						a variety of locations around Adelaide each week</p>
+					<br>
+					<p>See
+						<a href="#faq" style="text-decoration: underline; color: inherit;">
+							Saturday Long Run FAQ</a> section below for more details about these sessions
+					</p>
+				</div>
+
+				<!-- Upcoming Races -->
+				<div class="card">
+					<img src="https://storage.googleapis.com/arc-training/website/icons/hare.png" alt="Races mascot"
+						class="card-header-icon">
+					<h3>Upcoming Races</h3>
+					<hr class="thin">
+
+					<div class="schedule-scroll-container">
+						<div id="racesdiv" class="runs-list">
+							<p class="text-muted text-center">Loading schedule...</p>
+						</div>
+					</div>
+
+					<hr class="thin">
+					<p>Races listed are running events in South Australia and interstate, ARC members
+						often
+						compete in many of the above.<br><br>Races are not organised by ARC, please check the associated
+						running event
+						website for more
+						information</p>
 				</div>
 			</div>
 		</div>
-		
 	</section>
-	
-	<div class="arc-image-wrapper">
-    <img src="https://storage.googleapis.com/arc-training/website/group-photos/PXL_20250409_084214951_13.webp" class="arc-image" alt="ARC Adelaide Running Crew group photo April 2025">
-    <img src="https://storage.googleapis.com/arc-training/website/group-run.webp" class="arc-image" alt="ARC Adelaide Running Crew group running session">
-    <img src="https://storage.googleapis.com/arc-training/website/arc-medal.webp" class="arc-image" alt="ARC Adelaide Running Crew race medal">
-    <img src="https://storage.googleapis.com/arc-training/website/post-race.webp" class="arc-image" alt="ARC Adelaide Running Crew post race celebration">
-    <img src="https://storage.googleapis.com/arc-training/website/group-photos/PXL_20250305_074611263_4.webp" class="arc-image" alt="ARC Adelaide Running Crew group photo March 2025">
-    </div>
 
+	<!-- Image Slider 2 -->
+	<div class="carousel-container">
+		<div class="container">
+			<div class="carousel-track">
+				<div class="carousel-item"><img
+						src="https://storage.googleapis.com/arc-training/website/group-photos/PXL_20250409_084214951_13.webp"
+						alt="ARC Group running session April 2025"></div>
+				<div class="carousel-item"><img src="https://storage.googleapis.com/arc-training/website/group-run.webp"
+						alt="ARC group running session along the river"></div>
+				<div class="carousel-item"><img src="https://storage.googleapis.com/arc-training/website/arc-medal.webp"
+						alt="ARC runner holding race finish medal"></div>
+				<div class="carousel-item"><img src="https://storage.googleapis.com/arc-training/website/post-race.webp"
+						alt="ARC runners celebrating post-race"></div>
+				<div class="carousel-item"><img
+						src="https://storage.googleapis.com/arc-training/website/group-photos/PXL_20250305_074611263_4.webp"
+						alt="ARC Group session photo March 2025"></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- FAQ Section -->
 	<section id="faq">
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2 text-center">
-					<h2 class="section-heading" >FAQ</h2>
-					<hr  />
+			<h2 class="section-title text-center">Frequently Asked Questions</h2>
+			<p class="section-subtitle text-center">Have questions about running with us? Here are some answers to
+				common queries.</p>
 
-					<a id="questiononehash" onclick="showAndHideQues('questionone');" href="#questiononehash" class="page-scroll">
-						<p class="text-muted">
-							<b>How much do sessions cost?</b>
-						</p>
-					</a>
+			<div class="faq-list">
+				<details>
+					<summary>How much do sessions cost?</summary>
+					<div class="faq-content">
+						<p>Nothing - we do it for the love of running and do not ask for membership fees or session
+							payments. An optional gold coin donation is welcome each session to help cover our running
+							costs (like
+							coaching registration and insurance), with any remaining balance donated to our chosen
+							charity each year.</p>
+						<p style="margin-top: 12px;">For more information about how we support local causes, see the <a
+								href="#donations">Donations</a> section below.</p>
+					</div>
+				</details>
+				<details>
+					<summary>How fit/fast do I need to be?</summary>
+					<div class="faq-content">
 
-					<p id="questionone" style="display:none" class="text-muted">
-						Nothing - we do it for the love of it and do not ask for payment. We do ask however that you contribute 
-						with a gold coin donation after any of the runs or an amount of your choice to a charity chosen by the 
-						group each year. The ARC also has to pay a small amount for insurance and coaching registration each year 
-						which is covered by donations.
-						<br/><br/>
-						For more information about the ARC's donations, 
-						<a href="#donations" class="page-scroll">click here</a>
-						<br/><br/>
-					</p>
+						<p style="margin-top: 12px;">We cater to a wide range of fitness levels however as we are a
+							volunteer group, it may be difficult for coaches to properly support those that are brand
+							new to
+							running.</p>
+						<p style="margin-top: 12px;"><b>It is recommended that you are able to comfortably run at
+								least 5km in 30mins in order to get the most out of the sessions.</b></p>
+						<p style="margin-top: 12px;">Wednesday night interval sessions offer a flexible structure that
+							caters to a variety of paces. Sessions are typically 45-60 minutes in duration with a total
+							distance of 6-10km, including warm up and cool down. Our regular runners typically range
+							between 3:30-6:00min/km paces during the session.
+						<p style="margin-top: 12px;">Saturday runs are 10-12km in length and are either out and back
+							or loop routes around Adelaide. Our regular runners on Saturday's typically run between a
+							4:30-6:00min/km pace. Newer runners are welcome to run shorter distances and return back to
+							the
+							start point earlier to meet up for coffee/breakfast afterwards if needed!</p>
+					</div>
+				</details>
+				<details>
+					<summary>Wednesday Interval Training</summary>
+					<div class="faq-content">
+						<p>Wednesday interval training sessions are typically about 60 minutes in duration with a total
+							distance of 6-10km, including warm up and cool down. Our regular runners typically vary
+							between 3:30-6:00min/km paces during the session.</p>
 
-					<a id="questiontwohash" onclick="showAndHideQues('questiontwo');" href="#questiontwohash" class="page-scroll">
-						<p class="text-muted">
-							<b>How fit/fast do I need to be?</b>
+						<p style="margin-top: 12px;">Sessions always start at the same location <a target="_blank"
+								rel="noopener noreferrer" href="https://maps.app.goo.gl/NFkGSGo5jo4hQgDQ9">(Google Map
+								Link)</a> and are conducted
+							either around the Park 10 running track or at nearby locations including the Torrens River,
+							Adelaide Oval Stadium or other nearby parks (we will do a warm up run to these locations).
 						</p>
-					</a>
-					
-					<p id="questiontwo" style="display:none" class="text-muted">
-						Provided you have a basic level of fitness and can run non-stop for approximately 30-40 minutes, then you will be 
-						able to cope with both the Wednesday interval sessions and longer runs on Saturdays.
-						<br/><br/>
-						The Wednesday night interval sessions offer a structure that provides flexibility for beginners and seasoned runners so 
-						are a good place to start running with the ARC. However, new runners that come along on Saturday will also be looked after 
-						and not left on their own, so don't feel intimidated to come and join our longer runs too. The Saturday sessions are also 
-						typically out-and-back routes, so you can choose a distance that works best for you and don't have to be able to run long 
-						distances from the beginning.
-						<br/><br/>
-						We are able to cater for a wide range of abilities with members just starting out to those getting podiums in races. 
-						Our group includes runners that can run 10km in under 37 minutes right through to runners taking 60-65 minutes.
-						<br/><br/>				
-					</p>
 
-					<a id="questionthreehash" onclick="showAndHideQues('questionthree');" href="#questionthreehash" class="page-scroll">
-						<p class="text-muted">
-							<b>Where can I store my gear?</b>
+						<p style="margin-top: 12px;">Each session is focussed on a specific type of interval training
+							which we rotate each week from a large collection we run, this can include training such as:
 						</p>
-					</a>
-					
-					<p id="questionthree" style="display:none" class="text-muted">
-						Gear can be kept in one of the coaches/participants cars near to our meeting place.
-						<br/><br/>
-					</p>
+						<ul>
+							<li>Fartlek</li>
+							<li>Hill Repeats (e.g. 25mins running around a 1km loop incorporating hills)</li>
+							<li>Pyramid Intervals (e.g., 3x 400m, 800m, 1200m, 1600m, 1200m, 800m, 400m)</li>
+							<li>Inverted Pyramid Intervals (e.g. 1600m, 1200m, 800m, 400m)</li>
+							<li>Tempo Runs</li>
+							<li>Interval Repeats (e.g. 10x 800m)</li>
+							<li>and many more!</li>
+						</ul>
 
-					<a id="questionfourhash" onclick="showAndHideQues('questionfour');" href="#questionfourhash" class="page-scroll">
-						<p class="text-muted">
-							<b>Is there a uniform?</b>
+						<p style="margin-top: 12px;">On the last Wednesday of every month, we hold a pub night after the
+							session where we will go to a local place in North Adelaide for dinner and drinks after
+							training</p>
+
+					</div>
+				</details>
+				<details>
+					<summary>Saturday Long Runs</summary>
+					<div class="faq-content">
+						<p style="margin-top: 12px;">Saturday long runs are 10-12km in length and are either out and
+							back
+							or loop routes around
+							Adelaide. The location changes each week and normally starts and finishes at a designated
+							cafe.</p>
+						<p style="margin-top: 12px;">Please note that the location each week is subject to last minute
+							changes due to
+							weather, route closure and other factors - make sure you confirm the location on either this
+							website or our social media channels
+							after 8am each Friday before heading out!</p>
+						<p style="margin-top: 12px;">Our regular runners on Saturday's typically run between a
+							4:30-6:00min/km pace.
 						</p>
-					</a>
-					
-					<p id="questionfour" style="display:none" class="text-muted">
-						There is no mandatory uniform, feel free to wear any appropriate running gear that you have. 
-						We do have a range of locally made Adelaide Running Crew branded running shirts and other apparel 
-						available for purchase. Please
-						See the <a href="#merchandise" class="page-scroll">Merchandise</a> section for more details.
-						<br/><br/>
-					</p>
-					
-					<a id="questionfivehash" onclick="showAndHideQues('questionfive');" href="#questionfivehash" class="page-scroll">
-						<p class="text-muted">
-							<b>Does ARC participate in events and races?</b>
+
+						<p style="margin-top: 12px;">Newer runners are welcome to run shorter distances and return back
+							to the start point
+							earlier to meet up for coffee/breakfast afterwards if needed!</p>
+
+						<p style="margin-top: 12px;">Please ensure you bring water and a mobile phone to access
+							route information
 						</p>
-					</a> 
-					
-					<p id="questionfive" style="display:none" class="text-muted">
-						Adelaide Running Crew members regularly participate in most major running events in and around South Australia including
-						10km, half, full and ultra marathons on both road and trail. 
-						<br><br>Members also regualarly participate in interstate races including
-						Sydney, Melbourne and Gold Coast marathons to name a few.
-						<br><br>
-						If you are interested in or preparing for a race, please share it with the group as we often help each other with extra training, accommodation and logistics
-						getting to and from events!
-						<br/><br/>
-					</p>
-				</div>
+					</div>
+				</details>
+				<details>
+					<summary>Where can I store my gear during runs?</summary>
+					<div class="faq-content">
+						<p>Runners can safely store their bags and keys in the cars of our coaches or crew participants
+							parked near the meeting point.</p>
+					</div>
+				</details>
+
+				<details>
+					<summary>Is there a crew uniform?</summary>
+					<div class="faq-content">
+						<p>There is no mandatory uniform - wear whatever comfortable running gear you have! We do offer
+							a range of locally made Adelaide Running Crew branded running shirts and apparel for
+							purchase. See the <a href="#merchandise">Merchandise</a> section for details.</p>
+					</div>
+				</details>
+
+				<details>
+					<summary>Does ARC participate in races and events?</summary>
+					<div class="faq-content">
+						<p>Yes! Adelaide Running Crew members regularly participate in major running events around South
+							Australia and interstate, including 10km, half marathons, marathons, and ultra-marathons
+							(both road and trail).</p>
+						<p style="margin-top: 12px;">We frequently support each other with extra training, travel
+							coordination, and race-day logistics for events like the Sydney, Melbourne, and Gold Coast
+							marathons.</p>
+					</div>
+				</details>
 			</div>
 		</div>
 	</section>
 
-		<section id="social">
+	<!-- Social Events Section -->
+	<section id="social">
+		<div class="container text-center">
+			<h2 class="section-title">Social Events</h2>
+			<p class="section-subtitle">We do more outside than just running!</p>
+			<div style="max-width: 800px; margin: 0 auto;">
+				<p>Adelaide Running Crew organizes a variety of regular social activities, including our traditional
+					"Last Wednesday of the Month" dinners after interval training and weekly breakfasts/coffees after
+					Saturday morning runs (runners and non-runners alike are always welcome to join!)</p>
+				<br>
+				<p>We also have regular social gatherings including wine tours, Fringe show outings, and Christmas
+					dinners. Details are shared via our private Facebook Group which can be accessed below.</p>
+				<br>
+				<a href="https://www.facebook.com/groups/108841288928" target="_blank" rel="noopener noreferrer"
+					class="btn-main btn-primary">Join our Private Facebook Group</a>
+				<p style="margin-top: 12px; font-size: 0.9rem; font-style: italic;"><b>Note:</b> It is requested that
+					all
+					members of the Facebook group have run with the group at least once. Please ensure you have done so
+					before applying or your application may be rejected.</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Image Slider 3 -->
+	<div class="carousel-container">
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2 text-center">
-					<h2 class="section-heading">Social Events</h2>
-					<hr>
-					<p class="text-muted">
-						Adelaide Running Crew have a number of regular social activities, including the traditional 
-						'Last Wednesday of the Month' dinner after Wednesday training and weekly morning breakfast/coffee at a cafe
-						after Saturday runs (you are welcome to join us even if you didn't run!)
-						There is also a social committee which organises 3-4 events each year such as fringe shows, wine 
-						tours and movie nights.
-						<br><br>
-						Adelaide Running Crew maintains a <a href="https://www.facebook.com/groups/108841288928">Private Facebook Group</a> for organising social events, 
-						to join upcoming social events please join the group - an admin will approve your request to join if you have shown up to at least one run
-					</p>
-				</div>
+			<div class="carousel-track">
+				<div class="carousel-item"><img
+						src="https://storage.googleapis.com/arc-training/website/group-photos/PXL_20250328_214358431_11.webp"
+						alt="ARC Picnic gathering March 2025"></div>
+				<div class="carousel-item"><img
+						src="https://storage.googleapis.com/arc-training/website/picnic2-small.webp"
+						alt="ARC group picnic lunch"></div>
+				<div class="carousel-item"><img
+						src="https://storage.googleapis.com/arc-training/website/fringe-small.webp"
+						alt="ARC crew attending Adelaide Fringe show"></div>
+				<div class="carousel-item"><img
+						src="https://storage.googleapis.com/arc-training/website/christmas-small.webp"
+						alt="ARC crew Christmas dinner"></div>
+				<div class="carousel-item"><img
+						src="https://storage.googleapis.com/arc-training/website/group-photos/PXL_20250411_224203807_14.webp"
+						alt="ARC Group photo April 2025"></div>
 			</div>
 		</div>
-	</section>
-	
-	<div class="arc-image-wrapper">
-    <img src="https://storage.googleapis.com/arc-training/website/group-photos/PXL_20250328_214358431_11.webp" class="arc-image" alt="ARC Adelaide Running Crew picnic event March 2025">
-    <img src="https://storage.googleapis.com/arc-training/website/picnic2-small.webp" class="arc-image" alt="ARC Adelaide Running Crew picnic group">
-    <img src="https://storage.googleapis.com/arc-training/website/fringe-small.webp" class="arc-image" alt="ARC Adelaide Running Crew at Adelaide Fringe">
-    <img src="https://storage.googleapis.com/arc-training/website/christmas-small.webp" class="arc-image" alt="ARC Adelaide Running Crew Christmas event">
-    <img src="https://storage.googleapis.com/arc-training/website/group-photos/PXL_20250411_224203807_14.webp" class="arc-image" alt="ARC Adelaide Running Crew group photo April 2025">
-    </div>
+	</div>
 
+	<!-- Merchandise Section -->
 	<section id="merchandise">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2 text-center">
-					<h2 class="section-heading">Merchandise</h2>
-					<hr>
-					<p class="text-muted">
-						Adelaide Running Crew has a range of locally made merchandise including branded running shirts from <a href="https://www.runningvibes.com.au/category/adelaide-running-crew" target="_blank">Running Vibes</a>
-					</p>
-				</div>
+		<div class="container text-center">
+			<h2 class="section-title">Merchandise</h2>
+			<p class="section-subtitle">Show your crew pride with our local Adelaide Running Crew running merch</p>
+			<div style="max-width: 600px; margin: 0 auto;">
+				<p style="margin-bottom: 24px;">Adelaide Running Crew merch is made by <b><i>Running Vibes</i></b>, a
+					locally owned and operated running store. Please visit the link below to order ARC branded shirts
+					and other
+					items!</p>
+				<a href="https://www.runningvibes.com.au/category/adelaide-running-crew" target="_blank"
+					rel="noopener noreferrer" class="btn-main btn-primary">Visit Merchandise Store</a>
 			</div>
 		</div>
 	</section>
 
-	<div class="arc-image-wrapper">
-    <img src="https://storage.googleapis.com/arc-training/website/group-photos/PXL_20250307_214239063_5.webp" class="arc-image" alt="ARC Adelaide Running Crew merchandise group photo March 2025">
-    <img src="https://storage.googleapis.com/arc-training/website/group-photos/PXL_20250321_214219780_9.webp" class="arc-image" alt="ARC Adelaide Running Crew group photo March 2025">
-    <img src="https://storage.googleapis.com/arc-training/website/merch3.webp" class="arc-image" alt="ARC Adelaide Running Crew merchandise display 3">
-    <img src="https://storage.googleapis.com/arc-training/website/merch2.webp" class="arc-image" alt="ARC Adelaide Running Crew merchandise display 2">
-    <img src="https://storage.googleapis.com/arc-training/website/group-photos/PXL_20250326_074139620_10.webp" class="arc-image" alt="ARC Adelaide Running Crew group photo March 2025">
-    <img src="https://storage.googleapis.com/arc-training/website/merch4.webp" class="arc-image" alt="ARC Adelaide Running Crew merchandise display 4">
-    </div>
-	
+	<!-- Image Slider 4 -->
+	<div class="carousel-container">
+		<div class="container">
+			<div class="carousel-track">
+				<div class="carousel-item"><img
+						src="https://storage.googleapis.com/arc-training/website/group-photos/PXL_20250307_214239063_5.webp"
+						alt="ARC crew shirts display March 2025"></div>
+				<div class="carousel-item"><img
+						src="https://storage.googleapis.com/arc-training/website/group-photos/PXL_20250321_214219780_9.webp"
+						alt="ARC crew running in merchandise"></div>
+				<div class="carousel-item"><img src="https://storage.googleapis.com/arc-training/website/merch3.webp"
+						alt="ARC branded apparel"></div>
+				<div class="carousel-item"><img src="https://storage.googleapis.com/arc-training/website/merch2.webp"
+						alt="ARC running caps"></div>
+				<div class="carousel-item"><img
+						src="https://storage.googleapis.com/arc-training/website/group-photos/PXL_20250326_074139620_10.webp"
+						alt="ARC crew singlet display March 2025"></div>
+				<div class="carousel-item"><img src="https://storage.googleapis.com/arc-training/website/merch4.webp"
+						alt="ARC branded running singlet"></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Donations Section -->
 	<section id="donations">
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2 text-center">
-					<h2 class="section-heading">Donations</h2>
-					<hr  />
-					<p class="text-muted">
-						<b>How can you help?</b>
-					</p>
-					<p class="text-muted">
-						Adelaide Running Crew choose a charity each year to donate to. We encourage each runner to donate either 
-						through a 'gold coin' donation after any of our runs or via bank transfer/PayID (details below)
-						<br/><br/>
-						Donations go towards covering our costs, with any balance donated to a charity chosen by Adelaide Running Crew!
-					</p>	
-					<p class="text-muted">	
-						<b>PayID:</b> jorbat1977@gmail.com </br>
-						<em class="text-muted" style="font-size: x-small; ">
-						PayID check will show "J Batlle Aguilar" - Jordie looks after our group donations
-						</em>
-					</p>	
-					<p class="text-muted">
-						Bank details</br>
-						<b>BSB:</b> 325 185 <b>Account:</b> 039 246 77 
-					</p>
-					
-					<div id="donCurr" style="display:inline">
+			<h2 class="section-title text-center">Donations</h2>
+			<p class="section-subtitle text-center">How we cover expenses and support local charities together.</p>
+
+			<div style="max-width: 800px; margin: 0 auto;">
+				<p class="text-center" style="margin-bottom: 30px;">
+					Adelaide Running Crew chooses a charity each year to support. Runners are welcome to make a
+					voluntary "gold coin" donation after runs or an online transfer using the details below. Donations
+					first cover
+					crew overheads (insurance and coaching fees), and 100% of the remaining balance is donated to the
+					year's charity.
+				</p>
+
+				<!-- Bank Details Visual Component -->
+				<div class="bank-card">
+					<div class="bank-row">
+						<span class="bank-label">PayID (Email)</span>
+						<div>
+							<span id="payid-email" class="bank-value">jorbat1977@gmail.com</span>
+							<button class="copy-btn" data-target="payid-email">Copy</button>
+						</div>
 					</div>
-
-					<hr class="thin" />
-					<p id="pastdonationhash" class="text-muted">
-						<a onclick="showAndHideDons('don-list');" href="#pastdonationhash" class="page-scroll">
-							Organisations we supported in the past
-						</a>
-					</p>
-					
-					<div id="don-list" style="display:none" class="text-muted">
-						<ul style="text-align:left; display:inline-block;">
-							<li>Orange Sky Adelaide <a href="https://orangesky.org.au/locations/adelaide/" target="_blank">https://orangesky.org.au/locations/adelaide/</a></li>
-							<li>Can:Do 4Kids <a href="https://www.cando4kids.com.au/" target="_blank">https://www.cando4kids.com.au/</a></li>
-							<li>Now I Can Run <a href="https://www.nowicanrun.org/" target="_blank">https://www.nowicanrun.org/</a></li>
-							<li>The Royal Society for the Blind (RSB) <a href="https://www.rsb.org.au/" target="_blank">https://www.rsb.org.au/</a></li>
-							<li>Wheelchair Sports SA (Disability Recreation and Sports SA.)</li>
-							<li>Hutt Street Centre <a href="https://www.huttstcentre.org.au/" target="_blank">https://www.huttstcentre.org.au/</a></li>
-							<li>The Marathon Project <a href="https://www.imf.org.au/" target="_blank">https://www.imf.org.au/</a></li>
-							<li>Melissa White Memorial Laboratory</li>
-							<li>Reuben Kosgei's Riverside Academy in Kenya</li>
-						</ul>
+					<div class="bank-row">
+						<span class="bank-label">Account Name</span>
+						<div>
+							<span id="bank-name" class="bank-value">J Batlle Aguilar</span>
+							<button class="copy-btn" data-target="bank-name">Copy</button>
+						</div>
 					</div>
+					<div class="bank-row">
+						<span class="bank-label">BSB</span>
+						<div>
+							<span id="bank-bsb" class="bank-value">325 185</span>
+							<button class="copy-btn" data-target="bank-bsb">Copy</button>
+						</div>
+					</div>
+					<div class="bank-row">
+						<span class="bank-label">Account Number</span>
+						<div>
+							<span id="bank-acc" class="bank-value">039 246 77</span>
+							<button class="copy-btn" data-target="bank-acc">Copy</button>
+						</div>
+					</div>
+				</div>
 
+				<p class="text-center"
+					style="font-size: 0.85rem; font-style: italic; margin-bottom: 40px; color: var(--text-secondary);">
+					PayID check will show "J Batlle Aguilar". Jordie manages our crew donations.
+				</p>
 
-					
+				<div class="charities-container">
+					<details class="charities-accordion">
+						<summary>Organisations We Have Supported</summary>
+						<div class="faq-content">
+							<ul class="charities-list">
+								<li>Orange Sky Adelaide</li>
+								<li>Can:Do 4Kids</li>
+								<li>Now I Can Run</li>
+								<li>Royal Society for the Blind (RSB)</li>
+								<li>Disability Recreation & Sports SA</li>
+								<li>Hutt Street Centre</li>
+								<li>Indigenous Marathon Foundation</li>
+								<li>Melissa White Memorial Lab</li>
+								<li>Riverside Academy (Kenya)</li>
+							</ul>
+						</div>
+					</details>
 				</div>
 			</div>
 		</div>
 	</section>
-	<section id="pace-calculator">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2 text-center">
-					<h2 class="section-heading">Running Tools</h2>
-					<hr>
-					<p class="text-muted">Below are some in-house developed tools to help with running!
-					<br><br><a href="pace-calculator.html">Running Pace Calculator</a></p>
+
+	<!-- Running Tools Showcase -->
+	<section id="tools">
+		<div class="container text-center">
+			<h2 class="section-title">Running Tools</h2>
+			<p class="section-subtitle">Try our in-house tools to help plan your runs</p>
+
+			<div class="grid-3 tools-grid" style="max-width: 900px; margin: 0 auto; justify-content: center;">
+				<!-- Pace Calculator Card -->
+				<div class="card">
+					<img src="https://storage.googleapis.com/arc-training/website/icons/hare-mirror.png"
+						alt="Pace Calculator Icon" class="card-header-icon">
+					<h3>Pace Calculator</h3>
+					<p style="margin: 16px 0 24px; font-size: 0.95rem; color: var(--text-secondary);">Calculate target
+						paces and speed for 5k, 10k, Half Marathon, Marathon, and custom distances</p>
+					<a href="pace-calculator.html" target="_blank" rel="noopener noreferrer" class="btn-main btn-primary">Open Pace Calculator</a>
+				</div>
+
+				<!-- Split Calculator Card -->
+				<div class="card">
+					<img src="https://storage.googleapis.com/arc-training/website/icons/hare.png"
+						alt="Split Calculator Icon" class="card-header-icon">
+					<h3>Split Calculator</h3>
+					<p style="margin: 16px 0 24px; font-size: 0.95rem; color: var(--text-secondary);">Calculate KM or
+						Mile split times using different pacing strategies</p>
+					<a href="split-calculator.html" target="_blank" rel="noopener noreferrer" class="btn-main btn-primary">Open Split Calculator</a>
 				</div>
 			</div>
 		</div>
 	</section>
+
+	<!-- Contact Us Section -->
 	<section id="contact">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2 text-center">
-					<h2 class="section-heading">Contact Us</h2>
-					<hr>
-					<p class="text-muted">The best place to find us is to turn up to one of our training sessions, if you need more information please contact us through one of our social media platforms below</p>
-					<hr class="thin">
-					<div style="display: flex; justify-content: center; gap: 40px; align-items: center;">
-						<div style="text-align: center;">
-							<a type="submit" class="social-btn" href="https://www.facebook.com/adelaiderunning" target="_blank">
-								<img src="https://storage.googleapis.com/arc-training/website/Facebook_Logo_Primary.png" alt="Facebook" width="80px">
-							</a>
-							<p class="text-muted"></p>
-						</div>
-						<div style="text-align: center;">
-							<a type="submit" class="social-btn" href="https://www.instagram.com/adelaiderunningcrew/" target="_blank">
-								<img src="https://storage.googleapis.com/arc-training/website/Instagram_Glyph_Gradient.png" alt="Instagram" width="80px">
-							</a>
-							<p class="text-muted"></p>
-						</div>
-					</div>
+		<div class="container text-center">
+			<h2 class="section-title">Contact Us</h2>
+			<p class="section-subtitle">We would love to run with you! Turn up to any session or connect with us online.
+			</p>
+
+			<div style="max-width: 600px; margin: 0 auto;">
+				<p style="margin-bottom: 30px;">The best way to reach us is to show up to one of our runs! For
+					enquiries, feel free to contact us through our social media channels below.</p>
+
+				<div style="display: flex; justify-content: center; gap: 40px; margin-bottom: 40px; flex-wrap: wrap;">
+					<a href="https://www.facebook.com/adelaiderunning" target="_blank" rel="noopener noreferrer"
+						style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+						<img src="https://storage.googleapis.com/arc-training/website/Facebook_Logo_Primary.png"
+							alt="Facebook" style="height: 50px;">
+						<span style="font-weight: 600; font-size: 0.9rem;">Facebook Page</span>
+					</a>
+					<a href="https://www.instagram.com/adelaiderunningcrew/" target="_blank" rel="noopener noreferrer"
+						style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+						<img src="https://storage.googleapis.com/arc-training/website/Instagram_Glyph_Gradient.png"
+							alt="Instagram" style="height: 50px;">
+						<span style="font-weight: 600; font-size: 0.9rem;">Instagram</span>
+					</a>
 				</div>
 			</div>
 		</div>
 	</section>
-	
-	<section id="links" class="bg-faded">
+
+	<!-- Other Crew Links -->
+	<section id="links" style="background-color: #0b0f19;">
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2 text-center">
-					<h2 class="section-heading" style="color:white;">Other Links</h2>
-					<hr  style="border-color:white;"/>
+			<h2 class="section-title text-center" style="color: #ffffff;">Other Links</h2>
+			<p class="section-subtitle text-center" style="color: var(--text-secondary);"></p>
+
+			<div class="links-grid" style="max-width: 1000px; margin: 0 auto;">
+				<div class="link-card">
+					<a href="http://trailrunningsa.com/" target="_blank" rel="noopener noreferrer">
+						<div class="link-logo-container">
+							<img src="https://storage.googleapis.com/arc-training/website/icons/trailsa.png"
+								alt="Trail Running SA logo">
+						</div>
+						<h4 style="margin-bottom: 8px;">Trail Running SA</h4>
+						<p style="font-size: 0.85rem; color: var(--text-secondary);">Organises social runs and races on
+							trails across South Australia.</p>
+					</a>
 				</div>
-				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
-					<div class="service-box">
-						<a type="submit" class="social-btn" href="http://www.crosbiecrew.net/" target="_blank">
-							<div><img src="https://storage.googleapis.com/arc-training/website/icons/crosbie.png" alt="Crosbie Crew Melbourne logo" class="other-links"/></div>
-						</a>
-						<p class="other-links-text">The Crosbie Crew - Melbourne based running crew. The Tan, Melbourne</p>
-					</div>
+				<div class="link-card">
+					<a href="http://www.sarrc.asn.au/" target="_blank" rel="noopener noreferrer">
+						<div class="link-logo-container">
+							<img src="https://storage.googleapis.com/arc-training/website/icons/sarrc.png"
+								alt="SARRC logo">
+						</div>
+						<h4 style="margin-bottom: 8px;">SARRC</h4>
+						<p style="font-size: 0.85rem; color: var(--text-secondary);">South Australian Road Runners Club
+							organising groups and road races.</p>
+					</a>
 				</div>
-				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
-					<div class="service-box">
-						<a type="submit" class="social-btn" href="http://www.therunningcompany.com.au/" target="_blank">
-							<div class="other-links"><img src="https://storage.googleapis.com/arc-training/website/icons/runcomp.png" alt="The Running Company Sydney logo" style="height:40px; background:#0066cc;"/></div>
-						</a>
-						<p class="other-links-text">The running company - Sydney based running crew. Bondi Beach, Sydney</p>
-					</div>
+				<div class="link-card">
+					<a href="https://www.athletics.com.au/" target="_blank" rel="noopener noreferrer">
+						<div class="link-logo-container"
+							style="background-color: #0b0f19; padding: 8px; border-radius: 8px;">
+							<img src="https://www.athletics.com.au/nitropack_static/QMLIydPgyJTuntKgjXebAkcNqgbmCypv/assets/images/source/rev-c60d957/www.athletics.com.au/wp-content/uploads/2023/06/australian-athletics-logo.svg"
+								alt="Australian Athletics logo">
+						</div>
+						<h4 style="margin-bottom: 8px;">Australian Athletics</h4>
+						<p style="font-size: 0.85rem; color: var(--text-secondary);">The national governing body for
+							athletics in Australia, managing track and field events.</p>
+					</a>
 				</div>
-				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
-					<div class="service-box">
-						<a type="submit" class="social-btn" href="http://trailrunningsa.com/" target="_blank">
-							<div><img src="https://storage.googleapis.com/arc-training/website/icons/trailsa.png" alt="Trail Running SA logo" class="other-links"/></div>
-						</a>
-						<p class="other-links-text">Organise both social running groups and races on trails around SA</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
-					<div class="service-box">
-						<a type="submit" class="social-btn" href="http://www.sarrc.asn.au/" target="_blank">
-							<div><img src="https://storage.googleapis.com/arc-training/website/icons/sarrc.png" alt="SARRC logo" class="other-links"/></div>
-						</a>
-						<p class="other-links-text">Organise both social running groups and races on roads around SA</p>
-					</div>
-				</div>
-					
+				<div class="link-card">
+					<a href="https://www.facebook.com/groups/1291945465454465" target="_blank"
+						rel="noopener noreferrer">
+						<div class="link-logo-container">
+							<img src="https://storage.googleapis.com/arc-training/website/Facebook_Logo_Primary.png"
+								alt="Facebook logo">
+						</div>
+						<h4 style="margin-bottom: 8px;">Run 4 Lofty</h4>
+						<p style="font-size: 0.85rem; color: var(--text-secondary);">Sister running group that runs up
+							Mount Lofty every Thursday evening.</p>
+					</a>
 				</div>
 			</div>
 		</div>
 	</section>
-	
-		<script type="text/javascript" src="./js/jquery-1.11.0.min.js"></script>
-	<script type="text/javascript"> 
-		var questionIdList = ["questionone","questiontwo","questionthree","questionfour","questionfive","questionsix"];
-		var donationsIdList = ["don09","don10","don11","don12","don16","don18"];
-	
-		function toggleDivVisibility(elementId) {
-			if (document.getElementById(elementId).style.display == "inline") {
-				document.getElementById(elementId).style.display = "none";
-			} else {
-				document.getElementById(elementId).style.display = "inline";
-			}
-		}
-		
-		function showDivHideLink(divToShowId, linkToHideId) {
-			document.getElementById(divToShowId).style.display = "inline";
-			document.getElementById(linkToHideId).style.display = "none";
-		}
-		
-		function showAndHideQues(elementId) {
-			toggleDivVisibility(elementId);
-			for (var i = 0; i < questionIdList.length; i++) {
-				if (elementId != questionIdList[i])	{
-					document.getElementById(questionIdList[i]).style.display = "none";
-				}
-			}
-		}
-		
-		function showAndHideDons(elementId) {
-			toggleDivVisibility(elementId);
-			for (var i = 0; i < donationsIdList.length; i++) {
-				if (elementId != donationsIdList[i]) {
-					document.getElementById(donationsIdList[i]).style.display = "none";
-				}
-			}
-		}
-		
-		function sendEmail(justShow) {
-			var recipient="runningadelaide";
-			var at = String.fromCharCode(64);
-			var dotcom="hotmail.com";
-			var mail="mailto:";
-			var subject="?subject=web enquiry"
-			
-			if (justShow) {
-				document.getElementById('jsarcemail').innerHTML = recipient+at+dotcom;
-			} else {
-				window.open(mail+recipient+at+dotcom+subject);
-			}
-		}
-	</script>
-	
-	<!-- required for the cycling background photos -->
-	<link rel="stylesheet" href="css/cyclingbackground.css" type="text/css">
-	<!-- script type="text/javascript" src="./js/index/cyclingbackground.js"></script-->
-		
-	<!-- required div called id=wedtraining / id=sattraining / id=racesdiv -->
-	<!-- id=moreWedTraining / id=moreSatTraining / id=moreRaces -->
-	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-	<script type="text/javascript" src="./js/index/gsscall.js"></script>
 
-	<!-- this requires the div id = "map-canvas" to be direct child of a div id = "map-wrapper" 
-	<script src="https://maps.googleapis.com/maps/api/js"></script>
-	<script type="text/javascript" src="./js/index/gmapinit.js"></script-->
-	
-	<!-- Bootstrap Core JavaScript -->
-	<script src="js/bootstrap.min.js"></script>
+	<!-- Footer -->
+	<footer>
+		<div class="container">
+			<p>&copy; 2026 Adelaide Running Crew</p>
+		</div>
+	</footer>
 
-	<!-- Plugin JavaScript -->
-	<script src="js/jquery.easing.min.js"></script>
-	<script src="js/jquery.fittext.js"></script>
-	<script src="js/wow.min.js"></script>
-
-	<!-- Custom Theme JavaScript -->
-	<script src="js/creative.js"></script>
-
+	<!-- Shared JavaScript -->
+	<script type="text/javascript" src="js/main.js"></script>
 </body>
 
 </html>

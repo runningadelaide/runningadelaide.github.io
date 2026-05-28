@@ -1,178 +1,195 @@
 <!DOCTYPE html>
-<!--
-File has been modified by Eric Lam for the Adelaide Running Crew Website
-http://www.runningadelaide.net/
--->
 <html lang="en">
 
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="ARC Mini Training Plan">
+    <meta name="author" content="Adelaide Running Crew">
+    <link rel="shortcut icon" sizes="228x228" href="https://storage.googleapis.com/arc-training/website/arc-logo-228x228.png">
+    <link rel="apple-touch-icon" href="https://storage.googleapis.com/arc-training/website/arc-logo-180x180.png">
 
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="ARC Mini Training Plan">
-	<meta name="author" content="Eric Lam">
-	<link rel="shortcut icon" sizes="228x228" href="arc-logo-228x228.png">
-	<link rel="apple-touch-icon" href="arc-logo-180x180.png">
+    <title>ARC - Mini Training Plan</title>
 
-	<title>ARC - Mini Training Plan</title>
-	
-	<!-- Bootstrap Core CSS -->
-	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <!-- Custom Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
 
-	<!-- Custom Fonts -->
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
+    <!-- Shared Modern Stylesheet -->
+    <link rel="stylesheet" href="css/style.css" type="text/css">
 
-	<!-- Plugin CSS -->
-	<link rel="stylesheet" href="css/animate.min.css" type="text/css">
+    <style>
+        .mini-tp-wrapper {
+            padding: 40px 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
 
-	<!-- Custom CSS -->
-	<link rel="stylesheet" href="css/creative.css" type="text/css">
+        .social-header {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
 
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-	<![endif]-->
-	
-	<script type="text/javascript" src="./js/jquery-1.11.0.min.js"></script>
-	<script type="text/javascript"> 	
-		function showDivHideLink(divToShowId, linkToHideId) {
-			document.getElementById(divToShowId).style.display = "inline";
-			document.getElementById(linkToHideId).style.display = "none";
-		}
-	</script>
-	
-	<!-- required div called id=wedtraining and id=sattraining -->
-	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-	<script type="text/javascript" src="./js/index/gsscall.js"></script>
-	
-	<!-- Bootstrap Core JavaScript -->
-	<script src="js/bootstrap.min.js"></script>
+        .social-btn-logo {
+            height: 36px;
+            width: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            padding: 6px;
+            transition: var(--transition);
+        }
 
-	<!-- Plugin JavaScript -->
-	<script src="js/jquery.easing.min.js"></script>
-	<script src="js/jquery.fittext.js"></script>
-	<script src="js/wow.min.js"></script>
+        .social-btn-logo:hover {
+            transform: scale(1.1);
+            border-color: var(--accent);
+            box-shadow: 0 0 10px rgba(0, 174, 239, 0.3);
+        }
 
-	<!-- Custom Theme JavaScript -->
-	<script src="js/creative.js"></script>
+        .social-btn-logo img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+        }
 
-	<style>
-		.servicebox-compact {
-			margin: 0px auto 0;
-			max-width: 100%;
-		}
-		
-		p {
-			font-size: small !important;
-		}
-		
-		.small-link {
-			color: #00C7FF !important;
-			font-size: small;
-		}
-				
-		a:hover > p {
-			color: #F16585 !important;
-			text-decoration: underline;
-			-webkit-text-decoration-color: #F16585;
-			-moz-text-decoration-color: #F16585;
-			text-decoration-color: #F16585;
-		}
+        .mini-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            width: 100%;
+            max-width: 1100px;
+            padding: 0 16px;
+        }
 
-		a:focus > p {
-			color: #F16585 !important;
-			text-decoration: underline;
-			-webkit-text-decoration-color: #F16585;
-			-moz-text-decoration-color: #F16585;
-			text-decoration-color: #F16585;
-		}
+        .mini-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transition);
+            text-align: center;
+        }
 
-		.social-btn {
-			background-color : transparent;
-			padding: 10px;
-			border: 0;
-		}
-	</style>
-	
+        .mini-card:hover {
+            border-color: var(--accent);
+        }
+
+        .mini-card h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .mini-card hr.thin {
+            border: 0;
+            height: 1px;
+            background-color: var(--border-color);
+            margin: 16px 0;
+        }
+
+        .card-dynamic-content {
+            min-height: 100px;
+            font-size: 0.95rem;
+        }
+    </style>
 </head>
 
-<body id="page-top">
-	
-	<section id="training" style="padding:20px 0px;">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12 text-center">
-					<a type="submit" class="social-btn" href="./index.html">
-						<img src="img/arc/arc-logo-170x114.png" alt="Submit" style="height:30px;"/>
-					</a>
-					<a type="submit" class="social-btn" href="https://www.facebook.com/groups/108841288928/" target="_blank">
-						<img src="img/social/fb.png" alt="Submit" style="height:30px;"/>
-					</a>
-					<a type="submit" class="social-btn" href="https://plus.google.com/106493019947261495929/posts" target="_blank">
-						<img src="img/social/gp.png" alt="Submit" style="height:30px;"/>
-					</a>
-					<a type="submit" class="social-btn" href="https://twitter.com/RunningAdelaide" target="_blank">
-						<img src="img/social/tw.png" alt="Submit" style="height:30px;"/>
-					</a>
-					<a type="submit" class="social-btn" href="https://docs.google.com/spreadsheets/d/1SQq7DSinO7do-sdqUjZZb0sV437SHRMICMlUQlFFy-g/pub" target="_blank">
-						<img src="img/social/google-ss.png" alt="Submit" style="height:30px;"/>
-					</a>
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-4 text-center">
-					<div class="service-box servicebox-compact" style="margin:0px">
-						<h4>Intervals - Wed 6pm</h4>
-						<p id="wedtraining" class="text-muted">
-							Loading ...
-						</p>
-						
-						<div id="moreWedTraining" style="display:none;"></div>
-						<br/>
-						<a id="moreWedTrainLink" href="#wedtraining"  class="page-scroll"
-							onclick="showDivHideLink('moreWedTraining','moreWedTrainLink');">
-							<p class="text-muted small-link" id="showmorewedtrainingctrl">...show more sessions...<p>
-						</a>
-					</div>
-				</div>
-				<div class="col-md-4 text-center">
-					<div class="service-box servicebox-compact">
-						<h4>Long Run - Sat 8am</h4>
-						<p id="sattraining" class="text-muted">
-							Loading ...
-						</p>
-						
-						<div id="moreSatTraining" style="display:none;"></div>
-						<br/>
-						<a id="showMoreSatTrainLink" href="#sattraining" class="page-scroll"
-							onclick="showDivHideLink('moreSatTraining','showMoreSatTrainLink');" >
-							<p class="text-muted small-link" id="showmoresattrainingctrl">...show more sessions...</p>
-						</a>
-					</div>
-				</div>
-				<div class="col-md-4 text-center">
-					<div class="service-box servicebox-compact">
-						<h4>Upcoming races</h4>
-						<p id="racesdiv" class="text-muted">
-							Loading ...
-						</p>
-						<div id = "moreRaces" style="display:none"></div>
-						<br/>
-						<a id="moreRacesLink" href="#racesdiv"  class="page-scroll"
-							onclick="showDivHideLink('moreRaces','moreRacesLink');">
-							<p class="text-muted small-link" id = "showmoreracectrl">...show more races...<p>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+<body>
+
+    <main class="mini-tp-wrapper">
+        <!-- Social and Navigation Header -->
+        <div class="social-header">
+            <a class="social-btn-logo" href="index.html" title="Go to Homepage">
+                <img src="https://storage.googleapis.com/arc-training/website/arc-logo-170x114.png" alt="ARC Logo" />
+            </a>
+            <a class="social-btn-logo" href="https://www.facebook.com/adelaiderunning" target="_blank"
+                rel="noopener noreferrer" title="Facebook Page">
+                <img src="https://storage.googleapis.com/arc-training/website/Facebook_Logo_Primary.png"
+                    alt="Facebook" />
+            </a>
+            <a class="social-btn-logo" href="https://www.instagram.com/adelaiderunningcrew/" target="_blank"
+                rel="noopener noreferrer" title="Instagram Profile">
+                <img src="https://storage.googleapis.com/arc-training/website/Instagram_Glyph_Gradient.png"
+                    alt="Instagram" />
+            </a>
+            <a class="social-btn-logo"
+                href="https://docs.google.com/spreadsheets/d/1SQq7DSinO7do-sdqUjZZb0sV437SHRMICMlUQlFFy-g/pub"
+                target="_blank" rel="noopener noreferrer" title="Open Google Sheet">
+                <img src="https://storage.googleapis.com/arc-training/website/google-ss.png" alt="Google Sheet" />
+            </a>
+        </div>
+        <p class="text-center" style="margin-bottom: 24px; font-weight: 500;">Quick session view to save as a bookmark!
+        </p>
+
+        <!-- Mini Training Plan Cards -->
+        <div class="mini-grid">
+            <!-- Wednesday Intervals -->
+            <div class="mini-card">
+                <div>
+                    <img src="https://storage.googleapis.com/arc-training/website/icons/hare-mirror.png"
+                        alt="Interval training mascot" class="card-header-icon">
+                    <h4>Intervals - Wed 6pm</h4>
+                    <hr class="thin">
+                    <div class="schedule-scroll-container">
+                        <div id="wedtraining" class="runs-list">
+                            <p class="text-muted text-center">Loading schedule...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Saturday Long Run -->
+            <div class="mini-card">
+                <div>
+                    <img src="https://storage.googleapis.com/arc-training/website/icons/tortoise.png"
+                        alt="Long run mascot" class="card-header-icon">
+                    <h4>Long Run - Sat 8am</h4>
+                    <hr class="thin">
+                    <div class="schedule-scroll-container">
+                        <div id="sattraining" class="runs-list">
+                            <p class="text-muted text-center">Loading schedule...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Upcoming Races -->
+            <div class="mini-card">
+                <div>
+                    <img src="https://storage.googleapis.com/arc-training/website/icons/hare.png" alt="Races mascot"
+                        class="card-header-icon">
+                    <h4>Upcoming Races</h4>
+                    <hr class="thin">
+                    <div class="schedule-scroll-container">
+                        <div id="racesdiv" class="runs-list">
+                            <p class="text-muted text-center">Loading schedule...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Shared main.js script containing fetcher/parser/render logic -->
+    <script type="text/javascript" src="js/main.js"></script>
 </body>
+
 </html>

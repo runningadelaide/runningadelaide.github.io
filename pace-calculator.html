@@ -4,25 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Free running pace calculator by Adelaide Running Crew. Calculate splits for 5k, 10k, Half Marathon, Marathon and Adelaide City to Bay and ADF fitness tests. Optimise your training with our easy-to-use tool.">
-    <meta name="keywords"
-        content="running pace calculator, run splits, adelaide running crew, adelaide city to bay calculator, marathon pace, half marathon pace, adelaide runners, adf fitness test calculator">
+    <meta name="description" content="Free running pace calculator by Adelaide Running Crew. Calculate splits for 5k, 10k, Half Marathon, Marathon, Adelaide City to Bay, and ADF fitness tests. Optimise your training.">
+    <meta name="keywords" content="running pace calculator, run splits, adelaide running crew, adelaide city to bay calculator, marathon pace, half marathon pace, adelaide runners, adf fitness test calculator">
     <meta name="author" content="Adelaide Running Crew">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://runningadelaide.net/">
     <meta property="og:title" content="Adelaide Running Crew - Running Pace Calculator">
-    <meta property="og:description"
-        content="Calculate your running pace and splits for any distance including Adelaide City to Bay and Marathons and ADF fitness tests. Free tool for Adelaide runners.">
+    <meta property="og:description" content="Calculate your running pace and splits for any distance including Adelaide City to Bay, marathons, and ADF fitness tests. Free tool for Adelaide runners.">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://runningadelaide.net/">
-    <meta property="twitter:title" content="Adelaide Running Crew - Running Pace Calculator">
-    <meta property="twitter:description"
-        content="Calculate your running pace and splits for any distance including Adelaide City to Bay and Marathons and ADF fitness tests.">
+
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -46,51 +38,46 @@
       }
     }
     </script>
-    <title>Adelaide Running Crew - Running Pace Calculator</title>
-    <style>
-        :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --text-main: #f8fafc;
-            --text-secondary: #94a3b8;
-            --accent: #00AEEF;
-            /* Arc Blue */
-            --accent-hover: #0090C5;
-            /* Darker Arc Blue */
-            --input-bg: #334155;
-            --border-color: #475569;
-        }
+    <link rel="shortcut icon" sizes="228x228"
+        href="https://storage.googleapis.com/arc-training/website/arc-logo-228x228.png">
+    <link rel="apple-touch-icon" href="https://storage.googleapis.com/arc-training/website/arc-logo-180x180.png">
+    <title>ARC - Pace Calculator</title>
+    
+    <!-- Custom Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Shared Modern Stylesheet -->
+    <link rel="stylesheet" href="css/style.css" type="text/css">
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
+    <style>
+        /* Calculator Specific Customizations */
+        .calc-wrapper {
+            padding-top: 40px;
+            padding-bottom: 60px;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            margin: 0;
-            padding: 20px;
         }
 
-        .container {
-            position: relative;
-            /* For absolute logo positioning */
+        .calc-card {
             background-color: var(--card-bg);
             border-radius: 20px;
             padding: 40px;
             width: 100%;
             max-width: 500px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            box-shadow: var(--shadow);
             border: 1px solid var(--border-color);
-            transition: transform 0.2s ease;
+            transition: var(--transition);
         }
 
-        h1 {
+        .calc-card h1 {
             text-align: center;
-            margin-bottom: 30px;
-            font-weight: 700;
-            letter-spacing: -0.025em;
+            margin-bottom: 24px;
+            font-size: 1.8rem;
+            font-weight: 800;
             color: var(--accent);
         }
 
@@ -115,18 +102,17 @@
             border-radius: 12px;
             color: var(--text-main);
             font-size: 1rem;
-            transition: border-color 0.2s, box-shadow 0.2s;
+            transition: var(--transition);
             box-sizing: border-box;
-            /* Ensure padding doesn't affect width */
             appearance: textfield;
-            /* Standard property for Firefox compat */
+            -moz-appearance: textfield;
         }
 
         select:focus,
         input[type="number"]:focus {
             outline: none;
             border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(190, 242, 100, 0.2);
+            box-shadow: 0 0 0 3px rgba(0, 174, 239, 0.2);
         }
 
         .toggle-group {
@@ -146,12 +132,12 @@
             font-weight: 600;
             font-size: 0.9rem;
             color: var(--text-secondary);
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
 
         .toggle-option.active {
             background-color: var(--accent);
-            color: var(--card-bg);
+            color: var(--bg-color);
         }
 
         .time-inputs {
@@ -167,6 +153,7 @@
             text-align: center;
             font-size: 0.75rem;
             margin-bottom: 4px;
+            margin-top: 4px;
         }
 
         .time-field input {
@@ -203,160 +190,137 @@
         }
 
         .result-value {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 700;
             color: var(--text-main);
             line-height: 1.1;
         }
 
         .result-unit {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--text-secondary);
             font-weight: 500;
         }
 
-        /* Chrome, Safari, Edge, Opera */
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
             -webkit-appearance: none;
             margin: 0;
         }
 
-        /* Firefox */
-        input[type=number] {
-            -moz-appearance: textfield;
-        }
-
         .distance-input-group {
             display: flex;
             gap: 10px;
-        }
-
-        .logo-link {
-            position: fixed;
-            top: 20px;
-            left: 40px;
-            display: block;
-            width: 150px;
-            height: 150px;
-            transition: transform 0.2s ease;
-            z-index: 100;
-        }
-
-        .logo-link:hover {
-            transform: scale(1.1);
-        }
-
-        .logo-link img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        @media (max-width: 480px) {
-            .logo-link {
-                width: 50px;
-                height: 50px;
-                top: 15px;
-                left: 15px;
-            }
-
-            .container {
-                padding-top: 60px;
-                /* Make room for logo if needed or keep standard */
-            }
         }
     </style>
 </head>
 
 <body>
 
-    <a href="https://runningadelaide.net/" target="_blank" class="logo-link" title="Visit Adelaide Running Crew">
-        <img src="https://storage.googleapis.com/arc-training/website/icons/arc-logo-t.png"
-            alt="Adelaide Running Crew Logo">
-    </a>
 
-    <main class="container">
-        <h1>Adelaide Running Crew<br>Running Pace Calculator</h1>
 
-        <div class="toggle-group" id="unitToggle">
-            <div class="toggle-option active" data-unit="metric">Metric (km)</div>
-            <div class="toggle-option" data-unit="imperial">Imperial (mi)</div>
-        </div>
-
-        <div class="form-group">
-            <label for="distanceSelect">Distance</label>
-            <select id="distanceSelect">
-                <option value="1">1 km</option>
-                <option value="5">5 km</option>
-                <option value="10">10 km</option>
-                <option value="21.0975">Half Marathon</option>
-                <option value="42.195">Marathon</option>
-                <option value="custom">Custom Distance</option>
-            </select>
-        </div>
-
-        <div class="form-group hidden" id="customDistanceGroup">
-            <label for="customDistance">Custom Distance</label>
-            <div class="distance-input-group">
-                <input type="number" id="customDistance" placeholder="Distance" step="0.01">
-                <div style="display:flex; align-items:center; color: var(--text-secondary); font-weight:600;"
-                    id="customUnitLabel">km</div>
+    <!-- Calculator Main Section -->
+    <main class="calc-wrapper">
+        <div class="calc-card">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <a href="index.html" style="display: inline-block; transition: var(--transition);" onmouseover="this.style.opacity='0.85'; this.style.transform='scale(1.05)'" onmouseout="this.style.opacity='1'; this.style.transform='scale(1)'">
+                    <img src="https://storage.googleapis.com/arc-training/website/arc-logo-t.png" alt="Adelaide Running Crew Logo" style="height: 50px; display: block; margin: 0 auto 8px;">
+                </a>
+                <span style="font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; color: var(--text-secondary); display: block;">Adelaide Running Crew</span>
             </div>
-        </div>
+            <h1>Running Pace Calculator</h1>
+            <p style="text-align: center; margin-top: -15px; margin-bottom: 20px; font-size: 0.85rem; font-weight: 500;">
+                Looking for split planning? Try our <a href="split-calculator.html" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: underline;">Split Calculator</a>.
+            </p>
 
-        <div class="form-group">
-            <label>Time</label>
-            <div class="time-inputs">
-                <div class="time-field">
-                    <input type="number" id="hours" placeholder="00" min="0">
-                    <label>Hrs</label>
-                </div>
-                <div class="time-field">
-                    <input type="number" id="minutes" placeholder="00" min="0" max="59">
-                    <label>Mins</label>
-                </div>
-                <div class="time-field">
-                    <input type="number" id="seconds" placeholder="00" min="0" max="59">
-                    <label>Secs</label>
+            <div class="toggle-group" id="unitToggle">
+                <div class="toggle-option active" data-unit="metric">Metric (km)</div>
+                <div class="toggle-option" data-unit="imperial">Imperial (mi)</div>
+            </div>
+
+            <div class="form-group">
+                <label for="distanceSelect">Distance</label>
+                <select id="distanceSelect">
+                    <option value="1">1 km</option>
+                    <option value="5">5 km</option>
+                    <option value="10">10 km</option>
+                    <option value="21.0975">Half Marathon</option>
+                    <option value="42.195">Marathon</option>
+                    <option value="custom">Custom Distance</option>
+                </select>
+            </div>
+
+            <div class="form-group hidden" id="customDistanceGroup">
+                <label for="customDistance">Custom Distance</label>
+                <div class="distance-input-group">
+                    <input type="number" id="customDistance" placeholder="Distance" step="0.01">
+                    <div style="display:flex; align-items:center; color: var(--text-secondary); font-weight:600;" id="customUnitLabel">km</div>
                 </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <label>Pace <span style="font-weight:400; color:var(--text-secondary); font-size:0.8em;"
-                    id="paceUnitLabel">(min / km)</span></label>
-            <div class="time-inputs">
-                <div class="time-field">
-                    <input type="number" id="paceMinutes" placeholder="00" min="0">
-                    <label>Mins</label>
-                </div>
-                <div class="time-field">
-                    <input type="number" id="paceSeconds" placeholder="00" min="0" max="59">
-                    <label>Secs</label>
+            <div class="form-group">
+                <label>Time</label>
+                <div class="time-inputs">
+                    <div class="time-field">
+                        <input type="number" id="hours" placeholder="00" min="0">
+                        <label>Hrs</label>
+                    </div>
+                    <div class="time-field">
+                        <input type="number" id="minutes" placeholder="00" min="0" max="59">
+                        <label>Mins</label>
+                    </div>
+                    <div class="time-field">
+                        <input type="number" id="seconds" placeholder="00" min="0" max="59">
+                        <label>Secs</label>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="results">
-            <div class="result-item">
-                <div class="result-label">Pace</div>
-                <div class="result-value" id="paceSummaryValue">--:--</div>
-                <div class="result-unit" id="paceSummaryUnit">min / km</div>
+            <div class="form-group">
+                <label>Pace <span style="font-weight:400; color:var(--text-secondary); font-size:0.8em;" id="paceUnitLabel">(min / km)</span></label>
+                <div class="time-inputs">
+                    <div class="time-field">
+                        <input type="number" id="paceMinutes" placeholder="00" min="0">
+                        <label>Mins</label>
+                    </div>
+                    <div class="time-field">
+                        <input type="number" id="paceSeconds" placeholder="00" min="0" max="59">
+                        <label>Secs</label>
+                    </div>
+                </div>
             </div>
-            <div class="result-item">
-                <div class="result-label">Time</div>
-                <div class="result-value" id="timeSummaryValue">--:--:--</div>
-                <div class="result-unit">h : m : s</div>
-            </div>
-            <div class="result-item">
-                <div class="result-label">Speed</div>
-                <div class="result-value" id="speedValue">--</div>
-                <div class="result-unit" id="speedUnit">km / h</div>
+
+            <div class="results">
+                <div class="result-item">
+                    <div class="result-label">Pace</div>
+                    <div class="result-value" id="paceSummaryValue">--:--</div>
+                    <div class="result-unit" id="paceSummaryUnit">min / km</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-label">Time</div>
+                    <div class="result-value" id="timeSummaryValue">--:--:--</div>
+                    <div class="result-unit">h : m : s</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-label">Speed</div>
+                    <div class="result-value" id="speedValue">--</div>
+                    <div class="result-unit" id="speedUnit">km / h</div>
+                </div>
             </div>
         </div>
     </main>
 
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Adelaide Running Crew</p>
+        </div>
+    </footer>
+
+    <!-- Shared Navigation Logic -->
+    <script type="text/javascript" src="js/main.js"></script>
+
+    <!-- Calculation Engine -->
     <script>
         // Constants
         const MILE_TO_KM = 1.609344;
@@ -387,7 +351,7 @@
         const speedValue = document.getElementById('speedValue');
         const speedUnit = document.getElementById('speedUnit');
         const paceSummaryValue = document.getElementById('paceSummaryValue');
-        const paceSummaryUnit = document.getElementById('paceSummaryUnit'); // Fixed: Added selection
+        const paceSummaryUnit = document.getElementById('paceSummaryUnit');
         const timeSummaryValue = document.getElementById('timeSummaryValue');
 
         // Event Listeners

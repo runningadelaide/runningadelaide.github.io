@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free running split calculator by Adelaide Running Crew. Calculate KM or Mile splits using customisable pacing strategies including negative splits, bell curves, and surges. Optimise your race pacing.">
+    <meta name="keywords" content="running split calculator, run splits, negative splits, pacing strategy, adelaide running crew, marathon pacing, half marathon splits, race pace planner">
+    <meta name="author" content="Adelaide Running Crew">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://runningadelaide.net/split-calculator.html">
+    <meta property="og:title" content="Adelaide Running Crew - Running Split Calculator">
+    <meta property="og:description" content="Plan your race pacing strategy with our Split Calculator. Calculate splits for any distance using negative splits, bell curves, and surges with visual equaliser graphs.">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Running Split Calculator",
+      "url": "https://runningadelaide.net/split-calculator.html",
+      "description": "A free tool to calculate running splits and pacing strategies for various distances including 5k, 10k, Half Marathon, and Marathon using custom pacing strategies.",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Any",
+      "author": {
+        "@type": "Organization",
+        "name": "Adelaide Running Crew",
+        "url": "https://runningadelaide.net/"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "AUD"
+      }
+    }
+    </script>
+    <link rel="shortcut icon" sizes="228x228"
+        href="https://storage.googleapis.com/arc-training/website/arc-logo-228x228.png">
+    <link rel="apple-touch-icon" href="https://storage.googleapis.com/arc-training/website/arc-logo-180x180.png">
+    <title>ARC - Split Calculator</title>
+    
+    <!-- Custom Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Shared Modern Stylesheet -->
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+
+    <style>
+        /* Calculator Specific Customizations */
+        .calc-container {
+            padding-top: 40px;
+            padding-bottom: 60px;
+            min-height: 100vh;
+        }
+
+        .calc-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        @media (min-width: 992px) {
+            .calc-grid {
+                grid-template-columns: 380px 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 12px;
+            }
+            .calc-container {
+                padding-top: 40px;
+                padding-bottom: 40px;
+            }
+            .calc-sidebar,
+            .table-card,
+            .eq-container {
+                padding: 20px 16px;
+                border-radius: 16px;
+            }
+            .calc-results-panel {
+                min-width: 0;
+                overflow: hidden;
+            }
+            .table-wrapper {
+                width: 100%;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            .summary-cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            /* Make table very compact to avoid horizontal scrolling */
+            th, td {
+                padding: 8px 4px !important;
+                font-size: 0.8rem;
+            }
+            table {
+                font-size: 0.8rem;
+            }
+        }
+
+        .calc-sidebar {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .calc-sidebar h1 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .calc-results-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        select,
+        input[type="number"] {
+            width: 100%;
+            padding: 12px 16px;
+            background-color: var(--input-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-main);
+            font-size: 1rem;
+            transition: var(--transition);
+            box-sizing: border-box;
+            appearance: textfield;
+            -moz-appearance: textfield;
+        }
+
+        select:focus,
+        input[type="number"]:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(0, 174, 239, 0.2);
+        }
+
+        .toggle-group {
+            display: flex;
+            background-color: var(--input-bg);
+            border-radius: 12px;
+            padding: 4px;
+            margin-bottom: 24px;
+        }
+
+        .toggle-option {
+            flex: 1;
+            text-align: center;
+            padding: 8px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+
+        .toggle-option.active {
+            background-color: var(--accent);
+            color: #ffffff;
+        }
+
+        .time-inputs {
+            display: flex;
+            gap: 10px;
+        }
+
+        .time-field {
+            flex: 1;
+            text-align: center;
+        }
+
+        .time-field label {
+            text-align: center;
+            font-size: 0.75rem;
+            margin-top: 4px;
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+
+        .time-field input {
+            text-align: center;
+        }
+
+        .distance-input-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Quick Summary Display */
+        .summary-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 15px;
+        }
+
+        .summary-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 16px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .summary-card .label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .summary-card .value {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1.2;
+        }
+
+        .summary-card .unit {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Strategy Info Box */
+        .strategy-info-box {
+            background-color: rgba(0, 174, 239, 0.05);
+            border-left: 4px solid var(--accent);
+            border-radius: 0 12px 12px 0;
+            padding: 12px 16px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 12px;
+            line-height: 1.4;
+        }
+
+        /* Equaliser Graph Specifics */
+        .eq-container {
+            background-color: #0f172a; /* Slate 900 for dark equaliser */
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .eq-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .eq-title {
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 0;
+            text-align: left;
+        }
+
+        .eq-subtitle {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+
+        .eq-viewport {
+            position: relative;
+            display: flex;
+            height: 220px;
+            background-color: #0b0f19;
+            border-radius: 12px;
+            padding: 20px 10px 30px 45px; /* left padding for Y-axis */
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.8);
+            overflow: hidden;
+        }
+
+        .eq-y-axis {
+            position: absolute;
+            left: 10px;
+            top: 20px;
+            bottom: 30px;
+            width: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center; /* Center align labels horizontally */
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .eq-grid-lines {
+            position: absolute;
+            left: 45px;
+            right: 10px;
+            top: 20px;
+            bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .eq-grid-line {
+            width: 100%;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+        }
+
+        .eq-grid-line.avg-line {
+            border-bottom: 1.5px dashed rgba(0, 174, 239, 0.4);
+        }
+
+        .eq-bars-scroll-container {
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Disable scrolling and hide scrollbars */
+        }
+
+        /* Custom scrollbar styling for equaliser graph */
+        .eq-bars-scroll-container::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .eq-bars-scroll-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .eq-bars-scroll-container::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 3px;
+        }
+
+        .eq-bars-scroll-container::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .eq-bars-container {
+            display: flex;
+            align-items: flex-end;
+            height: 100%;
+            width: 100%;
+            padding-bottom: 6px;
+            gap: 3px; /* Reduced gap to fit more bars cleanly */
+            position: relative;
+            z-index: 3;
+        }
+
+        .eq-bar-col {
+            flex: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .eq-bar-fill {
+            width: 100%;
+            background: linear-gradient(to top, var(--accent) 0%, var(--accent-alt) 100%);
+            border-radius: 4px 4px 0 0;
+            box-shadow: 0 0 8px rgba(0, 174, 239, 0.3);
+            transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s;
+        }
+
+        .eq-bar-col:hover .eq-bar-fill {
+            transform: scaleX(1.1);
+            filter: brightness(1.2);
+            box-shadow: 0 0 12px rgba(241, 101, 133, 0.7);
+        }
+
+        .eq-bar-num {
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.4);
+            font-family: monospace;
+        }
+
+        /* Tooltip */
+        .eq-bar-col .tooltip {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translate(-50%, -10px);
+            background-color: #1e293b;
+            color: #ffffff;
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            line-height: 1.3;
+            white-space: nowrap;
+            z-index: 100;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+            pointer-events: none;
+        }
+
+        .eq-bar-col .tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 6px;
+            border-style: solid;
+            border-color: #1e293b transparent transparent transparent;
+        }
+
+        .eq-bar-col:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -5px);
+        }
+
+        /* Splits Table Card */
+        .table-card {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .table-card h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            scrollbar-width: thin;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        th {
+            padding: 12px 16px;
+            background-color: var(--input-bg);
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        th:first-child {
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+
+        th:last-child {
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background-color: rgba(0, 174, 239, 0.02);
+        }
+
+        /* Intensity slider styling */
+        .slider-group {
+            margin-top: 15px;
+        }
+
+        .slider-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .slider-val {
+            font-weight: 700;
+            color: var(--accent);
+            font-family: monospace;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 6px;
+            background: var(--border-color);
+            border-radius: 3px;
+            outline: none;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--accent);
+            cursor: pointer;
+            box-shadow: 0 0 6px rgba(0,174,239,0.3);
+            transition: var(--transition);
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            background: var(--accent-hover);
+            transform: scale(1.1);
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Dotted average line indicator for Y-axis */
+        .y-avg-indicator {
+            position: absolute;
+            left: 25px; /* Center-aligned with Fast and Slow labels (10px left + 15px half-width) */
+            color: var(--accent);
+            font-size: 0.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            pointer-events: none;
+            background-color: #0b0f19;
+            padding: 0 4px;
+            border-radius: 3px;
+            transform: translate(-50%, 50%); /* Centered horizontally and vertically aligned with the line */
+            z-index: 4;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <!-- Calculator Main Section -->
+    <main class="calc-container">
+        <div class="container">
+            <div class="calc-grid">
+                
+                <!-- Left Column: Inputs -->
+                <aside class="calc-sidebar">
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <a href="index.html" style="display: inline-block; transition: var(--transition);" onmouseover="this.style.opacity='0.85'; this.style.transform='scale(1.05)'" onmouseout="this.style.opacity='1'; this.style.transform='scale(1)'">
+                            <img src="https://storage.googleapis.com/arc-training/website/arc-logo-t.png" alt="Adelaide Running Crew Logo" style="height: 50px; display: block; margin: 0 auto 8px;">
+                        </a>
+                        <span style="font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; color: var(--text-secondary); display: block;">Adelaide Running Crew</span>
+                    </div>
+                    <h1>Split Calculator</h1>
+                    <p style="text-align: center; margin-top: -15px; margin-bottom: 20px; font-size: 0.85rem; font-weight: 500;">
+                        Looking for general paces? Try the <a href="pace-calculator.html" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: underline;">Pace Calculator</a>.
+                    </p>
+
+                    <div class="toggle-group" id="unitToggle">
+                        <div class="toggle-option active" data-unit="metric">Metric (km)</div>
+                        <div class="toggle-option" data-unit="imperial">Imperial (mi)</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="distanceSelect">Race Distance</label>
+                        <select id="distanceSelect">
+                            <option value="5">5 km</option>
+                            <option value="10" selected>10 km</option>
+                            <option value="21.0975">Half Marathon</option>
+                            <option value="42.195">Marathon</option>
+                            <option value="custom">Custom Distance</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group hidden" id="customDistanceGroup">
+                        <label for="customDistance">Custom Distance</label>
+                        <div class="distance-input-group">
+                            <input type="number" id="customDistance" placeholder="Distance" step="0.01">
+                            <div style="display:flex; align-items:center; color: var(--text-secondary); font-weight:600; padding-left:5px;" id="customUnitLabel">km</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Target Time</label>
+                        <div class="time-inputs">
+                            <div class="time-field">
+                                <input type="number" id="hours" placeholder="00" min="0" value="0">
+                                <label>Hrs</label>
+                            </div>
+                            <div class="time-field">
+                                <input type="number" id="minutes" placeholder="00" min="0" max="59" value="50">
+                                <label>Mins</label>
+                            </div>
+                            <div class="time-field">
+                                <input type="number" id="seconds" placeholder="00" min="0" max="59" value="0">
+                                <label>Secs</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pacingStyleSelect">Pacing Strategy</label>
+                        <select id="pacingStyleSelect">
+                            <option value="even" selected>Even Split (Constant pace)</option>
+                            <option value="negative">Progressive Negative Split (Slower start, faster finish)</option>
+                            <option value="step-negative">Step Negative Split (First half slow, second half fast)</option>
+                            <option value="positive">Regressive Positive Split (Faster start, slower finish)</option>
+                            <option value="step-positive">Step Positive Split (First half fast, second half slow)</option>
+                            <option value="bell">Bell Curve (Slow start/finish, fast middle)</option>
+                            <option value="hilly">Hilly / Reverse Bell (Fast start/finish, slow middle)</option>
+                            <option value="sprint-kick">Sprint Finish (Even split, fast kick at end)</option>
+                            <option value="excitement">First KM Excitement (Too fast early, then settles)</option>
+                            <option value="intervals">Interval Surges (Alternating surge kilometres)</option>
+                        </select>
+                        <div class="strategy-info-box" id="strategyDesc">
+                            Even Split: Maintain a constant pace throughout the entire run. This is mathematically the most efficient pacing strategy for flat courses.
+                        </div>
+                    </div>
+
+                    <div class="form-group hidden" id="intensityGroup">
+                        <div class="slider-group">
+                            <div class="slider-header">
+                                <label for="intensitySlider">Pacing Variation</label>
+                                <span class="slider-val" id="intensityVal">5%</span>
+                            </div>
+                            <input type="range" id="intensitySlider" min="1" max="15" value="5">
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Right Column: Results -->
+                <section class="calc-results-panel">
+                    
+                    <!-- Quick Stats Summary -->
+                    <div class="summary-cards-grid">
+                        <div class="summary-card">
+                            <div class="label">Distance</div>
+                            <div class="value" id="summaryDistance">10.00</div>
+                            <div class="unit" id="summaryDistanceUnit">km</div>
+                        </div>
+                        <div class="summary-card">
+                            <div class="label">Target Time</div>
+                            <div class="value" id="summaryTime">0:50:00</div>
+                            <div class="unit">h : m : s</div>
+                        </div>
+                        <div class="summary-card">
+                            <div class="label">Average Pace</div>
+                            <div class="value" id="summaryAvgPace">5:00</div>
+                            <div class="unit" id="summaryAvgPaceUnit">min / km</div>
+                        </div>
+                        <div class="summary-card">
+                            <div class="label">Average Speed</div>
+                            <div class="value" id="summaryAvgSpeed">12.00</div>
+                            <div class="unit" id="summaryAvgSpeedUnit">km / h</div>
+                        </div>
+                    </div>
+
+                    <!-- Equaliser style graph -->
+                    <div class="eq-container">
+                        <div class="eq-header">
+                            <h2 class="eq-title">Pacing Profile</h2>
+                        </div>
+                        <div class="eq-viewport">
+                            <!-- Y Axis labels -->
+                            <div class="eq-y-axis">
+                                <span>Fast</span>
+                                <span>Slow</span>
+                            </div>
+                            <div class="y-avg-indicator" style="bottom: 60%;" id="yAvgLineLabel">Avg</div>
+                            <!-- Background grid lines -->
+                            <div class="eq-grid-lines">
+                                <div class="eq-grid-line"></div>
+                                <div class="eq-grid-line avg-line" style="bottom: 60%;"></div>
+                                <div class="eq-grid-line"></div>
+                            </div>
+                            <!-- Bar container viewport -->
+                            <div class="eq-bars-scroll-container">
+                                <div class="eq-bars-container" id="eqBarsContainer">
+                                    <!-- Dynamic bars loaded by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Splits Table -->
+                    <div class="table-card">
+                        <h2 id="tableHeading">Kilometre Splits Table</h2>
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th id="thSplit">Split</th>
+                                        <th id="thTime">Split Time</th>
+                                        <th id="thCum">Cumulative Time</th>
+                                        <th id="thPace">Pace</th>
+                                        <th id="thSpeed">Speed</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="splitsTableBody">
+                                    <!-- Dynamic rows loaded by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Adelaide Running Crew</p>
+        </div>
+    </footer>
+
+    <!-- Shared Navigation Logic -->
+    <script type="text/javascript" src="js/main.js"></script>
+
+    <!-- Pacing split calculation logic -->
+    <script>
+        // Constants
+        const MILE_TO_KM = 1.609344;
+        
+        // Strategy description dictionary
+        const STRATEGY_DESCRIPTIONS = {
+            'even': 'Even Split: Maintain a constant pace throughout the entire run. This is mathematically the most efficient pacing strategy for flat courses.',
+            'negative': 'Progressive Negative Split: Start conservative and run progressively faster each kilometre. Excellent for saving energy and finishing strong.',
+            'step-negative': 'Step Negative Split: Run the first half of the distance at a steady, slower pace, and step up to a faster pace for the second half.',
+            'positive': 'Regressive Positive Split: Start fast and gradually slow down. Usually occurs when fatiguing, but can be a strategy on downhill-to-uphill routes.',
+            'step-positive': 'Step Positive Split: Run the first half of the distance fast, then settle into a slower, defensive pace for the second half.',
+            'bell': 'Bell Curve: Start conservative, speed up significantly in the middle section, and ease off in the final stages. Good for managing early and late congestion.',
+            'hilly': 'Hilly / Reverse Bell: Run faster at the start and finish, with a slower middle section. Simulates a route with major hills or climbs in the middle.',
+            'sprint-kick': 'Sprint Finish (Fast Kick): Run even splits for the first 90% of the distance, then execute a massive acceleration in the final section.',
+            'excitement': 'First KM Excitement: Start too fast in the first 10% (driven by adrenaline or crowd crowds), then settle back into an even, sustainable pace.',
+            'intervals': 'Interval Surges: Alternate between fast surge kilometres and slower recovery kilometres. Great for tactical training and race play.'
+        };
+
+        // State
+        let currentUnit = 'metric'; // 'metric' (km) or 'imperial' (miles)
+        
+        // Elements
+        const unitToggles = document.querySelectorAll('.toggle-option');
+        const distanceSelect = document.getElementById('distanceSelect');
+        const customDistanceGroup = document.getElementById('customDistanceGroup');
+        const customDistanceInput = document.getElementById('customDistance');
+        const customUnitLabel = document.getElementById('customUnitLabel');
+        
+        const hrsInput = document.getElementById('hours');
+        const minsInput = document.getElementById('minutes');
+        const secsInput = document.getElementById('seconds');
+        
+        const pacingStyleSelect = document.getElementById('pacingStyleSelect');
+        const strategyDesc = document.getElementById('strategyDesc');
+        const intensityGroup = document.getElementById('intensityGroup');
+        const intensitySlider = document.getElementById('intensitySlider');
+        const intensityVal = document.getElementById('intensityVal');
+        
+        // Summary elements
+        const summaryDistance = document.getElementById('summaryDistance');
+        const summaryDistanceUnit = document.getElementById('summaryDistanceUnit');
+        const summaryTime = document.getElementById('summaryTime');
+        const summaryAvgPace = document.getElementById('summaryAvgPace');
+        const summaryAvgPaceUnit = document.getElementById('summaryAvgPaceUnit');
+        const summaryAvgSpeed = document.getElementById('summaryAvgSpeed');
+        const summaryAvgSpeedUnit = document.getElementById('summaryAvgSpeedUnit');
+        
+        // Output elements
+        const tableHeading = document.getElementById('tableHeading');
+        const splitsTableBody = document.getElementById('splitsTableBody');
+        const eqBarsContainer = document.getElementById('eqBarsContainer');
+        const yAvgLineLabel = document.getElementById('yAvgLineLabel');
+
+        // Event Listeners
+        unitToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                unitToggles.forEach(t => t.classList.remove('active'));
+                toggle.classList.add('active');
+                setUnit(toggle.dataset.unit);
+                updateDistanceOptions();
+                calculateSplits();
+            });
+        });
+
+        distanceSelect.addEventListener('change', () => {
+            if (distanceSelect.value === 'custom') {
+                customDistanceGroup.classList.remove('hidden');
+                customDistanceInput.value = '';
+            } else {
+                customDistanceGroup.classList.add('hidden');
+            }
+            calculateSplits();
+        });
+
+        customDistanceInput.addEventListener('input', calculateSplits);
+
+        [hrsInput, minsInput, secsInput].forEach(input => {
+            input.addEventListener('input', () => {
+                // Keep inputs in valid boundaries
+                if (input === minsInput || input === secsInput) {
+                    let val = parseInt(input.value);
+                    if (val > 59) input.value = 59;
+                    if (val < 0) input.value = 0;
+                }
+                calculateSplits();
+            });
+        });
+
+        pacingStyleSelect.addEventListener('change', () => {
+            const style = pacingStyleSelect.value;
+            strategyDesc.textContent = STRATEGY_DESCRIPTIONS[style];
+            
+            if (style === 'even') {
+                intensityGroup.classList.add('hidden');
+            } else {
+                intensityGroup.classList.remove('hidden');
+            }
+            calculateSplits();
+        });
+
+        intensitySlider.addEventListener('input', () => {
+            intensityVal.textContent = `${intensitySlider.value}%`;
+            calculateSplits();
+        });
+
+        function setUnit(unit) {
+            currentUnit = unit;
+            if (currentUnit === 'metric') {
+                customUnitLabel.textContent = 'km';
+                summaryDistanceUnit.textContent = 'km';
+                summaryAvgPaceUnit.textContent = 'min / km';
+                summaryAvgSpeedUnit.textContent = 'km / h';
+                tableHeading.textContent = 'Kilometre Splits Table';
+            } else {
+                customUnitLabel.textContent = 'mi';
+                summaryDistanceUnit.textContent = 'mi';
+                summaryAvgPaceUnit.textContent = 'min / mi';
+                summaryAvgSpeedUnit.textContent = 'mph';
+                tableHeading.textContent = 'Mile Splits Table';
+            }
+        }
+
+        function updateDistanceOptions() {
+            const selectedValue = distanceSelect.value;
+            distanceSelect.innerHTML = '';
+
+            if (currentUnit === 'metric') {
+                addOption('5', '5 km');
+                addOption('10', '10 km');
+                addOption('12', '12 km (Adelaide City to Bay)');
+                addOption('21.0975', '21.1 km (Half Marathon)');
+                addOption('42.195', '42.2 km (Marathon)');
+                addOption('2.4', '2.4 km (ADF Fitness Test)');
+            } else {
+                addOption('3.10686', '3.1 mi (5 km)');
+                addOption('6.21371', '6.2 mi (10 km)');
+                addOption('7.45645', '7.5 mi (Adelaide City to Bay)');
+                addOption('13.1094', '13.1 mi (Half Marathon)');
+                addOption('26.2188', '26.2 mi (Marathon)');
+                addOption('1.49129', '1.5 mi (ADF Fitness Test)');
+            }
+            addOption('custom', 'Custom Distance');
+
+            // Restore selection if matching exists, otherwise select default
+            if (selectedValue === 'custom') {
+                distanceSelect.value = 'custom';
+            } else {
+                // Try to find equivalent preset
+                let matchValue = '10'; // Fallback metric default
+                if (currentUnit === 'imperial') matchValue = '6.21371';
+                
+                for (let opt of distanceSelect.options) {
+                    if (opt.value === selectedValue) {
+                        matchValue = selectedValue;
+                        break;
+                    }
+                }
+                distanceSelect.value = matchValue;
+            }
+            
+            if (distanceSelect.value === 'custom') {
+                customDistanceGroup.classList.remove('hidden');
+            } else {
+                customDistanceGroup.classList.add('hidden');
+            }
+        }
+
+        function addOption(value, text) {
+            const option = document.createElement('option');
+            option.value = value;
+            option.textContent = text;
+            distanceSelect.appendChild(option);
+        }
+
+        function getDistance() {
+            if (distanceSelect.value === 'custom') {
+                const val = parseFloat(customDistanceInput.value);
+                return (isNaN(val) || val <= 0) ? 0 : val;
+            }
+            return parseFloat(distanceSelect.value);
+        }
+
+        function getTargetTimeSeconds() {
+            const h = parseFloat(hrsInput.value) || 0;
+            const m = parseFloat(minsInput.value) || 0;
+            const s = parseFloat(secsInput.value) || 0;
+            return (h * 3600) + (m * 60) + s;
+        }
+
+        function formatDuration(seconds, forceHours = false) {
+            if (isNaN(seconds) || seconds < 0) return '--:--';
+            
+            const h = Math.floor(seconds / 3600);
+            const m = Math.floor((seconds % 3600) / 60);
+            const s = Math.round(seconds % 60);
+            
+            // Handle round-ups
+            let finalH = h;
+            let finalM = m;
+            let finalS = s;
+            if (finalS === 60) {
+                finalS = 0;
+                finalM++;
+            }
+            if (finalM === 60) {
+                finalM = 0;
+                finalH++;
+            }
+            
+            if (finalH > 0 || forceHours) {
+                return `${finalH}:${finalM.toString().padStart(2, '0')}:${finalS.toString().padStart(2, '0')}`;
+            } else {
+                return `${finalM}:${finalS.toString().padStart(2, '0')}`;
+            }
+        }
+
+        function calculateSplits() {
+            const distance = getDistance();
+            const targetTimeSeconds = getTargetTimeSeconds();
+
+            if (distance <= 0 || targetTimeSeconds <= 0) {
+                clearResults();
+                return;
+            }
+
+            // Summary Stats
+            summaryDistance.textContent = distance.toFixed(2);
+            summaryTime.textContent = formatDuration(targetTimeSeconds, true);
+            
+            const avgPaceSecsPerUnit = targetTimeSeconds / distance;
+            summaryAvgPace.textContent = formatDuration(avgPaceSecsPerUnit);
+            
+            // Speed = Dist / (Hrs)
+            const speed = distance / (targetTimeSeconds / 3600);
+            summaryAvgSpeed.textContent = speed.toFixed(2);
+
+            // Construct split segment lengths
+            const numSplits = Math.ceil(distance);
+            const splitDistances = [];
+            for (let i = 1; i <= numSplits; i++) {
+                if (i === numSplits) {
+                    splitDistances.push(distance - (i - 1));
+                } else {
+                    splitDistances.push(1.0);
+                }
+            }
+
+            // Pacing strategy logic
+            const pacingStyle = pacingStyleSelect.value;
+            const intensity = pacingStyle === 'even' ? 0 : parseFloat(intensitySlider.value) / 100.0;
+            
+            // Calculate raw weights
+            const rawWeights = [];
+            let cumulativeDist = 0;
+            for (let i = 0; i < numSplits; i++) {
+                const d_i = splitDistances[i];
+                const startD = cumulativeDist;
+                const endD = cumulativeDist + d_i;
+                cumulativeDist = endD;
+                
+                const midD = (startD + endD) / 2.0;
+                const x_i = midD / distance; // Midpoint as fraction of total race [0, 1]
+                
+                let w_prime = 1.0;
+                
+                switch (pacingStyle) {
+                    case 'even':
+                        w_prime = 1.0;
+                        break;
+                    case 'negative':
+                        // Linear decrease in pace weight (speeding up)
+                        w_prime = (1.0 + intensity) - (2.0 * intensity * x_i);
+                        break;
+                    case 'step-negative':
+                        w_prime = (x_i < 0.5) ? (1.0 + intensity) : (1.0 - intensity);
+                        break;
+                    case 'positive':
+                        // Linear increase in pace weight (slowing down)
+                        w_prime = (1.0 - intensity) + (2.0 * intensity * x_i);
+                        break;
+                    case 'step-positive':
+                        w_prime = (x_i < 0.5) ? (1.0 - intensity) : (1.0 + intensity);
+                        break;
+                    case 'bell':
+                        // Parabolic pace profile: slowest at start/finish, fastest at middle
+                        w_prime = 8.0 * intensity * Math.pow(x_i - 0.5, 2) + (1.0 - intensity);
+                        break;
+                    case 'hilly':
+                        // Parabolic pace profile: fastest at start/finish, slowest in middle
+                        w_prime = -8.0 * intensity * Math.pow(x_i - 0.5, 2) + (1.0 + intensity);
+                        break;
+                    case 'sprint-kick':
+                        // Even splits until the final 10% where pace speeds up dramatically
+                        if (x_i < 0.9) {
+                            w_prime = 1.0;
+                        } else {
+                            w_prime = 1.0 - (5.0 * intensity * ((x_i - 0.9) / 0.1));
+                        }
+                        break;
+                    case 'excitement':
+                        // First 10% is extremely fast, then settles back to even pace
+                        if (x_i < 0.1) {
+                            w_prime = (1.0 - 3.0 * intensity) + (3.0 * intensity * (x_i / 0.1));
+                        } else {
+                            w_prime = 1.0;
+                        }
+                        break;
+                    case 'intervals':
+                        // Alternating surge splits
+                        w_prime = (i % 2 === 0) ? (1.0 - intensity) : (1.0 + intensity);
+                        break;
+                }
+                rawWeights.push(w_prime);
+            }
+
+            // Normalise weights so sum of (w_i * d_i) = total distance
+            let weightedSum = 0;
+            for (let i = 0; i < numSplits; i++) {
+                weightedSum += rawWeights[i] * splitDistances[i];
+            }
+            const normalisationFactor = distance / weightedSum;
+            const w = rawWeights.map(val => val * normalisationFactor);
+
+            // Compute exact cumulative times (T_i = T * cumulative_weight_sum / total_distance)
+            const T = [];
+            let weightAccumulator = 0;
+            for (let i = 0; i < numSplits; i++) {
+                weightAccumulator += w[i] * splitDistances[i];
+                T.push(targetTimeSeconds * (weightAccumulator / distance));
+            }
+
+            // Generate split times (t_i = T_i - T_{i-1})
+            const splitTimes = [];
+            for (let i = 0; i < numSplits; i++) {
+                const prevT = (i === 0) ? 0 : T[i - 1];
+                splitTimes.push(T[i] - prevT);
+            }
+
+            // Render Table and Equaliser Graph
+            renderTableAndGraph(splitDistances, splitTimes, T, avgPaceSecsPerUnit);
+        }
+
+        function renderTableAndGraph(splitDistances, splitTimes, T, avgPaceSecsPerUnit) {
+            splitsTableBody.innerHTML = '';
+            eqBarsContainer.innerHTML = '';
+
+            const isMobile = window.innerWidth <= 768;
+            const unitLabel = currentUnit === 'metric' ? 'km' : 'mi';
+            const speedUnitLabel = currentUnit === 'metric' ? 'km/h' : 'mph';
+
+            // Dynamically set short column headers on mobile to save horizontal space
+            document.getElementById('thSplit').textContent = isMobile ? `Split (${unitLabel})` : 'Split';
+            document.getElementById('thTime').textContent = isMobile ? 'Time' : 'Split Time';
+            document.getElementById('thCum').textContent = isMobile ? 'Total' : 'Cumulative Time';
+            document.getElementById('thPace').textContent = isMobile ? `Pace (/${unitLabel})` : 'Pace';
+            document.getElementById('thSpeed').textContent = isMobile ? `Speed (${speedUnitLabel})` : 'Speed';
+
+            const forceHours = getTargetTimeSeconds() >= 3600;
+
+            for (let i = 0; i < splitTimes.length; i++) {
+                const d_i = splitDistances[i];
+                const t_i = splitTimes[i];
+                const cumT = T[i];
+                
+                // Pace for this split (secs per unit)
+                const splitPaceSecs = t_i / d_i;
+                const formattedSplitPace = formatDuration(splitPaceSecs);
+                
+                // Speed for this split
+                const splitSpeed = d_i / (t_i / 3600);
+                
+                // Create table row
+                const tr = document.createElement('tr');
+                
+                let splitName;
+                if (i === splitTimes.length - 1 && d_i < 1.0) {
+                    splitName = isMobile ? 'Final' : `Final (${d_i.toFixed(2)} ${unitLabel})`;
+                } else {
+                    splitName = isMobile ? `${i + 1}` : `${i + 1} ${unitLabel}`;
+                }
+
+                const formattedPaceCell = isMobile ? formattedSplitPace : `${formattedSplitPace} / ${unitLabel}`;
+                const formattedSpeedCell = isMobile ? splitSpeed.toFixed(1) : `${splitSpeed.toFixed(2)} ${speedUnitLabel}`;
+                
+                tr.innerHTML = `
+                    <td><strong>${splitName}</strong></td>
+                    <td>${formatDuration(t_i)}</td>
+                    <td>${formatDuration(cumT, forceHours)}</td>
+                    <td>${formattedPaceCell}</td>
+                    <td>${formattedSpeedCell}</td>
+                `;
+                splitsTableBody.appendChild(tr);
+
+                // Create equaliser bar
+                // Height is proportional to relative speed (t_avg / t_split)
+                // Cap height between 10% and 100%
+                const relativeSpeedRatio = avgPaceSecsPerUnit / splitPaceSecs;
+                // Amplified height scaling around the 60% average pace line to make variations visually stand out
+                const barHeight = Math.min(100, Math.max(10, 60 + (relativeSpeedRatio - 1) * 350));
+                
+                const barCol = document.createElement('div');
+                barCol.className = 'eq-bar-col';
+                
+                const formattedCumT = formatDuration(cumT, forceHours);
+                const formattedT = formatDuration(t_i);
+                
+                // Determine if we should show the split label number to prevent overlap
+                let labelText = i + 1;
+                if (splitTimes.length > 15) {
+                    if ((i + 1) % 5 !== 0) {
+                        labelText = '';
+                    }
+                }
+                
+                // Tooltip displays the split number, split pace, split time, speed and cumulative time
+                barCol.innerHTML = `
+                    <div class="tooltip">
+                        <strong>Split ${i + 1}</strong> (${d_i.toFixed(2)} ${unitLabel})<br>
+                        Time: ${formattedT}<br>
+                        Pace: ${formattedSplitPace} min/${unitLabel}<br>
+                        Speed: ${splitSpeed.toFixed(2)} ${speedUnitLabel}<br>
+                        Cumulative: ${formattedCumT}
+                    </div>
+                    <div class="eq-bar-fill" style="height: ${barHeight}%;"></div>
+                    <div class="eq-bar-num">${labelText}</div>
+                `;
+                eqBarsContainer.appendChild(barCol);
+            }
+        }
+
+        function clearResults() {
+            summaryDistance.textContent = '--';
+            summaryTime.textContent = '--:--:--';
+            summaryAvgPace.textContent = '--:--';
+            summaryAvgSpeed.textContent = '--';
+            splitsTableBody.innerHTML = '<tr><td colspan="5" style="text-align: center; color: var(--text-secondary);">Please enter a valid distance and target time.</td></tr>';
+            eqBarsContainer.innerHTML = '<div style="width:100%; text-align:center; color:rgba(255,255,255,0.3); font-size:0.85rem; padding-top: 80px;">No pacing profile to display</div>';
+        }
+
+        // Initialize default presets and trigger calculation
+        updateDistanceOptions();
+        calculateSplits();
+    </script>
+</body>
+
+</html>
