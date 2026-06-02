@@ -390,6 +390,11 @@ function formatRunHTML(run, isWed) {
         meetingPointHTML = `<a href="${run.pinLink}" target="_blank" rel="noopener noreferrer">${run.meetingPoint}</a>`;
     }
 
+    // Start Location pin link (for Saturday runs, placed above route link)
+    const pinHTML = (!isWed && run.pinLink)
+        ? `<div class="route-link"><a href="${run.pinLink}" target="_blank" rel="noopener noreferrer">Start Location</a></div>`
+        : "";
+
     // Route link styling
     const routeHTML = run.stravaLink
         ? `<div class="route-link"><a href="${run.stravaLink}" target="_blank" rel="noopener noreferrer">Route Map Link</a></div>`
@@ -414,6 +419,7 @@ function formatRunHTML(run, isWed) {
                 <div class="run-location">${run.workout || "Saturday Long Run"}</div>
                 <div class="run-meeting-point">${meetingPointHTML}</div>
                 ${run.length ? `<div class="run-length">${run.length}</div>` : ""}
+                ${pinHTML}
                 ${routeHTML}
             </div>
         `;
