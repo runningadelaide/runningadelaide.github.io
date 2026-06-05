@@ -11,6 +11,7 @@ const DISPLAY_COUNT_LONG_RUNS = 3;  // Saturday Long Run sessions
 const DISPLAY_COUNT_RACES = 100;     // Upcoming Races
 
 document.addEventListener('DOMContentLoaded', () => {
+    randomizeCarouselImages();
     initNavbar();
     initFAQ();
     initDonationCopy();
@@ -131,10 +132,10 @@ function initFAQ() {
 function fallbackCopyTextToClipboard(text) {
     const textArea = document.createElement("textarea");
     textArea.value = text;
-    
+
     // Prevent zooming on mobile when focusing
     textArea.style.fontSize = '12pt';
-    
+
     // Hide the element off-screen but keep in DOM for selection
     textArea.setAttribute('readonly', ''); // Prevent iOS keyboard popping up
     textArea.style.position = 'fixed';
@@ -149,7 +150,7 @@ function fallbackCopyTextToClipboard(text) {
     textArea.style.background = 'transparent';
 
     document.body.appendChild(textArea);
-    
+
     // Highlight and select content (compatible with iOS and Android)
     textArea.focus();
     textArea.select();
@@ -518,6 +519,59 @@ function initAutoCarousel() {
         }
 
         requestAnimationFrame(scroll);
+    });
+}
+
+/**
+ * Randomize carousel images from GCP bucket on load.
+ */
+function randomizeCarouselImages() {
+    const tracks = document.querySelectorAll('.carousel-track');
+    if (tracks.length === 0) return;
+
+    // Collect all img elements across all carousel tracks
+    const images = [];
+    tracks.forEach(track => {
+        const trackImages = track.querySelectorAll('img');
+        trackImages.forEach(img => images.push(img));
+    });
+
+    const totalImagesNeeded = images.length;
+    if (totalImagesNeeded === 0) return;
+
+    // Generate a shuffled list of indices from 1 to 188
+    const totalAvailable = 188;
+    const indices = Array.from({ length: totalAvailable }, (_, i) => i + 1);
+
+    // Fisher-Yates shuffle
+    for (let i = indices.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [indices[i], indices[j]] = [indices[j], indices[i]];
+    }
+
+    // Alt tag options about running
+    const runningAltTexts = [
+        "Adelaide Running Crew members running together",
+        "Adelaide Running Crew group run training session",
+        "Social running session with Adelaide Running Crew",
+        "Adelaide Running Crew runners on a scenic route",
+        "Group running event in Adelaide",
+        "Adelaide Running Crew training run",
+        "Adelaide Running Crew members enjoying a run",
+        "Running community group training session in Adelaide",
+        "Adelaide Running Crew runners exercising together",
+        "Adelaide Running Crew running session along the river",
+        "Adelaide Running Crew group running workout",
+        "Runners participating in Adelaide Running Crew session"
+    ];
+
+    // Assign a unique random image and alt text to each img element
+    images.forEach((img, index) => {
+        const imgIndex = indices[index % totalAvailable];
+        img.src = `https://storage.googleapis.com/arc-training/website/carousel-images/adelaide-running-crew-image-${imgIndex}.webp`;
+
+        const altText = runningAltTexts[index % runningAltTexts.length];
+        img.alt = altText;
     });
 }
 
